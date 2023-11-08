@@ -88,13 +88,18 @@ php artisan serve
 git clone https://github.com/andikatuluspangestu/pos-management.git
 ```
 
-#### **Langkah 2:** Buka folder Projects
+#### **Langkah 2:** Pindah ke Branch Development di Git
+```bash
+git checkout development
+```
+
+#### **Langkah 3:** Buka folder Projects
 
 ```bash
 cd pos-management
 ```
 
-#### **Langkah 3:** Sinkronkan dengan Repository Utama
+#### **Langkah 4:** Sinkronkan dengan Repository Utama
 
 ```bash
 git pull origin main
@@ -102,7 +107,7 @@ git pull origin main
 
 > Lakukan `git pull` setiap ada perubahan pada repository utama.
 
-#### **Langkah 4:** Membuat Perubahan dan Mengunggah Perubahan
+#### **Langkah 5:** Membuat Perubahan dan Mengunggah Perubahan
 
 1. Lakukan perubahan pada proyek menggunakan Visual Studio Code
 2. Setelah selesai maka simpan atau tekan `CTRL + S`
@@ -124,7 +129,7 @@ git pull origin main
    git push origin main
    ```
 
-#### **Langkah 5:** Sinkronkan dengan Repository Utama Kembali
+#### **Langkah 6:** Sinkronkan dengan Repository Utama Kembali
 
 ```bash
 git pull origin main
