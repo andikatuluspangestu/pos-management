@@ -2,22 +2,29 @@
 
 use App\Http\Controllers\AuthController;
 
-// Rute untuk menampilkan formulir login
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+// Rute untuk halaman utama
+Route::view('/', 'home.index');
 
-// Rute untuk memproses login
+// Rute untuk formulir login
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
 
-// Rute untuk menampilkan formulir registrasi
+// Rute untuk formulir registrasi
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
-
-// Rute untuk memproses registrasi
 Route::post('/register', [AuthController::class, 'register']);
 
 // Rute untuk logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Rute untuk halaman dashboard (contoh)
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware('auth'); // Hanya dapat diakses oleh pengguna yang sudah masuk
+// Grup rute berdasarkan peran
+Route::group(['middleware' => 'checkRole:admin'], function () {
+    Route::get('/admin', 'AdminController@index');
+});
+
+Route::group(['middleware' => 'checkRole:sales'], function () {
+    Route::get('/sales', 'SalesController@index');
+});
+
+Route::group(['middleware' => 'checkRole:customer'], function () {
+    Route::get('/customer', 'CustomerController@index');
+});
