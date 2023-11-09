@@ -53,23 +53,15 @@ DB_DATABASE=db_pos
 DB_USERNAME=root
 DB_PASSWORD=
 ```
-Opsional
-```bash
-APP_NAME=Laravel
-APP_ENV=local
-APP_KEY=base64:QGRW4K7UVzS2M5HE2ZCLlUuiCtOIzRSfb38iWApkphE=
-APP_DEBUG=true
-APP_URL=http://localhost/
-```
 Generate key
 ```bash
 php artisan key:generate
 ```
-Migrate database
+Migrate Database
 ```bash
 php artisan migrate
 ```
-Seeder table User, Pengaturan
+Seeder Table
 ```bash
 php artisan db:seed
 ```
