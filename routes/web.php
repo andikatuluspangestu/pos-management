@@ -5,20 +5,25 @@ use App\Http\Controllers\AuthController;
 // Rute untuk halaman utama
 Route::view('/', 'home.index');
 
-// Rute untuk formulir login
+// Auth Group ( Login, Register, Logout)
 Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
 Route::post('/login', [AuthController::class, 'login']);
-
-// Rute untuk formulir registrasi
 Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
 Route::post('/register', [AuthController::class, 'register']);
-
-// Rute untuk logout
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-// Grup rute berdasarkan peran
+// Middleware Group
 Route::group(['middleware' => 'checkRole:admin'], function () {
+
+    // Admin Dashboard
     Route::get('/admin', 'AdminController@index');
+
+    // Kategori
+    Route::get('/admin/categories', 'CategoriesController@index')->name('categories');
+    Route::post('/admin/categories/insert', 'CategoriesController@insert')->name('categories.insert');
+    Route::get('/admin/categories/delete/{id}', 'CategoriesController@delete')->name('categories.delete');
+    Route::put('/admin/categories/update/{id}', 'CategoriesController@update')->name('categories.update');
+
 });
 
 Route::group(['middleware' => 'checkRole:sales'], function () {

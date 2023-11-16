@@ -8,43 +8,51 @@
 
 ---
 
-- Andika Tulus Pangestu
-- Yulianti Putri
-- Eka Prasetya Nugraha
-- Hafizhul Qisti Muhammad
-- Anhar Mukhlis
+-   Andika Tulus Pangestu
+-   Yulianti Putri
+-   Eka Prasetya Nugraha
+-   Hafizhul Qisti Muhammad
+-   Anhar Mukhlis
 
 ### **📝 To-Do List**
 
 ---
 
-- [ ] Manajemen Kategori Produk
-- [ ] Manajemen Produk
-- [ ] Manajemen Users
-- [ ] Transaksi
-- [ ] Laporan Pendapatan
-- [ ] Grafik ChartJS pada Dashboard
+-   [ ] Manajemen Kategori Produk
+-   [ ] Manajemen Produk
+-   [ ] Manajemen Users
+-   [ ] Transaksi
+-   [ ] Laporan Pendapatan
+-   [ ] Grafik ChartJS pada Dashboard
 
 ### **🕙 Instalasi**
 
 Clone Repository
+
 ```bash
 git clone https://github.com/andikatuluspangestu/pos-management.git
 ```
 
 Update Composer Package
+
 ```bash
 composer update
 ```
+
 atau:
+
 ```bash
 composer install
 ```
+
 Copy file .env dari .env.example
+
 ```bash
 cp .env.example .env
 ```
+
 Konfigurasi file .env
+
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
@@ -53,19 +61,27 @@ DB_DATABASE=db_pos
 DB_USERNAME=root
 DB_PASSWORD=
 ```
+
 Generate key
+
 ```bash
 php artisan key:generate
 ```
+
 Migrate Database
+
 ```bash
 php artisan migrate
 ```
+
 Seeder Table
+
 ```bash
 php artisan db:seed
 ```
+
 Menjalankan aplikasi
+
 ```bash
 php artisan serve
 ```
@@ -81,6 +97,7 @@ git clone https://github.com/andikatuluspangestu/pos-management.git
 ```
 
 #### **Langkah 2:** Pindah ke Branch Development di Git
+
 ```bash
 git checkout development
 ```
@@ -105,21 +122,21 @@ git pull origin main
 2. Setelah selesai maka simpan atau tekan `CTRL + S`
 3. Tambahkan perubahan:
 
-   ```bash
-   git add .
-   ```
+    ```bash
+    git add .
+    ```
 
 4. Buat commit:
 
-   ```bash
-   git commit -m "Nama Perubahan"
-   ```
+    ```bash
+    git commit -m "Nama Perubahan"
+    ```
 
 5. Unggah perubahan ke GitHub:
 
-   ```bash
-   git push origin main
-   ```
+    ```bash
+    git push origin main
+    ```
 
 #### **Langkah 6:** Sinkronkan dengan Repository Utama Kembali
 
@@ -131,5 +148,7 @@ git pull origin main
 
 ---
 
-- Jika ada perubahan pada repository utama, maka lakukan langkah 5 untuk mengambil perubahan tersebut.
-- Jika ada konflik pada langkah 5, maka selesaikan konflik (Diskusikan di Grup)
+-   Jika ada perubahan pada repository utama, maka lakukan langkah 5 untuk mengambil perubahan tersebut.
+-   Jika ada konflik pada langkah 5, maka selesaikan konflik (Diskusikan di Grup)
+
+
