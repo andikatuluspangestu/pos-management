@@ -18,7 +18,7 @@
 
 ---
 
--   [ ] Manajemen Kategori Produk
+-   [x] Manajemen Kategori Produk
 -   [ ] Manajemen Produk
 -   [ ] Manajemen Users
 -   [ ] Transaksi
