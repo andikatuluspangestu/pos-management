@@ -11,7 +11,7 @@ class Categories extends Model
      *
      * @var string
      */
-    protected $table = 'categories';
+    protected $table = 'tbl_categories';
 
     /**
      * The Categories model represents a category in the POS system.
