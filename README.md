@@ -25,152 +25,68 @@
 -   [ ] Laporan Pendapatan
 -   [ ] Grafik ChartJS pada Dashboard
 
-### **🕙 Instalasi**
-
-Clone Repository
-
-```bash
-git clone https://github.com/andikatuluspangestu/pos-management.git
-```
-
-Update Composer Package
-
-```bash
-composer update
-```
-
-atau:
-
-```bash
-composer install
-```
-
-Copy file .env dari .env.example
-
-```bash
-cp .env.example .env
-```
-
-Konfigurasi file .env
-
-```bash
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=db_pos
-DB_USERNAME=root
-DB_PASSWORD=
-```
-
-Generate key
-
-```bash
-php artisan key:generate
-```
-
-Migrate Database
-
-```bash
-php artisan migrate
-```
-
-Seeder Table
-
-```bash
-php artisan db:seed
-```
-
-Menjalankan aplikasi
-
-```bash
-php artisan serve
-```
-
-### **📚 Panduan Kolaborasi dengan Git & GitHub**
+### **🕙 Instalasi & Kolaborasi**
 
 ---
 
-#### **Langkah 1:** Clone Repository ke Komputer Lokal
-
-```bash
-git clone https://github.com/andikatuluspangestu/pos-management.git
-```
-
-#### **Langkah 2:** Buka folder Projects
-
-```bash
-cd pos-management
-```
-
-#### **Langkah 3:** Pindah ke Branch Development di Git
-
-```bash
-git checkout development
-```
-
-#### **Langkah 4:** Sinkronkan dengan Repository Development
-
-```bash
-git pull origin development
-```
-
-> Lakukan `git pull` setiap ada perubahan pada repository utama.
-
-#### **Langkah 5:** Membuat Perubahan dan Mengunggah Perubahan
-
-1. Lakukan perubahan pada proyek menggunakan Visual Studio Code
-2. Setelah selesai maka simpan atau tekan `CTRL + S`
-3. Tambahkan perubahan:
-
+1. Clone repository
+    
     ```bash
-    git add .
+    git clone https://github.com/andikatuluspangestu/pos-management.git
     ```
 
-4. Buat commit:
-
+2. Masuk ke folder repository
+    
     ```bash
-    git commit -m "Nama Perubahan"
+    cd pos-management
     ```
 
-5. Unggah perubahan ke GitHub:
-
+3. Install dependency
+    
     ```bash
-    git push origin development
+    composer update
+    composer install
     ```
 
-#### **Langkah 6:** Sinkronkan dengan Repository Utama Kembali
+4. Copy file `.env.example` menjadi `.env`
+    
+    ```bash
+    cp .env.example .env
+    ```
 
-```bash
-git pull origin development
-```
+5. Generate key
+    
+    ```bash
+    php artisan key:generate
+    ```
 
-### **Merge ke Branch Main**
+6. Buat database baru dengan nama `db_pos` (sesuaikan dengan nama database yang ada di file `.env`) melalui phpmyadmin atau terminal
+    
+    ```bash
+    mysql -u root -p
+    create database db_pos;
+    exit;
+    ```
 
----
+7. Migrasi database
+    
+    ```bash
+    php artisan migrate
+    ```
+    
+8. Lakukan seeding data
+    
+    ```bash
+    php artisan db:seed
+    ```
 
-#### **Langkah 1:** Pindah ke Branch Main
+9. Jalankan server
+    
+    ```bash
+    php artisan serve
+    ```
 
-```bash
-git checkout main
-```
-
-#### **Langkah 2:** Sinkronkan dengan Repository Main
-
-```bash
-git pull origin main
-```
-
-#### **Langkah 3:** Merge Branch Development ke Branch Main
-
-```bash
-git merge development
-```
-
-#### **Langkah 4:** Unggah Perubahan ke GitHub
-
-```bash
-git push origin main
-```
+10. Buka browser dan akses `http://localhost:8000`
 
 ### **🗒 Catatan :**
 
