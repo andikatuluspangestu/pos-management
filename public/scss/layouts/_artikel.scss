@@ -1,0 +1,115 @@
+// Import base variables
+@import "../base/reset";
+@import "../base/colors";
+@import "../base/typography";
+
+$color_1: #44465F;
+$color_2: #E1A56B;
+$color_3: #ffffff;
+$font-family_1: "Croissant One", cursive;
+$background-color_1: #F9F9F9;
+$background-color_2: #44465F;
+$background-color_3: #E1A56B;
+
+#artikel {
+  padding: 50px 0;
+  background-color: $background-color_1;
+
+  .artikel-title {
+    font-family: $font-family_1;
+    font-size: 36px;
+    font-weight: 400;
+    color: $color_1;
+    margin-bottom: 20px;
+  }
+}
+
+#rekomendasi {
+  padding-bottom: 50px;
+  background-color: $background-color_1;
+
+  .rekomendasi-title {
+    font-family: $font-family_1;
+    font-size: 36px;
+    font-weight: 400;
+    color: $color_1;
+    margin-bottom: 20px;
+  }
+
+  .rekomendasi-subtitle {
+    font-size: 18px;
+    font-weight: 400;
+    color: $color_1;
+    margin-bottom: 20px;
+  }
+
+  .card {
+    border: none;
+    transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+    padding: 15px 5px 10px 5px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: $background-color_2;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
+
+    .card-header {
+      border: none;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px !important;
+      }
+    }
+
+    .card-body {
+      border: none;
+
+      .artikel-date {
+        font-size: 14px;
+        font-weight: 400;
+        color: $color_2;
+        margin-bottom: 10px;
+
+        a {
+          color: $color_3;
+        }
+      }
+
+      .artikel-title {
+        font-size: 24px;
+        font-weight: 700;
+        color: $color_3;
+        margin-bottom: 10px;
+      }
+    }
+
+    .card-footer {
+      border: none;
+
+      .btn {
+        margin-top: 10px;
+        background-color: $background-color_3;
+        border: 2px solid #E1A56B;
+        color: $color_3;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $background-color_2;
+          color: $color_2;
+          border: 2px solid #E1A56B;
+        }
+      }
+    }
+  }
+}

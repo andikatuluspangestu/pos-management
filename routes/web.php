@@ -1,16 +1,35 @@
 <?php
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Http\Controllers\AuthController;
 
-Route::get('/', function () {
-    return view('welcome');
+// Rute untuk halaman utama
+Route::view('/', 'home.index');
+
+// Auth Group ( Login, Register, Logout)
+Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
+Route::post('/login', [AuthController::class, 'login']);
+Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('register');
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
+// Middleware Group
+Route::group(['middleware' => 'checkRole:admin'], function () {
+
+    // Admin Dashboard
+    Route::get('/admin', 'AdminController@index');
+
+    // Kategori
+    Route::get('/admin/categories', 'CategoriesController@index')->name('categories');
+    Route::post('/admin/categories/insert', 'CategoriesController@insert')->name('categories.insert');
+    Route::get('/admin/categories/delete/{id}', 'CategoriesController@delete')->name('categories.delete');
+    Route::put('/admin/categories/update/{id}', 'CategoriesController@update')->name('categories.update');
+
+});
+
+Route::group(['middleware' => 'checkRole:sales'], function () {
+    Route::get('/sales', 'SalesController@index');
+});
+
+Route::group(['middleware' => 'checkRole:customer'], function () {
+    Route::get('/customer', 'CustomerController@index');
 });

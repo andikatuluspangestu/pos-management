@@ -1,0 +1,105 @@
+@import "https://fonts.googleapis.com/css2?family=Croissant+One&display=swap";
+@import "https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700&display=swap";
+@import "https://fonts.googleapis.com/css2?family=Caveat&display=swap";
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "M PLUS Rounded 1c", sans-serif;
+  font-size: 16px;
+  font-weight: weight(regular);
+  color: #44465F;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px 10px;
+  border-radius: 10px;
+  border: solid 2px #E1A56B;
+  font-size: 14px;
+  font-weight: 400;
+  color: #44465F;
+  transition: all 0.3s ease-in-out;
+  resize: none;
+}
+textarea:focus {
+  border: solid 2px #E1A56B;
+}
+
+[data-aos] {
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  will-change: transform;
+  transition-timing-function: cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+#inspirasi {
+  padding: 100px 0;
+}
+#inspirasi h3 {
+  font-size: 36px;
+  font-weight: 700;
+  margin-bottom: 20px;
+  color: #E1A56B;
+  font-family: "Croissant One", cursive;
+}
+#inspirasi .card {
+  border: none;
+  transition: all 0.3s ease-in-out;
+  border-radius: 15px;
+  padding: 15px 5px 10px 5px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background-color: #44465F;
+}
+#inspirasi .card:hover {
+  transform: translateY(-10px);
+}
+#inspirasi .card .card-header {
+  border: none;
+}
+#inspirasi .card .card-header img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 15px !important;
+}
+#inspirasi .card .card-body {
+  border: none;
+}
+#inspirasi .card .card-body .publish-date {
+  font-size: 14px;
+  font-weight: 400;
+  color: #E1A56B;
+  margin-bottom: 10px;
+}
+#inspirasi .card .card-body .title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 10px;
+}
+#inspirasi .card .card-footer {
+  border: none;
+}
+#inspirasi .card .card-footer .btn {
+  margin-top: 10px;
+  background-color: #E1A56B;
+  border: 2px solid #E1A56B;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 10px;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+#inspirasi .card .card-footer .btn:hover {
+  background-color: #44465F;
+  color: #E1A56B;
+  border: 2px solid #E1A56B;
+}
+
+/*# sourceMappingURL=inspirasi.css.map */

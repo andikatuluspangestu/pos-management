@@ -1,0 +1,92 @@
+// Import base variables
+@import "../base/reset";
+@import "../base/colors";
+@import "../base/typography";
+
+#inspirasi {
+  padding: 100px 0;
+
+  h3 {
+    font-size: 36px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: $color-primary;
+    font-family: $font-secondary;
+  }
+
+  .card {
+    border: none;
+    transition: all 0.3s ease-in-out;
+    border-radius: 15px;
+    padding: 15px 5px 10px 5px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    background-color: $color-secondary;
+
+    &:hover {
+      transform: translateY(-10px);
+    }
+
+    .card-header {
+      border: none;
+
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 15px !important;
+      }
+    }
+
+    .card-body {
+      border: none;
+
+      .publish-date {
+        font-size: 14px;
+        font-weight: 400;
+        color: $color-primary;
+        margin-bottom: 10px;
+      }
+
+      .title {
+        font-size: 24px;
+        font-weight: 700;
+        color: $color-white;
+        margin-bottom: 10px;
+      }
+    }
+
+    .card-footer {
+      border: none;
+
+      .btn {
+        margin-top: 10px;
+        background-color: $color-primary;
+        border: 2px solid #E1A56B;
+        color: $color-white;
+        font-size: 14px;
+        font-weight: 500;
+        padding: 10px;
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          background-color: $color-secondary;
+          color: $color-primary;
+          border: 2px solid #E1A56B;
+        }
+      }
+    }
+  }
+}
+
+// Responsive Media Queries - Mobile
+@media (max-width: 767px) {
+  // Kode untuk media query mobile disini
+}
+
+// Responsive Media Queries - Tablet
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  // Kode untuk media query tablet disini
+}

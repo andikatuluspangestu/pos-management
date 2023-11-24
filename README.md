@@ -8,131 +8,125 @@
 
 ---
 
-- Andika Tulus Pangestu
-- Yulianti Putri
-- Eka Prasetya Nugraha
-- Hafizhul Qisti Muhammad
-- Anhar Mukhlis
+-   Andika Tulus Pangestu
+-   Yulianti Putri
+-   Eka Prasetya Nugraha
+-   Hafizhul Qisti Muhammad
+-   Anhar Mukhlis
 
 ### **📝 To-Do List**
 
 ---
 
-- [ ] Manajemen Kategori Produk
-- [ ] Manajemen Produk
-- [ ] Manajemen Users
-- [ ] Transaksi
-- [ ] Laporan Pendapatan
-- [ ] Grafik ChartJS pada Dashboard
+-   [x] Manajemen Kategori Produk
+-   [ ] Manajemen Produk
+-   [ ] Manajemen Users
+-   [ ] Transaksi
+-   [ ] Laporan Pendapatan
+-   [ ] Grafik ChartJS pada Dashboard
 
-### **🕙 Instalasi**
-
-Clone Repository
-```bash
-git clone https://github.com/andikatuluspangestu/pos-management.git
-```
-
-Update Composer Package
-```bash
-composer update
-```
-atau:
-```bash
-composer install
-```
-Copy file .env dari .env.example
-```bash
-cp .env.example .env
-```
-Konfigurasi file .env
-```bash
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=db_pos
-DB_USERNAME=root
-DB_PASSWORD=
-```
-Opsional
-```bash
-APP_NAME=Laravel
-APP_ENV=local
-APP_KEY=base64:QGRW4K7UVzS2M5HE2ZCLlUuiCtOIzRSfb38iWApkphE=
-APP_DEBUG=true
-APP_URL=http://localhost/
-```
-Generate key
-```bash
-php artisan key:generate
-```
-Migrate database
-```bash
-php artisan migrate
-```
-Seeder table User, Pengaturan
-```bash
-php artisan db:seed
-```
-Menjalankan aplikasi
-```bash
-php artisan serve
-```
-
-### **📚 Panduan Kolaborasi dengan Git & GitHub**
+### **🕙 Instalasi & Kolaborasi**
 
 ---
 
-#### **Langkah 1:** Clone Repository ke Komputer Lokal
+1. Clone repository
+    
+    ```bash
+    git clone https://github.com/andikatuluspangestu/pos-management.git
+    ```
 
-```bash
-git clone https://github.com/andikatuluspangestu/pos-management.git
-```
+2. Masuk ke folder repository
+    
+    ```bash
+    cd pos-management
+    ```
 
-#### **Langkah 2:** Buka folder Projects
+3. Install dependency
+    
+    ```bash
+    composer update
+    composer install
+    ```
 
-```bash
-cd pos-management
-```
+4. Copy file `.env.example` menjadi `.env`
+    
+    ```bash
+    cp .env.example .env
+    ```
 
-#### **Langkah 3:** Sinkronkan dengan Repository Utama
+5. Generate key
+    
+    ```bash
+    php artisan key:generate
+    ```
 
-```bash
-git pull origin main
-```
+6. Buat database baru dengan nama `db_pos` (sesuaikan dengan nama database yang ada di file `.env`) melalui phpmyadmin atau terminal
+    
+    ```bash
+    mysql -u root -p
+    create database db_pos;
+    exit;
+    ```
 
-> Lakukan `git pull` setiap ada perubahan pada repository utama.
+7. Migrasi database
+    
+    ```bash
+    php artisan migrate
+    ```
+    
+8. Lakukan seeding data
+    
+    ```bash
+    php artisan db:seed
+    ```
 
-#### **Langkah 4:** Membuat Perubahan dan Mengunggah Perubahan
+9. Jalankan server
+    
+    ```bash
+    php artisan serve
+    ```
 
-1. Lakukan perubahan pada proyek menggunakan Visual Studio Code
-2. Setelah selesai maka simpan atau tekan `CTRL + S`
-3. Tambahkan perubahan:
+10. Buka browser dan akses `http://localhost:8000`
 
-   ```bash
-   git add .
-   ```
+11. Buat perubahan
+12. Tambahkan perubahan ke repository
+    
+    ```bash
+    git add .
+    ```
 
-4. Buat commit:
+13. Commit perubahan
+    
+    ```bash
+    git commit -m "pesan commit"
+    ```
 
-   ```bash
-   git commit -m "Nama Perubahan"
-   ```
+14. Push ke repository
+    
+    ```bash
+    git push origin development
+    ```
 
-5. Unggah perubahan ke GitHub:
+15. Merge ke repository utama (HANYA ADMIN)
+    
+    ```bash
+    git checkout main
+    git pull origin main
+    git merge development
+    git push origin main
+    ```
 
-   ```bash
-   git push origin main
-   ```
-
-#### **Langkah 5:** Sinkronkan dengan Repository Utama Kembali
-
-```bash
-git pull origin main
-```
+16. Kembali ke branch development
+    
+    ```bash
+    git checkout development
+    ```
 
 ### **🗒 Catatan :**
 
 ---
 
-- Jika ada perubahan pada repository utama, maka lakukan langkah 5 untuk mengambil perubahan tersebut.
-- Jika ada konflik pada langkah 5, maka selesaikan konflik (Diskusikan di Grup)
+-   Jika ada perubahan pada repository utama, maka lakukan langkah 5 untuk mengambil perubahan tersebut.
+-   Jika ada konflik pada langkah 5, maka selesaikan konflik (Diskusikan di Grup)
+
+
