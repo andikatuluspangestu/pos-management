@@ -11,16 +11,21 @@ class CategoriesSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('tbl_categories')->insert([
-            'category_name' => 'Masakan Padang',
-            'updated_at' => now(),
-            'created_at' => now()
-        ]);
+        $categories = [
+            'Gorengan',
+            'Makanan Berat',
+            'Sayur',
+            'Sambal',
+            'Snack',
+        ];
 
-        DB::table('tbl_categories')->insert([
-            'category_name' => 'Masakan Jawa',
-            'updated_at' => now(),
-            'created_at' => now()
-        ]);
+        foreach ($categories as $category) {
+            DB::table('tbl_categories')->insert([
+                'category_name' => $category,
+                'category_description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ]);
+        }
     }
 }

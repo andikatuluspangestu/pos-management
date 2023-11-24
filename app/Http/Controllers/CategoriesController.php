@@ -7,65 +7,41 @@ use App\Categories;
 
 class CategoriesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // Index Page
     public function index()
     {
-        $categories = Categories::getAll();
-        return view('admin.categories.list', compact('categories'));
+        $data = Categories::getAll();
+        return view('admin.categories.list', compact('data'));
     }
 
-    /**
-     * Insert a new category into the database.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\RedirectResponse
-     */
+    // Insert Data
     public function insert(Request $request)
     {
-        $request->validate([
-            'category_name' => 'required|unique:categories|max:255',
-        ]);
-
-        Categories::insert([
+        $data = [
             'category_name' => $request->category_name,
-        ]);
+            'category_description' => $request->category_description,
+        ];
 
-        return redirect()->route('categories')->with('success', 'Data Berhasil Ditambahkan');
+        Categories::insert($data);
+        return redirect()->route('categories')->with('success', 'Data berhasil ditambahkan');
     }
 
-    /**
-     * Delete a category by ID.
-     *
-     * @param int $id The ID of the category to delete.
-     * @return \Illuminate\Http\RedirectResponse A redirect response to the categories page with a success message.
-     */
+    // Delete Data
     public function delete($id)
     {
         Categories::deleteData($id);
-        return redirect()->route('categories')->with('success', 'Data Berhasil Dihapus');
+        return redirect()->route('categories')->with('success', 'Data berhasil dihapus');
     }
 
-    /**
-     * Update the specified category in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $category_id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $category_id)
+    // Update Data
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'category_name' => 'required|unique:categories|max:255',
-        ]);
-
-        Categories::updateData($category_id, [
+        $data = [
             'category_name' => $request->category_name,
-        ]);
+            'category_description' => $request->category_description,
+        ];
 
-        return redirect()->route('categories')->with('success', 'Data Berhasil Diubah');
+        Categories::updateData($id, $data);
+        return redirect()->route('categories')->with('success', 'Data berhasil diupdate');
     }
 }
