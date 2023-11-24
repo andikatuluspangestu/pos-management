@@ -96,22 +96,22 @@ php artisan serve
 git clone https://github.com/andikatuluspangestu/pos-management.git
 ```
 
-#### **Langkah 2:** Pindah ke Branch Development di Git
-
-```bash
-git checkout development
-```
-
-#### **Langkah 3:** Buka folder Projects
+#### **Langkah 2:** Buka folder Projects
 
 ```bash
 cd pos-management
 ```
 
-#### **Langkah 4:** Sinkronkan dengan Repository Utama
+#### **Langkah 3:** Pindah ke Branch Development di Git
 
 ```bash
-git pull origin main
+git checkout development
+```
+
+#### **Langkah 4:** Sinkronkan dengan Repository Development
+
+```bash
+git pull origin development
 ```
 
 > Lakukan `git pull` setiap ada perubahan pada repository utama.
@@ -135,13 +135,41 @@ git pull origin main
 5. Unggah perubahan ke GitHub:
 
     ```bash
-    git push origin main
+    git push origin development
     ```
 
 #### **Langkah 6:** Sinkronkan dengan Repository Utama Kembali
 
 ```bash
+git pull origin development
+```
+
+### **Merge ke Branch Main**
+
+---
+
+#### **Langkah 1:** Pindah ke Branch Main
+
+```bash
+git checkout main
+```
+
+#### **Langkah 2:** Sinkronkan dengan Repository Main
+
+```bash
 git pull origin main
+```
+
+#### **Langkah 3:** Merge Branch Development ke Branch Main
+
+```bash
+git merge development
+```
+
+#### **Langkah 4:** Unggah Perubahan ke GitHub
+
+```bash
+git push origin main
 ```
 
 ### **🗒 Catatan :**
