@@ -88,6 +88,40 @@
 
 10. Buka browser dan akses `http://localhost:8000`
 
+11. Buat perubahan
+12. Tambahkan perubahan ke repository
+    
+    ```bash
+    git add .
+    ```
+
+13. Commit perubahan
+    
+    ```bash
+    git commit -m "pesan commit"
+    ```
+
+14. Push ke repository
+    
+    ```bash
+    git push origin development
+    ```
+
+15. Merge ke repository utama (HANYA ADMIN)
+    
+    ```bash
+    git checkout main
+    git pull origin main
+    git merge development
+    git push origin main
+    ```
+
+16. Kembali ke branch development
+    
+    ```bash
+    git checkout development
+    ```
+
 ### **🗒 Catatan :**
 
 ---
