@@ -17,7 +17,7 @@ class CategoriesSeeder extends Seeder
             'created_at' => now()
         ]);
 
-        DB::table('categories')->insert([
+        DB::table('tbl_categories')->insert([
             'category_name' => 'Masakan Jawa',
             'updated_at' => now(),
             'created_at' => now()
