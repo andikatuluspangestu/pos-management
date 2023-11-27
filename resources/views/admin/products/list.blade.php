@@ -46,6 +46,20 @@
               <a href="#" class="btn btn-sm btn-danger">Hapus</a>
             </td>
           </tr>
+          @foreach ($produks as $produk)
+          <tr>
+              <td> {{ $loop->index + 1 }}</td>
+              <td> {{ $produk->kode_produk }}</td>
+              <td> {{ $produk->nama_produk }} </td>
+              <td> {{ $produk->category->category_name }} </td>
+              <td> {{ $produk->harga_jual }} </td>
+              <td> {{ $produk->stok }} </td>
+              <td>
+                  <a href="#" class="btn btn-warning btn-sm" role="button">Edit</a>
+                  <a href="#" class="btn btn-danger btn-sm" role="button">Hapus</a>
+              </td>
+          </tr>
+          @endforeach
         </tbody>
       </table>
     </div>

@@ -15,8 +15,10 @@ class ProdukController extends Controller
     // Index Page
     public function index()
     {
-        $data = Tbl_Produk::getAll();
-        return view('admin.products.list', compact('data'));
+        $produks = Tbl_Produk::all();
+        return view('admin.products.list', [
+            'produks' => $produks
+        ]);
     }
 
     /**
@@ -27,6 +29,20 @@ class ProdukController extends Controller
     public function create()
     {
         //
+    }
+
+    // Insert Data
+    public function insert(Request $request)
+    {
+        $data = [
+            'category_id' => $request->category_id,
+            'kode_produk' => $request->kode_produk,
+            'nama_produk' => $request->nama_produk,
+            'product_description' => $request->product_description,
+        ];
+
+        Categories::insert($data);
+        return redirect()->route('products')->with('success', 'Data berhasil ditambahkan');
     }
 
     /**
