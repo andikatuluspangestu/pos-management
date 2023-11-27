@@ -12,9 +12,11 @@ class ProdukController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    // Index Page
     public function index()
     {
         $data = Tbl_Produk::getAll();
+        return view('admin.products.list', compact('data'));
     }
 
     /**

@@ -24,6 +24,12 @@ Route::group(['middleware' => 'checkRole:admin'], function () {
     Route::get('/admin/categories/delete/{id}', 'CategoriesController@delete')->name('categories.delete');
     Route::put('/admin/categories/update/{id}', 'CategoriesController@update')->name('categories.update');
 
+    // Produk
+    Route::get('/admin/products', 'CategoriesController@index')->name('products');
+    Route::post('/admin/products/insert', 'CategoriesController@insert')->name('products.insert');
+    Route::get('/admin/products/delete/{id}', 'CategoriesController@delete')->name('products.delete');
+    Route::put('/admin/products/update/{id}', 'CategoriesController@update')->name('products.update');
+
 });
 
 Route::group(['middleware' => 'checkRole:sales'], function () {
