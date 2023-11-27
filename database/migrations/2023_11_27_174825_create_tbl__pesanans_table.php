@@ -13,9 +13,16 @@ class CreateTblPesanansTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl__pesanans', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->timestamps();
+        Schema::create('tbl_pesanan', function (Blueprint $table) {
+            $table->bigInteger('id');
+            $table->integer('id_user');
+            $table->integer('total_item');
+            $table->integer('total_harga');
+            $table->tinyInteger('diskon')->default(0);
+            $table->integer('bayar')->default(0);
+            $table->integer('diterima')->default(0);
+            $table->timestamps('created_at');
+            $table->timestamps('updated_at');
         });
     }
 
@@ -26,6 +33,6 @@ class CreateTblPesanansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl__pesanans');
+        Schema::dropIfExists('tbl__pesanan');
     }
 }
