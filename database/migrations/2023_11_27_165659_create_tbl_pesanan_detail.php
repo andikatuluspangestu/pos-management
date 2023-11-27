@@ -14,16 +14,14 @@ class CreateTblPesananDetail extends Migration
     public function up()
     {
         Schema::create('tbl_pesanan_detail', function (Blueprint $table) {
-            Schema::create('tbl_pesanan_detail', function (Blueprint $table) {
-                $table->bigIncrements('id_pesanan_detail');
-                $table->integer('id_pesanan');
-                $table->integer('id_produk');
-                $table->integer('harga_jual');
-                $table->integer('jumlah');
-                $table->tinyInteger('diskon');
-                $table->integer('subtotal');
-                $table->timestamps();
-            });
+            $table->bigIncrements('id_pesanan_detail');
+            $table->integer('id_pesanan');
+            $table->integer('id_produk');
+            $table->integer('harga_jual');
+            $table->integer('jumlah');
+            $table->tinyInteger('diskon')->default(0);
+            $table->integer('subtotal');
+            $table->timestamps();
         });
     }
 
