@@ -2,102 +2,46 @@
 
 namespace App\Http\Controllers;
 
-use App\Tbl_Produk;
 use Illuminate\Http\Request;
+use App\Tbl_Produk;
 
-class ProdukController extends Controller
+class CategoriesController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     // Index Page
     public function index()
     {
-        $produks = Tbl_Produk::all();
-        return view('admin.products.list', [
-            'produks' => $produks
-        ]);
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $data = Tbl_Produk::getAll();
+        return view('admin.products.list', compact('data'));
     }
 
     // Insert Data
     public function insert(Request $request)
     {
         $data = [
-            'category_id' => $request->category_id,
-            'kode_produk' => $request->kode_produk,
             'nama_produk' => $request->nama_produk,
-            'product_description' => $request->product_description,
+            'produk_description' => $request->produk_description,
         ];
 
         Categories::insert($data);
         return redirect()->route('products')->with('success', 'Data berhasil ditambahkan');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    // Delete Data
+    public function delete($id)
     {
-        //
+        Tbl_Produk::deleteData($id);
+        return redirect()->route('products')->with('success', 'Data berhasil dihapus');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Tbl_Produk  $tbl_Produk
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Tbl_Produk $tbl_Produk)
+    // Update Data
+    public function update(Request $request, $id)
     {
-        //
-    }
+        $data = [
+            'nama_produk' => $request->nama_produk,
+            'produk_description' => $request->produk_description,
+        ];
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Tbl_Produk  $tbl_Produk
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Tbl_Produk $tbl_Produk)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Tbl_Produk  $tbl_Produk
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Tbl_Produk $tbl_Produk)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Tbl_Produk  $tbl_Produk
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Tbl_Produk $tbl_Produk)
-    {
-        //
+        Categories::updateData($id, $data);
+        return redirect()->route('products')->with('success', 'Data berhasil diupdate');
     }
 }
