@@ -97,11 +97,11 @@
               @csrf
               @method('PUT')
               <div class="form-group">
-                <label for="nama_produk">Nama Kategori</label>
-                <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Kategori" value="{{ $product->nama_produk }}">
+                <label for="nama_produk">Nama Produk</label>
+                <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $product->nama_produk }}">
               </div>
               <div class="form-group">
-                <label for="produk_description">Deskripsi Kategori</label>
+                <label for="produk_description">Deskripsi Produk</label>
                 <textarea class="form-control" id="produk_description" name="produk_description" rows="3">{{ $product->produk_description }}</textarea>
               </div>
           </div>
@@ -121,7 +121,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addCategoryModal">Tambah Data Kategori</h5>
+            <h5 class="modal-title" id="addCategoryModal">Tambah Data Produk</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -130,12 +130,32 @@
             <form action="{{ route('products.insert') }}" method="POST">
               @csrf
               <div class="form-group">
-                <label for="nama_produk">Nama Kategori</label>
+                <label for="category_id">ID Kategori</label>
+                <input type="text" class="form-control" id="category_id" name="category_id" placeholder="Masukkan ID Kategori">
+              </div>
+              <div class="form-group">
+                <label for="kode_produk">Kode Produk</label>
+                <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk">
+              </div>
+              <div class="form-group">
+                <label for="nama_produk">Nama Produk</label>
                 <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk">
               </div>
               <div class="form-group">
-                <label for="produk_description">Deskripsi Kategori</label>
+                <label for="produk_description">Deskripsi Produk</label>
                 <textarea class="form-control" id="produk_description" name="produk_description" rows="3"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="diskon">Diskon</label>
+                <input type="text" class="form-control" id="diskon" name="diskon" placeholder="Masukkan Diskon">
+              </div>
+              <div class="form-group">
+                <label for="harga_jual">Harga Jual</label>
+                <input type="text" class="form-control" id="harga_jual" name="harga_jual" placeholder="Masukkan Harga Jual">
+              </div>
+              <div class="form-group">
+                <label for="stok">Stok</label>
+                <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Nama Stok">
               </div>
           </div>
           <div class="modal-footer">
