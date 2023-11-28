@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Tbl_Produk;
 
-class CategoriesController extends Controller
+class ProdukController extends Controller
 {
     // Index Page
     public function index()
@@ -22,7 +22,7 @@ class CategoriesController extends Controller
             'produk_description' => $request->produk_description,
         ];
 
-        Categories::insert($data);
+        Tbl_Produk::insert($data);
         return redirect()->route('products')->with('success', 'Data berhasil ditambahkan');
     }
 
@@ -41,7 +41,7 @@ class CategoriesController extends Controller
             'produk_description' => $request->produk_description,
         ];
 
-        Categories::updateData($id, $data);
+        Tbl_Produk::updateData($id, $data);
         return redirect()->route('products')->with('success', 'Data berhasil diupdate');
     }
 }
