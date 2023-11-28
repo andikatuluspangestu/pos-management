@@ -93,7 +93,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="{{ route('product.update', ['id' => $product->id_produk]) }}" method="post">
+            <form action="{{ route('products.update', ['id' => $product->id_produk]) }}" method="post">
               @csrf
               @method('PUT')
               <div class="form-group">
@@ -127,7 +127,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="{{ route('product.insert') }}" method="POST">
+            <form action="{{ route('products.insert') }}" method="POST">
               @csrf
               <div class="form-group">
                 <label for="nama_produk">Nama Kategori</label>
