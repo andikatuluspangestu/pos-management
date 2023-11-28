@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTblPesanan extends Migration
+class CreateTblPesanansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,14 +14,15 @@ class CreateTblPesanan extends Migration
     public function up()
     {
         Schema::create('tbl_pesanan', function (Blueprint $table) {
-            $table->bigIncrements('id_pesanan');
+            $table->bigInteger('id');
             $table->integer('id_user');
-            $table->pinteger('total_item');
+            $table->integer('total_item');
             $table->integer('total_harga');
             $table->tinyInteger('diskon')->default(0);
             $table->integer('bayar')->default(0);
             $table->integer('diterima')->default(0);
-            $table->timestamps();
+            $table->timestamps('created_at');
+            $table->timestamps('updated_at');
         });
     }
 
@@ -32,6 +33,6 @@ class CreateTblPesanan extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_pesanan');
+        Schema::dropIfExists('tbl__pesanan');
     }
 }
