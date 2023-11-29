@@ -23,6 +23,7 @@ class ProdukSeeder extends Seeder
         foreach ($produks as $produk) {
             DB::table('tbl_produk')->insert([
                 'category_id' => 1,
+                'category_name' => 'Gorengan',
                 'kode_produk' => 'P001',
                 'nama_produk' => $produk,
                 'produk_description' => 'Bumbu Masak Umik varian yang khusus dibuat untuk memasak beragam masakan',
