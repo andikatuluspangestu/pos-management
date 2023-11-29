@@ -23,7 +23,7 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">ID Kategori</th>
+            <th scope="col">Nama Kategori</th>
             <th scope="col">Kode Produk</th>
             <th scope="col">Nama Produk</th>
             <th scope="col">Deskripsi Produk</th>
@@ -37,7 +37,7 @@
           @foreach($data as $product)
           <tr>
             <td>{{ $product->id_produk }}</td>
-            <td>{{ $product->category_id }}</td>
+            <td>{{ $product->tbl_categories->category_name }}</td>
             <td>{{ $product->kode_produk }}</td>
             <td>{{ $product->nama_produk }}</td>
             <td>{{ $product->product_description }}</td>
@@ -130,8 +130,8 @@
             <form action="{{ route('products.insert') }}" method="POST">
               @csrf
               <div class="form-group">
-                <label for="category_id">ID Kategori</label>
-                <input type="text" class="form-control" id="category_id" name="category_id" placeholder="Masukkan ID Kategori">
+                <label for="category_id">Nama Kategori</label>
+                <input type="text" class="form-control" id="category_id" name="category_id" placeholder="Masukkan Nama Kategori">
               </div>
               <div class="form-group">
                 <label for="kode_produk">Kode Produk</label>
