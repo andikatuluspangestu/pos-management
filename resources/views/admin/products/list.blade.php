@@ -99,13 +99,37 @@
               @csrf
               @method('PUT')
               <div class="form-group">
+                <label for="category_name">Nama Kategori</label>
+                <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Masukkan Nama Kategori" value="{{ $product->nama_produk }}">
+              </div>
+              <div class="form-group">
+                <label for="kode_produk">Kode Produk</label>
+                <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk" value="{{ $product->kode_produk }}">
+              </div>
+              <div class="form-group">
                 <label for="nama_produk">Nama Produk</label>
                 <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $product->nama_produk }}">
-              </div>
+              </div> 
+              <div class="form-group">
+                <label for="nama_produk">Gambar</label>
+                <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $product->nama_produk }}">
+              </div>             
               <div class="form-group">
                 <label for="produk_description">Deskripsi Produk</label>
                 <textarea class="form-control" id="produk_description" name="produk_description" rows="3">{{ $product->produk_description }}</textarea>
               </div>
+              <div class="form-group">
+                <label for="diskon">Diskon</label>
+                <input type="text" class="form-control" id="diskon" name="diskon" placeholder="Masukkan diskon" value="{{ $product->diskon }}">
+              </div> 
+              <div class="form-group">
+                <label for="harga_jual">Harga Jual</label>
+                <input type="text" class="form-control" id="harga_jual" name="harga_jual" placeholder="Masukkan Harga Jual" value="{{ $product->harga_jual }}">
+              </div> 
+              <div class="form-group">
+                <label for="stok">Stok</label>
+                <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $product->stok }}">
+              </div> 
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -142,6 +166,10 @@
               <div class="form-group">
                 <label for="nama_produk">Nama Produk</label>
                 <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk">
+              </div>
+              <div class="form-group">
+                <label for="gambar">Gambar</label>
+                <input type="text" class="form-control" id="gambar" name="gambar" placeholder="Masukkan Gambar">
               </div>
               <div class="form-group">
                 <label for="produk_description">Deskripsi Produk</label>
