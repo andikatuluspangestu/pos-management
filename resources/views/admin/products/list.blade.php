@@ -41,7 +41,12 @@
             <td>{{ $product->tbl_categories->category_name }}</td>
             <td>{{ $product->kode_produk }}</td>
             <td>{{ $product->nama_produk }}</td>
-            <td>{{ $product->gambar }}</td>
+            <td>
+              <picture>
+                <source srcset="{{ asset('img/products/' . $product->gambar) }}" type="image/jpeg">
+                <img src="{{ asset('img/products/' . $product->gambar) }}" class="img-fluid img-thumbnail" alt="...">
+              </picture>
+            </td>
             <td>{{ $product->produk_description }}</td>
             <td>{{ $product->diskon }}</td>
             <td>{{ $product->harga_jual }}</td>
