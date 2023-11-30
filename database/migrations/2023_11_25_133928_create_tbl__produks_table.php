@@ -18,7 +18,8 @@ class CreateTblProduksTable extends Migration
             $table->unsignedInteger('category_id');
             $table->string('category_name', 100);
             $table->string('kode_produk', 255)->unique();
-            $table->string('nama_produk', 255)->unique();            
+            $table->string('nama_produk', 255)->unique(); 
+            $table->string('gambar', 255);           
             $table->text('produk_description');
             $table->tinyInteger('diskon')->default(0);
             $table->integer('harga_jual');
