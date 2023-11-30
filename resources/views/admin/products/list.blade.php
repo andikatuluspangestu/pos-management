@@ -41,8 +41,8 @@
             <td>{{ $product->tbl_categories->category_name }}</td>
             <td>{{ $product->kode_produk }}</td>
             <td>{{ $product->nama_produk }}</td>
-            <td>{{ $product->nama_produk }}</td>
-            <td>{{ $product->product_description }}</td>
+            <td>{{ $product->gambar }}</td>
+            <td>{{ $product->produk_description }}</td>
             <td>{{ $product->diskon }}</td>
             <td>{{ $product->harga_jual }}</td>
             <td>{{ $product->stok }}</td>
