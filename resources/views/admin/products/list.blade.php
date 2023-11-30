@@ -26,6 +26,7 @@
             <th scope="col">Nama Kategori</th>
             <th scope="col">Kode Produk</th>
             <th scope="col">Nama Produk</th>
+            <th scope="col">Gambar</th>
             <th scope="col">Deskripsi Produk</th>
             <th scope="col">Diskon</th>
             <th scope="col">Harga Jual</th>
@@ -39,6 +40,7 @@
             <td>{{ $product->id_produk }}</td>
             <td>{{ $product->tbl_categories->category_name }}</td>
             <td>{{ $product->kode_produk }}</td>
+            <td>{{ $product->nama_produk }}</td>
             <td>{{ $product->nama_produk }}</td>
             <td>{{ $product->product_description }}</td>
             <td>{{ $product->diskon }}</td>
