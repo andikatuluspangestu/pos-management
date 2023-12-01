@@ -174,7 +174,7 @@
               </div>
               <div class="form-group">
                 <label for="gambar">Gambar</label>
-                <input type="text" class="form-control" id="gambar" name="gambar" placeholder="Masukkan Gambar">
+                <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Masukkan Gambar">
               </div>
               <div class="form-group">
                 <label for="produk_description">Deskripsi Produk</label>
