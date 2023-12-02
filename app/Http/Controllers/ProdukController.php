@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Tbl_Produk;
+use App\Categories;
 
 class ProdukController extends Controller
 {
@@ -11,7 +12,8 @@ class ProdukController extends Controller
     public function index()
     {
         $data = Tbl_Produk::getAll();
-        return view('admin.products.list', compact('data'));
+        $categories = Categories::getall();
+        return view('admin.products.list', compact('data', 'categories'));
     }
 
     // Insert Data
