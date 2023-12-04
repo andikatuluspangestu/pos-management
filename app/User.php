@@ -9,6 +9,8 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    protected $table ='users';
+
     protected $fillable = [
         'name', 'email', 'password', 'role',
     ];
@@ -21,5 +23,11 @@ class User extends Authenticatable
     public function getLevelAttribute($value)
     {
         return ucfirst($value);
+    }
+
+    // Menampilkan semua data pengguna yang memiliki role sales
+    public static function getAllSales()
+    {
+        return self::where('role', 'sales')->get();
     }
 }
