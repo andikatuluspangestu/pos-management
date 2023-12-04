@@ -34,8 +34,8 @@ Route::group(['middleware' => 'checkRole:admin'], function () {
     Route::get('/admin/users/sales', 'UsersController@getSales')->name('sales');
     Route::get('/admin/users/sales/add', 'UsersController@insertSalesForm')->name('sales.insert.add');
     Route::post('/admin/users/sales/insert', 'UsersController@insertSales')->name('sales.insert');
-    Route::get('/admin/users/sales/delete/{id}', 'UsersController@delete')->name('sales.delete');
-    Route::put('/admin/users/sales/update/{id}', 'UsersController@update')->name('sales.update');
+    Route::get('/admin/users/sales/delete/{id}', 'UsersController@deleteSales')->name('sales.delete');
+    Route::put('/admin/users/sales/update/{id}', 'UsersController@updateSales')->name('sales.update');
 
 });
 

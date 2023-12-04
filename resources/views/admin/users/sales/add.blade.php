@@ -32,7 +32,14 @@
               <div class="invalid-feedback">{{ $message }}</div>
               @enderror
             </div>
-            <button type="submit" class="btn btn-sm btn-primary">Tambah Data</button>
+            <button type="submit" class="btn btn-primary">
+              <i class="fas fa-save"></i>
+              Simpan
+            </button>
+            <a href="{{ route('sales') }}" class="btn btn-danger">
+              <i class="fas fa-times"></i>
+              Batal
+            </a>
           </form>
         </div>
       </div>

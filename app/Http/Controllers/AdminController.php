@@ -5,18 +5,27 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\CategoriesController;
+use App\Http\Controllers\UsersController;
 
 class AdminController extends Controller
 {
     // Display Admin Dashboard
     public function index()
     {
-        // Count Data Produk
-        $countProducts = ProdukController::countProductsData();
+        $countProducts      = ProdukController::countProductsData();
+        $countCategories    = CategoriesController::countCategoriesData();
+        $countSalesData     = UsersController::countSalesData();
+        $countCustomersData = UsersController::countCustomersData();
+        $getLatestProducts  = ProdukController::getLatestProducts();
 
-        // Count Data Kategori
-        $countCategories = CategoriesController::countCategoriesData();
+        $data = [
+            'countProducts'      => $countProducts,
+            'countCategories'    => $countCategories,
+            'countSalesData'     => $countSalesData,
+            'countCustomersData' => $countCustomersData,
+            'getLatestProducts'  => $getLatestProducts,
+        ];
 
-        return view('admin.index', compact('countProducts', 'countCategories'));
+        return view('admin.index', $data);
     }
 }

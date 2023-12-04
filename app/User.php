@@ -36,4 +36,16 @@ class User extends Authenticatable
     {
         return self::where('role', 'customer')->get();
     }
+    
+    // Menghitung Jumlah Data Sales
+    public static function countSalesData()
+    {
+        return self::where('role', 'sales')->count();
+    }
+
+    // Menghitung Jumlah Data Customer
+    public static function countCustomersData()
+    {
+        return self::where('role', 'customer')->count();
+    }
 }

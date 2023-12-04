@@ -47,7 +47,7 @@ class UsersController extends Controller
   }
 
   // Delete Data Sales
-  public function delete($id)
+  public function deleteSales($id)
   {
     $sales = User::find($id);
     $sales->delete();
@@ -62,10 +62,49 @@ class UsersController extends Controller
     }
   }
 
+  // Update Data Sales
+  public function updateSales(Request $request, $id)
+  {
+    $this->validate($request, [
+      'name' => 'required|min:3',
+      'email' => 'required|email|unique:users,email,' . $id,
+      'password' => 'nullable|min:6',
+    ]);
+
+    $sales = User::find($id);
+    $sales->name = $request->name;
+    $sales->email = $request->email;
+    if (!empty($request->password)) {
+      $sales->password = bcrypt($request->password);
+    }
+    $sales->update();
+
+    // Message
+    if ($sales) {
+      // Redirect dengan pesan sukses
+      return redirect()->route('sales')->with(['message' => 'Data Berhasil Diupdate!']);
+    } else {
+      // Redirect dengan pesan error
+      return redirect()->route('sales')->with(['message' => 'Data Gagal Diupdate!']);
+    }
+  }
+
+  // Menghitung Jumlah Data Sales
+  public static function countSalesData()
+  {
+    return User::where('role', 'sales')->count();
+  }
+
   // Menampilkan Data Customers
   public function getCustomers()
   {
     $customers = User::getAllCustomers();
     return view('admin.users.customers.list', compact('customers'));
+  }
+
+  // Menghitung Jumlah Data Customers
+  public static function countCustomersData()
+  {
+    return User::where('role', 'customer')->count();
   }
 }
