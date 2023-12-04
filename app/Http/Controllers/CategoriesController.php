@@ -44,4 +44,10 @@ class CategoriesController extends Controller
         Categories::updateData($id, $data);
         return redirect()->route('categories')->with('success', 'Data berhasil diupdate');
     }
+
+    // Count Data Kategori
+    public static function countCategoriesData()
+    {
+        return Categories::countCategoriesData();
+    }
 }

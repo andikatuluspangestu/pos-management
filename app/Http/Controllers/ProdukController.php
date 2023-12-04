@@ -46,4 +46,10 @@ class ProdukController extends Controller
         Produk::updateData($id, $data);
         return redirect()->route('products')->with('success', 'Data berhasil diupdate');
     }
+
+    // Count Data Produk
+    public static function countProductsData()
+    {
+        return Produk::countProductsData();
+    }
 }
