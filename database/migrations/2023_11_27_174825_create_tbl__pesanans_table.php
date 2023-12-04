@@ -21,8 +21,10 @@ class CreateTblPesanansTable extends Migration
             $table->tinyInteger('diskon')->default(0);
             $table->integer('bayar')->default(0);
             $table->integer('diterima')->default(0);
-            $table->timestamps('created_at');
-            $table->timestamps('updated_at');
+            $table->integer('kembali')->default(0);
+            $table->tinyInteger('status')->default(0);
+            $table->timestamps();
+            $table->primary('id');
         });
     }
 
