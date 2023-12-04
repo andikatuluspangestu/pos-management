@@ -39,7 +39,27 @@ Route::group(['middleware' => 'checkRole:admin'], function () {
 });
 
 Route::group(['middleware' => 'checkRole:sales'], function () {
+    /*Route::get('/sales', 'SalesController@index');
+
+    // Sales Dashboard
     Route::get('/sales', 'SalesController@index');
+
+    // Users
+    Route::get('/sales/users', 'UserController@index')->name('users');
+
+    // Produk
+    Route::get('/sales/products', 'ProdukController@index')->name('products');
+    Route::put('/sales/products/update/{id}', 'ProdukController@update')->name('products.update');
+
+    //Penjualan
+    Route::get('/sales/penjualans', 'PenjualanController@index')->name('penjualans');
+    Route::put('/sales/penjualans/update/{id}', 'PenjualanController@update')->name('penjualans.update');
+
+    //Laporan
+    Route::get('/sales/laporans', 'LaporanController@index')->name('laporans');
+    Route::post('/sales/laporans/insert', 'LaporanController@insert')->name('laporans.insert');
+    Route::put('/sales/laporans/update/{id}', 'LaporanController@update')->name('laporans.update');
+    */
 });
 
 Route::group(['middleware' => 'checkRole:customer'], function () {
