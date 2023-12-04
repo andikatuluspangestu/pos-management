@@ -50,4 +50,10 @@ class Categories extends Model
     {
         return self::where('category_id', $id)->delete();
     }
+
+    // Count Data Kategori
+    public static function countCategoriesData()
+    {
+        return self::count();
+    }
 }

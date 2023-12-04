@@ -16,7 +16,7 @@ Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 Route::group(['middleware' => 'checkRole:admin'], function () {
 
     // Admin Dashboard
-    Route::get('/admin', 'AdminController@index');
+    Route::get('/admin', 'AdminController@index')->name('admin');
 
     // Kategori
     Route::get('/admin/categories', 'CategoriesController@index')->name('categories');

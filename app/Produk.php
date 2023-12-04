@@ -54,8 +54,15 @@ class Produk extends Model
         return self::where('id_produk', $id)->delete();
     }
 
+    // Relasi One to Many
     public function tbl_categories()
     {
         return $this->belongsTo('App\Categories', 'category_id');
+    }
+
+    // Count Data Produk
+    public static function countProductsData()
+    {
+        return self::count();
     }
 }
