@@ -30,4 +30,10 @@ class User extends Authenticatable
     {
         return self::where('role', 'sales')->get();
     }
+
+    // Menampilkan semua data pengguna yang memiliki role customer
+    public static function getAllCustomers()
+    {
+        return self::where('role', 'customer')->get();
+    }
 }
