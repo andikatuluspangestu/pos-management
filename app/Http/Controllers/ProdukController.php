@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Tbl_Produk;
+use App\Produk;
 use App\Categories;
 
 class ProdukController extends Controller
@@ -11,7 +11,7 @@ class ProdukController extends Controller
     // Index Page
     public function index()
     {
-        $data = Tbl_Produk::getAll();
+        $data = Produk::getAll();
         $categories = Categories::getall();
         return view('admin.products.list', compact('data', 'categories'));
     }
@@ -24,14 +24,14 @@ class ProdukController extends Controller
             'produk_description' => $request->produk_description,
         ];
 
-        Tbl_Produk::insert($data);
+        Produk::insert($data);
         return redirect()->route('products')->with('success', 'Data berhasil ditambahkan');
     }
 
     // Delete Data
     public function delete($id)
     {
-        Tbl_Produk::deleteData($id);
+        Produk::deleteData($id);
         return redirect()->route('products')->with('success', 'Data berhasil dihapus');
     }
 
@@ -43,7 +43,7 @@ class ProdukController extends Controller
             'produk_description' => $request->produk_description,
         ];
 
-        Tbl_Produk::updateData($id, $data);
+        Produk::updateData($id, $data);
         return redirect()->route('products')->with('success', 'Data berhasil diupdate');
     }
 }

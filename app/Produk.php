@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Tbl_Produk extends Model
+class Produk extends Model
 {
     // Inisialisasi Tabel
     protected $table = 'tbl_produk';
