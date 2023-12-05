@@ -6,11 +6,6 @@
     <div class="table-responsive shadow-sm p-3">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-        <button type="button" class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#addCategoryModal">
-          <i class="fas fa-plus"></i>
-          Tambah Produk
-        </button>
-
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{ session('success') }}
@@ -55,10 +50,6 @@
               <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editProductModal{{ $product->id_produk }}">
                 <i class="fas fa-edit"></i>
                 Edit
-              </button>
-              <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteProductModal{{ $product->id_produk }}">
-                <i class="fas fa-trash"></i>
-                Delete
               </button>
             </td>
           </tr>
