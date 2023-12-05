@@ -40,7 +40,7 @@ Route::group(['middleware' => 'checkRole:admin'], function () {
 });
 
 Route::group(['middleware' => 'checkRole:sales'], function () {
-    /*Route::get('/sales', 'SalesController@index');
+    Route::get('/sales', 'SalesController@index');
 
     // Sales Dashboard
     Route::get('/sales', 'SalesController@index');
@@ -60,7 +60,7 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
     Route::get('/sales/laporans', 'LaporanController@index')->name('laporans');
     Route::post('/sales/laporans/insert', 'LaporanController@insert')->name('laporans.insert');
     Route::put('/sales/laporans/update/{id}', 'LaporanController@update')->name('laporans.update');
-    */
+    
 });
 
 Route::group(['middleware' => 'checkRole:customer'], function () {
