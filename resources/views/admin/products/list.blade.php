@@ -105,7 +105,11 @@
               @method('PUT')
               <div class="form-group">
                 <label for="category_name">Nama Kategori</label>
-                <input type="text" class="form-control" id="category_name" name="category_name" placeholder="Masukkan Nama Kategori" value="{{ $product->nama_produk }}">
+                <select class="form-control" name="category_id" id="category_id" required="required">
+                  @foreach ($categories as $category)
+                      <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
+                  @endforeach
+                </select>
               </div>
               <div class="form-group">
                 <label for="kode_produk">Kode Produk</label>
