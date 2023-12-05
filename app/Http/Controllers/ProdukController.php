@@ -9,12 +9,27 @@ use App\Categories;
 class ProdukController extends Controller
 {
     // Index Page
-    public function index()
+    public function index(Request $request)
     {
         $data = Produk::getAll();
         $categories = Categories::getall();
-        return view('admin.products.list', compact('data', 'categories'));
+
+        $role = $request->user()->role;
+
+        $view = 'admin.products.list';
+        if ($role === 'sales') {
+            $view = 'sales.products.list';
+        }
+
+        return view($view, compact('data', 'categories'));
     }
+
+    /*public function indexSales()
+    {
+        $data = Produk::getAll();
+        $categories = Categories::getall();
+        return view('sales.products.list', compact('data', 'categories'));
+    }*/
 
     // Insert Data
     public function insert(Request $request)
