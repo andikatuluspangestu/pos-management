@@ -47,8 +47,14 @@ class ProdukController extends Controller
     public function update(Request $request, $id)
     {
         $data = [
+            'category_name' => $request->category_name,
+            'kode_produk' => $request->kode_produk,
             'nama_produk' => $request->nama_produk,
+            //'gambar' => $request->gambar,
             'produk_description' => $request->produk_description,
+            'diskon' => $request->diskon,
+            'harga_jual' => $request->harga_jual,
+            'stok' => $request->stok,
         ];
 
         Produk::updateData($id, $data);
