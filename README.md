@@ -9,7 +9,7 @@
 ---
 
 -   Andika Tulus Pangestu
--   Yulianti Putri
+-   Yulyanti Putri
 -   Eka Prasetya Nugraha
 -   Hafizhul Qisti Muhammad
 -   Anhar Mukhlis
