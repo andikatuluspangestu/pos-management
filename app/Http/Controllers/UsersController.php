@@ -8,10 +8,26 @@ use App\User;
 class UsersController extends Controller
 {
   // Menampilkan Data Sales
-  public function getSales()
+  /*public function getSales()
   {
     $sales = User::getAllSales();
     return view('admin.users.sales.list', compact('sales'));
+  }*/
+  public function getSales(Request $request)
+  {
+    $sales = User::getAllSales();
+    $role = $request->user()->role;
+
+    switch ($role) {
+      case 'admin':
+        return view('admin.users.sales.list', compact('sales'));
+      case 'sales':
+        return view('sales.users.sales.list', compact('sales'));
+      case 'customer':
+        return view('customer.users.sales.list', compact('sales'));
+      default:
+        return abort(403, 'You are not authorized to view this page.');
+    }
   }
 
   // Menampilkan Form Insert Sales
