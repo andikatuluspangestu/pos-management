@@ -41,11 +41,7 @@
             <td>{{ $data->email }}</td>
             <td>{{ $data->created_at }}</td>
             <td>
-              <!-- Edit Modal Button -->
-              <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#editSalesModal{{ $data->id }}">
-                <i class="fas fa-edit"></i>
-                Edit
-              </button>
+
 
               <!-- Detail Modal Button -->
               <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#detailSalesModal{{ $data->id }}">
@@ -53,11 +49,7 @@
                 Detail
               </button>
 
-              <!-- Delete -->
-              <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteSalesModal{{ $data->id }}">
-                <i class="fas fa-trash"></i>
-                Delete
-              </button>
+
             </td>
           </tr>
           @endforeach
