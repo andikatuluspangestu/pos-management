@@ -1,8 +1,8 @@
       <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
         <!-- Sidebar - Brand -->
+        @if (Auth::user()->role == 'admin')
         <a class="sidebar-brand my-3 d-flex align-items-center justify-content-center" href="index.html">
-
           <div class="sidebar-brand-icon rotate-n-15">
             {{-- Sales Icon --}}
             <i class="fas fa-shopping-cart"></i>
@@ -11,6 +11,28 @@
             @yield('title', 'POS Management')
           </div>
         </a>
+        @elseif (Auth::user()->role == 'sales')
+        <a class="sidebar-brand my-3 d-flex align-items-center justify-content-center" href="index.html">
+          <div class="sidebar-brand-icon rotate-n-15">
+            {{-- Sales Icon --}}
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <div class="sidebar-brand-text mx-3">
+            @yield('title', 'POS Management')
+          </div>
+        </a>
+        @elseif (Auth::user()->role == 'customer')
+        <a class="sidebar-brand my-3 d-flex align-items-center justify-content-center" href="{{route('customer')}}">
+          <div class="sidebar-brand-icon rotate-n-15">
+            {{-- Sales Icon --}}
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+          <div class="sidebar-brand-text mx-3">
+            @yield('title', 'POS Management')
+          </div>
+        </a>
+        @endif
+        
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
@@ -119,19 +141,28 @@
 
         <!-- Nav Item - Report -->
         <li class="nav-item">
-        @if (Auth::user()->role == 'admin')
-        <a class="nav-link" href="charts.html">
+          @if (Auth::user()->role == 'admin')
+          <a class="nav-link" href="charts.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Penjualan</span></a>
-        @elseif (Auth::user()->role == 'sales')
-        <a class="nav-link" href="charts.html">
+          @elseif (Auth::user()->role == 'sales')
+          <a class="nav-link" href="charts.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Penjualan</span></a>
-        @elseif (Auth::user()->role == 'customer')
-        <a class="nav-link" href="{{route('purchase')}}">
+          @elseif (Auth::user()->role == 'customer')
+          <a class="nav-link" href="{{route('keranjang')}}">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Keranjang</span>
+          </a>
+          <a class="nav-link" href="{{route('pemesanan')}}">
+            <i class="fas fa-list"></i>
+            <span>Pemesanan</span>
+          </a>
+          <a class="nav-link" href="{{route('pembelian')}}">
             <i class="fas fa-fw fa-table"></i>
-            <span>Pembelian</span></a>
-        @endif
+            <span>Pembelian</span>
+          </a>
+          @endif
         </li>
 
         <!-- Divider -->
