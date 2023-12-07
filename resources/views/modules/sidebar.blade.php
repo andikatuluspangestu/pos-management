@@ -62,7 +62,7 @@
             <div class="bg-white py-2 collapse-inner rounded">
               <!-- <a class="collapse-item" href="utilities-color.html">Administrator</a> -->
               <a class="collapse-item" href="{{ route('sales') }}">Sales</a>
-              <a class="collapse-item" href="utilities-animation.html">Customers</a>
+              <a class="collapse-item" href="{{ route('customers') }}">Customers</a>
             </div>
           </div>
         </li>
