@@ -918,7 +918,7 @@
     <div class="container">
       <div class="row footer-top">
         <div class="col-md-3 col-12">
-          <img src="assets/img/others/logo.jpg" alt="Logo" class="d-inline-block mb-3 align-text-top logo-brand">
+          <img src="{{asset('img/others/logo.jpg')}}" alt="Logo" class="d-inline-block mb-3 align-text-top logo-brand">
           <p>
             Produk Kuliner Indonesia
           </p>
