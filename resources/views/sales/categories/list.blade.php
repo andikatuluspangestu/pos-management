@@ -6,11 +6,6 @@
     <div class="table-responsive shadow-sm p-3">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-        <button type="button" class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#addCategoryModal">
-          <i class="fas fa-plus"></i>
-          Tambah Kategori
-        </button>
-
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{ session('success') }}
@@ -24,7 +19,6 @@
           <tr>
             <th scope="col">ID</th>
             <th scope="col">Nama Kategori</th>
-            <th scope="col">Aksi</th>
           </tr>
         </thead>
         <tbody>
@@ -32,16 +26,6 @@
           <tr>
             <td>{{ $category->category_id }}</td>
             <td>{{ $category->category_name }}</td>
-            <td>
-              <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editCategoryModal{{ $category->category_id }}">
-                <i class="fas fa-edit"></i>
-                Edit
-              </button>
-              <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteCategoryModal{{ $category->category_id }}">
-                <i class="fas fa-trash"></i>
-                Delete
-              </button>
-            </td>
           </tr>
           @endforeach
         </tbody>
