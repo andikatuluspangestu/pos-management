@@ -8,7 +8,7 @@
 
         <button type="button" class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#addCategoryModal">
           <i class="fas fa-plus"></i>
-          Tambah Produk
+          Tambah Laporan
         </button>
 
         @if(session('success'))
@@ -23,40 +23,38 @@
         <thead>
           <tr>
             <th scope="col">ID</th>
-            <th scope="col">Nama Kategori</th>
-            <th scope="col">Kode Produk</th>
+            <th scope="col">ID User</th>
+            <th scope="col">ID Produk</th>
+            <th scope="col">Nama User</th>
             <th scope="col">Nama Produk</th>
             <th scope="col">Gambar</th>
-            <th scope="col">Deskripsi Produk</th>
-            <th scope="col">Diskon</th>
-            <th scope="col">Harga Jual</th>
             <th scope="col">Stok</th>
             <th scope="col">Aksi</th>
           </tr>
         </thead>
         <tbody>
-          @foreach($data as $product)
+          @foreach($data as $laporan)
           <tr>
-            <td>{{ $product->id_produk }}</td>
-            <td>{{ $product->tbl_categories->category_name }}</td>
-            <td>{{ $product->kode_produk }}</td>
-            <td>{{ $product->nama_produk }}</td>
+            <td>{{ $laporan->id_produk }}</td>
+            <td>{{ $laporan->tbl_categories->category_name }}</td>
+            <td>{{ $laporan->kode_produk }}</td>
+            <td>{{ $laporan->nama_produk }}</td>
             <td>
               <picture>
-                <source srcset="{{ asset('img/products/' . $product->gambar) }}" type="image/jpeg">
-                <img src="{{ asset('img/products/' . $product->gambar) }}" class="img-fluid img-thumbnail" alt="...">
+                <source srcset="{{ asset('img/products/' . $laporan->gambar) }}" type="image/jpeg">
+                <img src="{{ asset('img/products/' . $laporan->gambar) }}" class="img-fluid img-thumbnail" alt="...">
               </picture>
             </td>
-            <td>{{ $product->produk_description }}</td>
-            <td>{{ $product->diskon }}</td>
-            <td>{{ $product->harga_jual }}</td>
-            <td>{{ $product->stok }}</td>
+            <td>{{ $laporan->produk_description }}</td>
+            <td>{{ $laporan->diskon }}</td>
+            <td>{{ $laporan->harga_jual }}</td>
+            <td>{{ $laporan->stok }}</td>
             <td>
-              <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editProductModal{{ $product->id_produk }}">
+              <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editProductModal{{ $laporan->id_produk }}">
                 <i class="fas fa-edit"></i>
                 Edit
               </button>
-              <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteProductModal{{ $product->id_produk }}">
+              <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteProductModal{{ $laporan->id_produk }}">
                 <i class="fas fa-trash"></i>
                 Delete
               </button>
@@ -67,40 +65,40 @@
       </table>
     </div>
 
-    @foreach($data as $product)
+    @foreach($data as $laporan)
     <!-- Delete Category Modal -->
-    <div class="modal fade" id="deleteProductModal{{ $product->id_produk }}" tabindex="-1" aria-labelledby="deleteProductModal{{ $product->id_produk }}" aria-hidden="true">
+    <div class="modal fade" id="deleteProductModal{{ $laporan->id_produk }}" tabindex="-1" aria-labelledby="deleteProductModal{{ $laporan->id_produk }}" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="deleteProductModal{{ $product->id_produk }}">Hapus Data Produk</h5>
+            <h5 class="modal-title" id="deleteProductModal{{ $laporan->id_produk }}">Hapus Data Produk</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            Apakah Anda yakin ingin menghapus produk {{ $product->nama_produk }}?
+            Apakah Anda yakin ingin menghapus produk {{ $laporan->nama_produk }}?
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            <a href="{{ route('products.delete', $product->id_produk) }}" class="btn btn-danger">Hapus</a>
+            <a href="{{ route('products.delete', $laporan->id_produk) }}" class="btn btn-danger">Hapus</a>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Edit Category Modal -->
-    <div class="modal fade" id="editProductModal{{ $product->id_produk }}" tabindex="-1" aria-labelledby="editCategoryModal{{ $product->id_produk }}" aria-hidden="true">
+    <div class="modal fade" id="editProductModal{{ $laporan->id_produk }}" tabindex="-1" aria-labelledby="editCategoryModal{{ $laporan->id_produk }}" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title{{ $product->id_produk }}" id="editProductModal{{ $product->id_produk }}">Edit Data Produk</h5>
+            <h5 class="modal-title{{ $laporan->id_produk }}" id="editProductModal{{ $laporan->id_produk }}">Edit Data Produk</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form action="{{ route('products.update', ['id' => $product->id_produk]) }}" method="post">
+            <form action="{{ route('products.update', ['id' => $laporan->id_produk]) }}" method="post">
               @csrf
               @method('PUT')
               <div class="form-group">
@@ -113,31 +111,31 @@
               </div>
               <div class="form-group">
                 <label for="kode_produk">Kode Produk</label>
-                <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk" value="{{ $product->kode_produk }}">
+                <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk" value="{{ $laporan->kode_produk }}">
               </div>
               <div class="form-group">
                 <label for="nama_produk">Nama Produk</label>
-                <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $product->nama_produk }}">
+                <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $laporan->nama_produk }}">
               </div> 
               <div class="form-group">
                 <label for="nama_produk">Gambar</label>
-                <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Masukkan Gambar" value="{{ $product->gambar }}">
+                <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Masukkan Gambar" value="{{ $laporan->gambar }}">
               </div>             
               <div class="form-group">
                 <label for="produk_description">Deskripsi Produk</label>
-                <textarea class="form-control" id="produk_description" name="produk_description" rows="3">{{ $product->produk_description }}</textarea>
+                <textarea class="form-control" id="produk_description" name="produk_description" rows="3">{{ $laporan->produk_description }}</textarea>
               </div>
               <div class="form-group">
                 <label for="diskon">Diskon</label>
-                <input type="text" class="form-control" id="diskon" name="diskon" placeholder="Masukkan diskon" value="{{ $product->diskon }}">
+                <input type="text" class="form-control" id="diskon" name="diskon" placeholder="Masukkan diskon" value="{{ $laporan->diskon }}">
               </div> 
               <div class="form-group">
                 <label for="harga_jual">Harga Jual</label>
-                <input type="text" class="form-control" id="harga_jual" name="harga_jual" placeholder="Masukkan Harga Jual" value="{{ $product->harga_jual }}">
+                <input type="text" class="form-control" id="harga_jual" name="harga_jual" placeholder="Masukkan Harga Jual" value="{{ $laporan->harga_jual }}">
               </div> 
               <div class="form-group">
                 <label for="stok">Stok</label>
-                <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $product->stok }}">
+                <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $laporan->stok }}">
               </div> 
           </div>
           <div class="modal-footer">
