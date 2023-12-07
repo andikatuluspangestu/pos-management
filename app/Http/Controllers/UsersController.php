@@ -112,10 +112,27 @@ class UsersController extends Controller
   }
 
   // Menampilkan Data Customers
-  public function getCustomers()
+  /*public function getCustomers()
   {
     $customers = User::getAllCustomers();
     return view('admin.users.customers.list', compact('customers'));
+  }*/
+
+  public function getCustomers(Request $request)
+  {
+    $customers = User::getAllCustomers();
+    $role = $request->user()->role;
+
+    switch ($role) {
+      case 'admin':
+        return view('admin.users.customers.list', compact('customers'));
+      case 'sales':
+        return view('sales.users.customers.list', compact('customers'));
+      case 'customer':
+        return view('customers.users.customers.list', compact('customers'));
+      default:
+        return abort(403, 'You are not authorized to view this page.');
+    }
   }
 
   // Menghitung Jumlah Data Customers
