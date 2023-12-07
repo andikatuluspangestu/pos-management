@@ -35,7 +35,7 @@
 
 
               <!-- Detail Modal Button -->
-              <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#detailSalesModal{{ $data->id }}">
+              <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#detailCustomersModal{{ $data->id }}">
                 <i class="fas fa-info"></i>
                 Detail
               </button>
@@ -47,13 +47,13 @@
         </tbody>
       </table>
 
-      <!-- Sales Modal Delete -->
+      <!-- Customers Modal Delete -->
       @foreach($customers as $data)
-      <div class="modal fade" id="deleteSalesModal{{ $data->id }}" tabindex="-1" aria-labelledby="deleteSalesModal{{ $data->id }}" aria-hidden="true">
+      <div class="modal fade" id="deleteCustomersModal{{ $data->id }}" tabindex="-1" aria-labelledby="deleteCustomersModal{{ $data->id }}" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title text-danger" id="deleteSalesModal{{ $data->id }}">Hapus Data Sales</h5>
+              <h5 class="modal-title text-danger" id="deleteCustomersModal{{ $data->id }}">Hapus Data Sales</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">
                   <i class="fas fa-times"></i>
@@ -74,15 +74,15 @@
         </div>
       </div>
       @endforeach
-      <!-- End Sales Modal Delete -->
+      <!-- End Customers Modal Delete -->
 
-      <!-- Sales Modal Edit -->
+      <!-- Customers Modal Edit -->
       @foreach($customers as $data)
-      <div class="modal fade" id="editSalesModal{{ $data->id }}" tabindex="-1" aria-labelledby="editSalesModal{{ $data->id }}" aria-hidden="true">
+      <div class="modal fade" id="editCustomersModal{{ $data->id }}" tabindex="-1" aria-labelledby="editCustomersModal{{ $data->id }}" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title text-warning" id="editSalesModal{{ $data->id }}">Edit Data Sales</h5>
+              <h5 class="modal-title text-warning" id="editCustomersModal{{ $data->id }}">Edit Data Sales</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">
                   <i class="fas fa-times"></i>
@@ -123,16 +123,16 @@
         </div>
       </div>
       @endforeach
-      <!-- End Sales Modal Edit -->
+      <!-- End Customers Modal Edit -->
 
-      <!-- Sales Modal Detail -->
-      <!-- Sales Modal Detail -->
+      <!-- Customers Modal Detail -->
+      <!-- Customers Modal Detail -->
       @foreach($customers as $data)
-      <div class="modal fade" id="detailSalesModal{{ $data->id }}" tabindex="-1" aria-labelledby="detailSalesModal{{ $data->id }}" aria-hidden="true">
+      <div class="modal fade" id="detailCustomersModal{{ $data->id }}" tabindex="-1" aria-labelledby="detailCustomersModal{{ $data->id }}" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h5 class="modal-title text-info" id="detailSalesModal{{ $data->id }}">Detail Data Sales</h5>
+              <h5 class="modal-title text-info" id="detailCustomersModal{{ $data->id }}">Detail Data Sales</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">
                   <i class="fas fa-times"></i>
@@ -167,7 +167,7 @@
         </div>
       </div>
       @endforeach
-      <!-- End Sales Modal Detail -->
+      <!-- End Customers Modal Detail -->
 
     </div>
   </div>

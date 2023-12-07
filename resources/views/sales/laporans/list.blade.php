@@ -6,7 +6,7 @@
     <div class="table-responsive shadow-sm p-3">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-        <button type="button" class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#addCategoryModal">
+        <button type="button" class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#addLaporanModal">
           <i class="fas fa-plus"></i>
           Tambah Laporan
         </button>
@@ -42,7 +42,7 @@
             <td>{{ $laporan->tbl_produk->nama_produk }}</td>
             <td>{{ $laporan->tbl_produk->stok }}</td>
             <td>
-              <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editProductModal{{ $laporan->id_produk }}">
+              <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editLaporanModal{{ $laporan->id_produk }}">
                 <i class="fas fa-edit"></i>
                 Edit
               </button>
@@ -55,12 +55,12 @@
 
     @foreach($data as $laporan)
 
-    <!-- Edit Category Modal -->
-    <div class="modal fade" id="editProductModal{{ $laporan->id_produk }}" tabindex="-1" aria-labelledby="editCategoryModal{{ $laporan->id_produk }}" aria-hidden="true">
+    <!-- Edit Laporan Modal -->
+    <div class="modal fade" id="editLaporanModal{{ $laporan->id_produk }}" tabindex="-1" aria-labelledby="editLaporanModal{{ $laporan->id_produk }}" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title{{ $laporan->id_produk }}" id="editProductModal{{ $laporan->id_produk }}">Edit Data Produk</h5>
+            <h5 class="modal-title{{ $laporan->id_produk }}" id="editLaporanModal{{ $laporan->id_produk }}">Edit Data Produk</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -117,12 +117,12 @@
 
     @endforeach
 
-    <!-- Add Category Modal -->
-    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModal" aria-hidden="true">
+    <!-- Add Laporan Modal -->
+    <div class="modal fade" id="addLaporanModal" tabindex="-1" aria-labelledby="addLaporanModal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addCategoryModal">Tambah Data Produk</h5>
+            <h5 class="modal-title" id="addLaporanModal">Tambah Data Produk</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>

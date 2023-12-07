@@ -59,7 +59,7 @@
     </div>
 
     @foreach($data as $product)
-    <!-- Delete Category Modal -->
+    <!-- Delete Product Modal -->
     <div class="modal fade" id="deleteProductModal{{ $product->id_produk }}" tabindex="-1" aria-labelledby="deleteProductModal{{ $product->id_produk }}" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -80,8 +80,8 @@
       </div>
     </div>
 
-    <!-- Edit Category Modal -->
-    <div class="modal fade" id="editProductModal{{ $product->id_produk }}" tabindex="-1" aria-labelledby="editCategoryModal{{ $product->id_produk }}" aria-hidden="true">
+    <!-- Edit Product Modal -->
+    <div class="modal fade" id="editProductModal{{ $product->id_produk }}" tabindex="-1" aria-labelledby="editProductModal{{ $product->id_produk }}" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -142,12 +142,12 @@
 
     @endforeach
 
-    <!-- Add Category Modal -->
-    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModal" aria-hidden="true">
+    <!-- Add Product Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addCategoryModal">Tambah Data Produk</h5>
+            <h5 class="modal-title" id="addProductModal">Tambah Data Produk</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
