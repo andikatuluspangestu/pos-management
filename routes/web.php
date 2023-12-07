@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 // Rute untuk halaman utama
@@ -69,5 +70,11 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
 });
 
 Route::group(['middleware' => 'checkRole:customer'], function () {
-    Route::get('/customer', 'CustomerController@index');
+    // customer Dashboard
+    Route::get('/customer', 'CustomerController@index')->name('customer');
+
+    // customer purchase
+    Route::get('/customer/purchase', 'CustomerController@create')->name('purchase');
+    Route::get('/customer/categories', 'CustomerController@categories')->name('categories');
+    Route::get('/customer/products', 'CustomerController@products')->name('products');
 });
