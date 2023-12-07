@@ -6,14 +6,6 @@
     <div class="table-responsive shadow-sm p-3">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-        <!-- Tombol Tambah Data -->
-        <div class="row">
-          <div class="col-md-12">
-            <a href="{{ route('sales.insert.add') }}" class="btn btn-sm btn-primary mb-3">
-              <i class="fas fa-plus"></i> Tambah Data
-            </a>
-          </div>
-        </div>
 
         @if(session('message'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
