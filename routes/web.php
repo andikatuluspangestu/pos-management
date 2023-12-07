@@ -64,7 +64,6 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
 
     //Laporan
     Route::get('/sales/laporans', 'LaporanController@index')->name('laporans');
-    Route::post('/sales/laporans/insert', 'LaporanController@insert')->name('laporans.insert');
     Route::put('/sales/laporans/update/{id}', 'LaporanController@update')->name('laporans.update');
     
 });
