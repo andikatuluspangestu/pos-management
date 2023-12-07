@@ -73,15 +73,11 @@ class CustomerController extends Controller
         return view('customer.keranjang');
     }
 
-    public function pemesanan()
+    public function transaksi()
     {
-        return view('customer.pemesanan');
+        return view('customer.transaksi');
     }
 
-    public function pembelian()
-    {
-        return view('customer.pembelian');
-    }
 
     /**
      * Store a newly created resource in storage.
