@@ -530,7 +530,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card shadow border-0">
                 <div class="card-header border-0">
-                  <img src="assets/img/products/inspirasi/rawon.jpeg" class="card-img-top img-fluid" alt="rawon">
+                  <img src="{{asset('img/products/inspirasi/rawon.jpeg')}}" class="card-img-top img-fluid" alt="rawon">
                 </div>
                 <div class="card-body inspirasi-detail">
                   <p class="publish-date" id="current-date">Senin, 10 Oktober 2022</p>
@@ -545,7 +545,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card inspirasi-card shadow border-0">
                 <div class="card-header">
-                  <img src="assets/img/products/inspirasi/ayam.jpg" class="card-img-top img-fluid" alt="ayam">
+                  <img src="{{asset('img/products/inspirasi/ayam.jpg')}}" class="card-img-top img-fluid" alt="ayam">
                 </div>
                 <div class="card-body inspirasi-artikel">
                   <p class="publish-date" id="current-date">
@@ -564,7 +564,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card inspirasi-card shadow border-0">
                 <div class="card-header">
-                  <img src="assets/img/products/inspirasi/nasgorr.png" class="card-img-top img-fluid" alt="nasgor">
+                  <img src="{{asset('img/products/inspirasi/nasgorr.png')}}" class="card-img-top img-fluid" alt="nasgor">
                 </div>
                 <div class="card-body inspirasi-artikel">
                   <p class="publish-date" id="current-date">
@@ -583,7 +583,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card inspirasi-card shadow border-0">
                 <div class="card-header">
-                  <img src="assets/img/products/inspirasi/telur.jpg" class="card-img-top img-fluid" alt="telur">
+                  <img src="{{asset('img/products/inspirasi/telur.jpg')}}" class="card-img-top img-fluid" alt="telur">
                 </div>
                 <div class="card-body inspirasi-artikel">
                   <p class="publish-date" id="current-date">
@@ -602,7 +602,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card inspirasi-card shadow border-0">
                 <div class="card-header">
-                  <img src="assets/img/products/inspirasi/mie.jpg" class="card-img-top img-fluid" alt="mie">
+                  <img src="{{asset('img/products/inspirasi/mie.jpg')}}" class="card-img-top img-fluid" alt="mie">
                 </div>
                 <div class="card-body inspirasi-artikel">
                   <p class="publish-date" id="current-date">
@@ -621,7 +621,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card inspirasi-card shadow border-0">
                 <div class="card-header">
-                  <img src="assets/img/products/inspirasi/hariraya.jpeg" class="card-img-top img-fluid" alt="mie">
+                  <img src="{{asset('img/products/inspirasi/hariraya.jpeg')}}" class="card-img-top img-fluid" alt="mie">
                 </div>
                 <div class="card-body inspirasi-artikel">
                   <p class="publish-date" id="current-date">
