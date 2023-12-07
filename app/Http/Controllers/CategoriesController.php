@@ -8,10 +8,23 @@ use App\Categories;
 class CategoriesController extends Controller
 {
     // Index Page
-    public function index()
+    /*public function index()
     {
         $data = Categories::getAll();
         return view('admin.categories.list', compact('data'));
+    }*/
+
+    public function index(Request $request)
+    {
+        $data = Categories::getAll();
+        $role = $request->user()->role;
+
+        $view = 'admin.categories.list';
+        if ($role === 'sales') {
+            $view = 'sales.categories.list';
+        }
+
+        return view($view, compact('data'));
     }
 
     // Insert Data
