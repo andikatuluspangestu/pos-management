@@ -154,13 +154,9 @@
             <i class="fas fa-shopping-cart"></i>
             <span>Keranjang</span>
           </a>
-          <a class="nav-link" href="{{route('pemesanan')}}">
+          <a class="nav-link" href="{{route('transaksi')}}">
             <i class="fas fa-list"></i>
-            <span>Pemesanan</span>
-          </a>
-          <a class="nav-link" href="{{route('pembelian')}}">
-            <i class="fas fa-fw fa-table"></i>
-            <span>Pembelian</span>
+            <span>Transaksi</span>
           </a>
           @endif
         </li>
