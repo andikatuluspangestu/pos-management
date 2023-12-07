@@ -151,7 +151,7 @@
               <div class="modal-dialog modal-dialog-scrollable modal-lg modal-fullscreen-lg-down modal-fullscreen-md-down modal-fullscreen-sm-down">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <img src="assets/img/products/resep/rrawon.jpg" class="img-fluid rounded">
+                    <img src="{{asset('img/products/resep/rrawon.jpg')}}" class="img-fluid rounded">
                     <br>
                     <p class="product-detail text-start">
                       <strong>Bumbu Masak Umik varian Rawon</strong> yang khusus dibuat untuk memasak Rawon.
@@ -212,7 +212,7 @@
               <div class="modal-dialog modal-dialog-scrollable modal-lg modal-fullscreen-lg-down modal-fullscreen-md-down modal-fullscreen-sm-down">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <img src="assets/img/products/resep/rsblgoreng.jpg" class="img-fluid rounded">
+                    <img src="{{asset('img/products/resep/rsblgoreng.jpg')}}" class="img-fluid rounded">
                     <br>
                     <p class="product-detail text-start">
                       <strong>Bumbu Masak Umik varian Sambal Goreng</strong> yang khusus dibuat untuk memasak sambal
@@ -274,7 +274,7 @@
               <div class="modal-dialog modal-dialog-scrollable modal-lg modal-fullscreen-lg-down modal-fullscreen-md-down modal-fullscreen-sm-down">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <img src="assets/img/products/resep/rnasgor.jpg" class="img-fluid rounded">
+                    <img src="{{asset('img/products/resep/rnasgor.jpg')}}" class="img-fluid rounded">
                     <br>
                     <p class="product-detail text-start">
                       <strong>Bumbu Masak Umik varian Nasi goreng</strong> yang khusus dibuat untuk memasak nasi goreng.
@@ -335,7 +335,7 @@
               <div class="modal-dialog modal-dialog-scrollable modal-lg modal-fullscreen-lg-down modal-fullscreen-md-down modal-fullscreen-sm-down">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <img src="assets/img/products/resep/rsop.jpg" class="img-fluid rounded">
+                    <img src="{{asset('img/products/resep/rsop.jpg')}}" class="img-fluid rounded">
                     <br>
                     <p class="product-detail text-start">
                       <strong>Bumbu Masak Umik varian Sayur Sop</strong> yang khusus dibuat untuk memasak sayur sop.
@@ -400,7 +400,7 @@
               <div class="modal-dialog modal-dialog-scrollable modal-lg modal-fullscreen-lg-down modal-fullscreen-md-down modal-fullscreen-sm-down">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <img src="assets/img/products/resep/ropor.jpg" class="img-fluid rounded">
+                    <img src="{{asset('img/products/resep/ropor.jpg')}}" class="img-fluid rounded">
                     <br>
                     <p class="product-detail text-start">
                       <strong>Bumbu Masak Umik varian Opor</strong> yang khusus dibuat untuk memasak opor.
@@ -465,7 +465,7 @@
               <div class="modal-dialog modal-dialog-scrollable modal-lg modal-fullscreen-lg-down modal-fullscreen-md-down modal-fullscreen-sm-down">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <img src="assets/img/products/resep/rsemur.jpg" class="img-fluid rounded">
+                    <img src="{{asset('img/products/resep/rsemur.jpg')}}" class="img-fluid rounded">
                     <br>
                     <p class="product-detail text-start">
                       <strong>Bumbu Masak Umik varian Gulai</strong> yang khusus dibuat untuk memasak gulai atau semur.
