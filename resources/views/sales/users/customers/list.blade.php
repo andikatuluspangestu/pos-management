@@ -18,14 +18,14 @@
         <thead>
           <tr>
             <th>No</th>
-            <th>Nama Sales</th>
+            <th>Nama Customers</th>
             <th>Email</th>
             <th>Register</th>
             <th>Aksi</th>
           </tr>
         </thead>
         <tbody>
-          @foreach($sales as $data)
+          @foreach($customers as $data)
           <tr>
             <td>{{ $loop->iteration }}</td>
             <td>{{ $data->name }}</td>
@@ -48,7 +48,7 @@
       </table>
 
       <!-- Sales Modal Delete -->
-      @foreach($sales as $data)
+      @foreach($customers as $data)
       <div class="modal fade" id="deleteSalesModal{{ $data->id }}" tabindex="-1" aria-labelledby="deleteSalesModal{{ $data->id }}" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -61,21 +61,14 @@
               </button>
             </div>
             <div class="modal-body">
-              Apakah Anda yakin ingin menghapus data sales <strong>{{ $data->name }}</strong>?
+              Apakah Anda yakin ingin menghapus data customers <strong>{{ $data->name }}</strong>?
             </div>
             <div class="modal-footer">
               <button class="btn btn-secondary" type="button" data-dismiss="modal">
                 <i class="fas fa-times"></i>
                 Batal
               </button>
-              <form action="{{ route('sales.delete', $data->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <button type="submit" class="btn btn-danger">
-                  <i class="fas fa-trash"></i>
-                  Hapus
-                </button>
-              </form>
+
             </div>
           </div>
         </div>
@@ -84,7 +77,7 @@
       <!-- End Sales Modal Delete -->
 
       <!-- Sales Modal Edit -->
-      @foreach($sales as $data)
+      @foreach($customers as $data)
       <div class="modal fade" id="editSalesModal{{ $data->id }}" tabindex="-1" aria-labelledby="editSalesModal{{ $data->id }}" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -134,7 +127,7 @@
 
       <!-- Sales Modal Detail -->
       <!-- Sales Modal Detail -->
-      @foreach($sales as $data)
+      @foreach($customers as $data)
       <div class="modal fade" id="detailSalesModal{{ $data->id }}" tabindex="-1" aria-labelledby="detailSalesModal{{ $data->id }}" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
