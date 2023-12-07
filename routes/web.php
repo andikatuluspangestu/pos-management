@@ -74,7 +74,11 @@ Route::group(['middleware' => 'checkRole:customer'], function () {
     Route::get('/customer', 'CustomerController@index')->name('customer');
 
     // customer purchase
-    Route::get('/customer/purchase', 'CustomerController@create')->name('purchase');
     Route::get('/customer/categories', 'CustomerController@categories')->name('categories');
     Route::get('/customer/products', 'CustomerController@products')->name('products');
+
+    // riwayat
+    Route::get('/customer/keranjang', 'CustomerController@keranjang')->name('keranjang');
+    Route::get('/customer/pemesanan', 'CustomerController@pemesanan')->name('pemesanan');
+    Route::get('/customer/pembelian', 'CustomerController@pembelian')->name('pembelian');
 });
