@@ -35,28 +35,16 @@
         <tbody>
           @foreach($data as $laporan)
           <tr>
-            <td>{{ $laporan->id_produk }}</td>
-            <td>{{ $laporan->tbl_categories->category_name }}</td>
-            <td>{{ $laporan->kode_produk }}</td>
-            <td>{{ $laporan->nama_produk }}</td>
-            <td>
-              <picture>
-                <source srcset="{{ asset('img/products/' . $laporan->gambar) }}" type="image/jpeg">
-                <img src="{{ asset('img/products/' . $laporan->gambar) }}" class="img-fluid img-thumbnail" alt="...">
-              </picture>
-            </td>
-            <td>{{ $laporan->produk_description }}</td>
-            <td>{{ $laporan->diskon }}</td>
-            <td>{{ $laporan->harga_jual }}</td>
-            <td>{{ $laporan->stok }}</td>
+            <td>{{ $laporan->id_laporan }}</td>
+            <td>{{ $laporan->users->id_user }}</td>
+            <td>{{ $laporan->tbl_produk->id_produk }}</td>
+            <td>{{ $laporan->users->name }}</td>
+            <td>{{ $laporan->tbl_produk->nama_produk }}</td>
+            <td>{{ $laporan->tbl_produk->stok }}</td>
             <td>
               <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#editProductModal{{ $laporan->id_produk }}">
                 <i class="fas fa-edit"></i>
                 Edit
-              </button>
-              <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteProductModal{{ $laporan->id_produk }}">
-                <i class="fas fa-trash"></i>
-                Delete
               </button>
             </td>
           </tr>
@@ -66,26 +54,6 @@
     </div>
 
     @foreach($data as $laporan)
-    <!-- Delete Category Modal -->
-    <div class="modal fade" id="deleteProductModal{{ $laporan->id_produk }}" tabindex="-1" aria-labelledby="deleteProductModal{{ $laporan->id_produk }}" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="deleteProductModal{{ $laporan->id_produk }}">Hapus Data Produk</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            Apakah Anda yakin ingin menghapus produk {{ $laporan->nama_produk }}?
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            <a href="{{ route('products.delete', $laporan->id_produk) }}" class="btn btn-danger">Hapus</a>
-          </div>
-        </div>
-      </div>
-    </div>
 
     <!-- Edit Category Modal -->
     <div class="modal fade" id="editProductModal{{ $laporan->id_produk }}" tabindex="-1" aria-labelledby="editCategoryModal{{ $laporan->id_produk }}" aria-hidden="true">
