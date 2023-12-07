@@ -45,6 +45,9 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
     // Sales Dashboard
     Route::get('/sales', 'SalesController@index');
 
+    // Kategori
+    Route::get('/sales/categories', 'CategoriesController@index')->name('categories');
+
     // Manage Sales Users
     Route::get('/sales/users/sales', 'UsersController@getSales')->name('sales');
 
