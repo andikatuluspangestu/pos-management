@@ -18,16 +18,17 @@
         <!-- Nav Item - Dashboard -->
         <li class="nav-item active">
           @if (Auth::user()->role == 'admin')
-            <a class="nav-link" href="{{ route('admin') }}">
+          <a class="nav-link" href="{{ route('admin') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
           @elseif (Auth::user()->role == 'sales')
-            <a class="nav-link" href="{{ route('sales') }}">
+          <a class="nav-link" href="{{ route('sales') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
-          @elseif (Auth::user()->role == 'customer')
+            @elseif (Auth::user()->role == 'customer')
             <a class="nav-link" href="{{ route('customer') }}">
-            <i class="fas fa-fw fa-tachometer-alt"></i>
-          @endif
+              <i class="fas fa-fw fa-tachometer-alt"></i>
+              <span>Dashboard</span></a>
+            @endif
         </li>
 
         <!-- Divider -->
@@ -40,6 +41,7 @@
 
         <!-- Nav Item - Pages Collapse Menu -->
         <li class="nav-item">
+          @if (Auth::user()->role == 'admin')
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Data Master</span>
@@ -50,10 +52,34 @@
               <a class="collapse-item" href="{{ route('categories') }}">Kategori</a>
             </div>
           </div>
+          @elseif (Auth::user()->role == 'sales')
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Data Master</span>
+          </a>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <a class="collapse-item" href="{{ route('products') }}">Produk</a>
+              <a class="collapse-item" href="{{ route('categories') }}">Kategori</a>
+            </div>
+          </div>
+          @elseif (Auth::user()->role == 'customer')
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Data Master</span>
+          </a>
+          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <a class="collapse-item" href="{{ route('products') }}">Produk</a>
+              <a class="collapse-item" href="{{ route('categories') }}">Kategori</a>
+            </div>
+          </div>
+          @endif
         </li>
 
         <!-- Manajemen Pengguna -->
         <li class="nav-item">
+          @if (Auth::user()->role == 'admin')
           <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
             <i class="fas fa-fw fa-user"></i>
             <span>Data Pengguna</span>
@@ -65,6 +91,22 @@
               <a class="collapse-item" href="{{ route('customers') }}">Customers</a>
             </div>
           </div>
+          @elseif (Auth::user()->role == 'sales')
+          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Data Pengguna</span>
+          </a>
+          <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+              <!-- <a class="collapse-item" href="utilities-color.html">Administrator</a> -->
+              <a class="collapse-item" href="{{ route('sales') }}">Sales</a>
+              <a class="collapse-item" href="{{ route('customers') }}">Customers</a>
+            </div>
+          </div>
+          @elseif (Auth::user()->role == 'customer')
+          <!-- none -->
+          @endif
+
         </li>
 
         <!-- Divider -->
@@ -77,9 +119,19 @@
 
         <!-- Nav Item - Report -->
         <li class="nav-item">
-          <a class="nav-link" href="charts.html">
+        @if (Auth::user()->role == 'admin')
+        <a class="nav-link" href="charts.html">
             <i class="fas fa-fw fa-table"></i>
             <span>Penjualan</span></a>
+        @elseif (Auth::user()->role == 'sales')
+        <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Penjualan</span></a>
+        @elseif (Auth::user()->role == 'customer')
+        <a class="nav-link" href="{{route('purchase')}}">
+            <i class="fas fa-fw fa-table"></i>
+            <span>Pembelian</span></a>
+        @endif
         </li>
 
         <!-- Divider -->
