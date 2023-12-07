@@ -28,7 +28,7 @@ class ProductSeeder extends Seeder
                 'category_name' => 'Gorengan',
                 'kode_produk' => $kodeproduk,
                 'nama_produk' => $produk,
-                'gambar' => 'rawon.jpg',
+                'gambar' => 'rawon.jpeg',
                 'produk_description' => 'Bumbu Masak Umik varian yang khusus dibuat untuk memasak beragam masakan',
                 'diskon' => 0.05,
                 'harga_jual' => 8000,
