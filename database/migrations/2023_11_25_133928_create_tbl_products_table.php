@@ -13,7 +13,7 @@ class CreateTblProductsTable extends Migration
      */
     public function up()
     {
-        Schema::create('tbl_produk', function (Blueprint $table) {
+        Schema::create('tbl_products', function (Blueprint $table) {
             $table->bigIncrements('id_produk');
             $table->unsignedInteger('category_id');
             $table->string('category_name', 100);
@@ -35,6 +35,6 @@ class CreateTblProductsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl_produk');
+        Schema::dropIfExists('tbl_products');
     }
 }
