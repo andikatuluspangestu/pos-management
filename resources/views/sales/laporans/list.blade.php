@@ -122,20 +122,29 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addLaporanModal">Tambah Data Produk</h5>
+            <h5 class="modal-title" id="addLaporanModal">Tambah Data Laporan</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form action="{{ route('products.insert') }}" method="POST">
+            <form action="{{ route('laporans.insert') }}" method="POST">
               @csrf
               
               <div class="form-group">
-                <label for="category_name">Nama Kategori</label>
-                <select class="form-control" name="category_id" id="category_id" required="required">
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
+                <label for="name">Nama User</label>
+                <select class="form-control" name="id" id="id" required="required">
+                    @foreach ($users as $user)
+                        <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="nama_produk">Nama Produk</label>
+                <select class="form-control" name="id_produk" id="id_produk" required="required">
+                    @foreach ($produks as $produk)
+                        <option value="{{ $produk->id_produk }}">{{ $produk->nama_produk }}</option>
                     @endforeach
                 </select>
               </div>
