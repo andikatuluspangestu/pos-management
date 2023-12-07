@@ -194,7 +194,7 @@
           <!-- Product : Sambal Goreng -->
           <div class="col">
             <div class="card" data-aos="fade-up">
-              <img src="{{ asset('img/products/sambalgoreng.jpg') }}" class="card-img-top img-fluid" alt="varian-sambalgoreng">
+              <img src="{{ asset('img/products/sambalgoreng.jpeg') }}" class="card-img-top img-fluid" alt="varian-sambalgoreng">
 
               <div class="card-body text-start">
                 <h5>Sambal Goreng</h5>
@@ -317,7 +317,7 @@
           <!-- Product : Sayur Sop -->
           <div class="col">
             <div class="card" data-aos="fade-up">
-              <img src="{{ asset('img/products/sop.jpg') }}" class="card-img-top img-fluid" alt="varian-sop">
+              <img src="{{ asset('img/products/sop.jpeg') }}" class="card-img-top img-fluid" alt="varian-sop">
 
               <div class="card-body text-start">
                 <h5>Sayur Sop</h5>
