@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Produk;
+use App\Categories;
 use Illuminate\Http\Request;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProdukController;
@@ -33,42 +35,32 @@ class CustomerController extends Controller
         return view('customer.index', $data);
     }
 
-    public function categories()
+    public function categories(Request $request)
     {
-        $countProducts      = ProdukController::countProductsData();
-        $countCategories    = CategoriesController::countCategoriesData();
-        $countSalesData     = UsersController::countSalesData();
-        $countCustomersData = UsersController::countCustomersData();
-        // $getLatestProducts  = ProdukController::getLatestProducts();
+        $data = Categories::getAll();
+        $role = $request->user()->role;
 
-        $data = [
-            'countProducts'      => $countProducts,
-            'countCategories'    => $countCategories,
-            'countSalesData'     => $countSalesData,
-            'countCustomersData' => $countCustomersData,
-            // 'getLatestProducts'  => $getLatestProducts,
-        ];
+        $view = 'customer.categories';
+        if ($role === 'sales') {
+            $view = 'sales.categories.list';
+        }
 
-        return view('customer.categories', $data);
+        return view($view, compact('data'));
     }
 
-    public function products()
+    public function products(Request $request)
     {
-        $countProducts      = ProdukController::countProductsData();
-        $countCategories    = CategoriesController::countCategoriesData();
-        $countSalesData     = UsersController::countSalesData();
-        $countCustomersData = UsersController::countCustomersData();
-        // $getLatestProducts  = ProdukController::getLatestProducts();
+        $data = Produk::getAll();
+        $categories = Categories::getall();
 
-        $data = [
-            'countProducts'      => $countProducts,
-            'countCategories'    => $countCategories,
-            'countSalesData'     => $countSalesData,
-            'countCustomersData' => $countCustomersData,
-            // 'getLatestProducts'  => $getLatestProducts,
-        ];
+        $role = $request->user()->role;
 
-        return view('customer.products', $data);
+        $view = 'customer.products';
+        if ($role === 'sales') {
+            $view = 'sales.products.list';
+        }
+
+        return view($view, compact('data', 'categories'));
     }
 
     /**
@@ -76,9 +68,19 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function keranjang()
     {
-        return view('customer.purchase');
+        return view('customer.keranjang');
+    }
+
+    public function pemesanan()
+    {
+        return view('customer.pemesanan');
+    }
+
+    public function pembelian()
+    {
+        return view('customer.pembelian');
     }
 
     /**
