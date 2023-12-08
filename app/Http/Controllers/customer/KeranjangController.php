@@ -7,8 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\ProdukController;
 use App\Categories;
+use App\PesaananDetails;
 
-class CartController extends Controller
+class KeranjangController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,15 +18,15 @@ class CartController extends Controller
      */
     public function index()
     {
-        $countProducts      = ProdukController::countProductsData();
+        $countProducts = ProdukController::countProductsData();
 
         $products = Produk::getAll();
-        // $categories = Categories::getall();
+        $categories = Categories::getall();
 
         $data = [
             'countProducts'      => $countProducts,
             'products' => $products,
-            // 'categories' => $categories
+            'categories' => $categories
 
         ];
 
@@ -40,7 +41,8 @@ class CartController extends Controller
      */
     public function create()
     {
-        //
+        $pesanan_details = PesaananDetails::getAll();
+        
     }
 
     /**
