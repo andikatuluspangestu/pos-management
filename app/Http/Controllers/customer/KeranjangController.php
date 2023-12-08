@@ -18,16 +18,14 @@ class KeranjangController extends Controller
      */
     public function index()
     {
-        $countProducts = ProdukController::countProductsData();
-
         $products = Produk::getAll();
-        $categories = Categories::getall();
+        $pesanan_details = PesaananDetails::getAll();
+
+        // $categories = Categories::getall();
 
         $data = [
-            'countProducts'      => $countProducts,
+            'pesanan_details' => $pesanan_details,
             'products' => $products,
-            'categories' => $categories
-
         ];
 
 
