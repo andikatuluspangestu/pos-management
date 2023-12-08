@@ -48,7 +48,7 @@ class CustomerController extends Controller
         return view($view, compact('data'));
     }
 
-    public function products(Request $request)
+    public function products()
     {
         $products = Produk::getAll();
         $categories = Categories::getall();
