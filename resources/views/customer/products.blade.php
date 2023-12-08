@@ -48,7 +48,7 @@
 
         @foreach($products as $product)
     
-        <!-- Edit Category Modal -->
+        <!-- Buy Category Modal -->
         <div class="modal fade" id="buyProductsModal{{ $product->id_produk }}" tabindex="-1" aria-labelledby="editCategoryModal{{ $product->id_produk }}" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">

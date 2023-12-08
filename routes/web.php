@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\customer\CartController;
+use App\Http\Controllers\customer\KeranjangController;
 
 // Rute untuk halaman utama
 Route::view('/', 'home.index');
@@ -79,6 +79,6 @@ Route::group(['middleware' => 'checkRole:customer'], function () {
     Route::get('/customer/products', 'CustomerController@products')->name('products');
 
     // riwayat
-    Route::get('/customer/keranjang', 'customer\CartController@index')->name('keranjang');
+    Route::get('/customer/keranjang', 'customer\KeranjangController@index')->name('keranjang');
     Route::get('/customer/transaksi', 'CustomerController@transaksi')->name('transaksi');
 });
