@@ -16,7 +16,6 @@ class CreateTblProductsTable extends Migration
         Schema::create('tbl_products', function (Blueprint $table) {
             $table->bigIncrements('id_produk');
             $table->unsignedInteger('category_id');
-            $table->string('category_name', 100);
             $table->string('kode_produk', 255)->unique();
             $table->string('nama_produk', 255)->unique(); 
             $table->string('gambar', 255);           

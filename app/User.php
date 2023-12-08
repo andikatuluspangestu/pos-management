@@ -48,4 +48,5 @@ class User extends Authenticatable
     {
         return self::where('role', 'customer')->count();
     }
+
 }
