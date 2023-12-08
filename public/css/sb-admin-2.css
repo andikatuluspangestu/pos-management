@@ -477,7 +477,7 @@ mark,
 }
 
 .img-fluid {
-  max-width: 100%;
+  max-width: 40%;
   height: auto;
 }
 
@@ -486,7 +486,7 @@ mark,
   background-color: #fff;
   border: 1px solid #dddfeb;
   border-radius: 0.35rem;
-  max-width: 100%;
+  max-width: 40%;
   height: auto;
 }
 
