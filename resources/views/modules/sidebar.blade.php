@@ -32,7 +32,7 @@
           </div>
         </a>
         @endif
-        
+
 
         <!-- Divider -->
         <hr class="sidebar-divider my-0">
@@ -86,16 +86,22 @@
             </div>
           </div>
           @elseif (Auth::user()->role == 'customer')
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+          <!-- <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
             <i class="fas fa-fw fa-chart-area"></i>
             <span>Data Master</span>
+          </a> -->
+
+          <a class="nav-link" href="{{route('products')}}">
+            <i class="fas fa-fw fa-chart-area"></i>
+            <span>Produk</span>
           </a>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+
+          <!-- <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <a class="collapse-item" href="{{ route('products') }}">Produk</a>
               <a class="collapse-item" href="{{ route('categories') }}">Kategori</a>
             </div>
-          </div>
+          </div> -->
           @endif
         </li>
 
