@@ -56,8 +56,8 @@ class PesaananDetails extends Model
     }
 
     // Relasi One to Many
-    public function tbl_categories()
+    public function produk()
     {
-        return $this->belongsTo('App\Produk', 'id_produk');
+        return $this->belongsTo(Produk::class, 'id_produk');
     }
 }
