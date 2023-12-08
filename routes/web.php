@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 
 // Rute untuk halaman utama
@@ -40,13 +41,19 @@ Route::group(['middleware' => 'checkRole:admin'], function () {
 });
 
 Route::group(['middleware' => 'checkRole:sales'], function () {
-    /*Route::get('/sales', 'SalesController@index');
+    Route::get('/sales', 'SalesController@index');
 
     // Sales Dashboard
     Route::get('/sales', 'SalesController@index');
 
-    // Users
-    Route::get('/sales/users', 'UserController@index')->name('users');
+    // Kategori
+    Route::get('/sales/categories', 'CategoriesController@index')->name('categories');
+
+    // Manage Sales Users
+    Route::get('/sales/users/sales', 'UsersController@getSales')->name('sales');
+
+    // Manage Customer Users
+    Route::get('/sales/users/customers', 'UsersController@getCustomers')->name('customers');
 
     // Produk
     Route::get('/sales/products', 'ProdukController@index')->name('products');
@@ -58,11 +65,19 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
 
     //Laporan
     Route::get('/sales/laporans', 'LaporanController@index')->name('laporans');
-    Route::post('/sales/laporans/insert', 'LaporanController@insert')->name('laporans.insert');
     Route::put('/sales/laporans/update/{id}', 'LaporanController@update')->name('laporans.update');
-    */
+    
 });
 
 Route::group(['middleware' => 'checkRole:customer'], function () {
-    Route::get('/customer', 'CustomerController@index');
+    // customer Dashboard
+    Route::get('/customer', 'CustomerController@index')->name('customer');
+
+    // customer purchase
+    Route::get('/customer/categories', 'CustomerController@categories')->name('categories');
+    Route::get('/customer/products', 'CustomerController@products')->name('products');
+
+    // riwayat
+    Route::get('/customer/keranjang', 'CustomerController@keranjang')->name('keranjang');
+    Route::get('/customer/transaksi', 'CustomerController@transaksi')->name('transaksi');
 });

@@ -6,11 +6,6 @@
     <div class="table-responsive shadow-sm p-3">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-        <button type="button" class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#addCategoryModal">
-          <i class="fas fa-plus"></i>
-          Tambah Produk
-        </button>
-
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{ session('success') }}
@@ -56,10 +51,6 @@
                 <i class="fas fa-edit"></i>
                 Edit
               </button>
-              <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteProductModal{{ $product->id_produk }}">
-                <i class="fas fa-trash"></i>
-                Delete
-              </button>
             </td>
           </tr>
           @endforeach
@@ -68,7 +59,7 @@
     </div>
 
     @foreach($data as $product)
-    <!-- Delete Category Modal -->
+    <!-- Delete Product Modal -->
     <div class="modal fade" id="deleteProductModal{{ $product->id_produk }}" tabindex="-1" aria-labelledby="deleteProductModal{{ $product->id_produk }}" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
@@ -89,8 +80,8 @@
       </div>
     </div>
 
-    <!-- Edit Category Modal -->
-    <div class="modal fade" id="editProductModal{{ $product->id_produk }}" tabindex="-1" aria-labelledby="editCategoryModal{{ $product->id_produk }}" aria-hidden="true">
+    <!-- Edit Product Modal -->
+    <div class="modal fade" id="editProductModal{{ $product->id_produk }}" tabindex="-1" aria-labelledby="editProductModal{{ $product->id_produk }}" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
@@ -118,11 +109,11 @@
               <div class="form-group">
                 <label for="nama_produk">Nama Produk</label>
                 <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $product->nama_produk }}">
-              </div>
+              </div> 
               <div class="form-group">
                 <label for="nama_produk">Gambar</label>
                 <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Masukkan Gambar" value="{{ $product->gambar }}">
-              </div>
+              </div>             
               <div class="form-group">
                 <label for="produk_description">Deskripsi Produk</label>
                 <textarea class="form-control" id="produk_description" name="produk_description" rows="3">{{ $product->produk_description }}</textarea>
@@ -130,15 +121,15 @@
               <div class="form-group">
                 <label for="diskon">Diskon</label>
                 <input type="text" class="form-control" id="diskon" name="diskon" placeholder="Masukkan diskon" value="{{ $product->diskon }}">
-              </div>
+              </div> 
               <div class="form-group">
                 <label for="harga_jual">Harga Jual</label>
                 <input type="text" class="form-control" id="harga_jual" name="harga_jual" placeholder="Masukkan Harga Jual" value="{{ $product->harga_jual }}">
-              </div>
+              </div> 
               <div class="form-group">
                 <label for="stok">Stok</label>
                 <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $product->stok }}">
-              </div>
+              </div> 
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -151,26 +142,26 @@
 
     @endforeach
 
-    <!-- Add Category Modal -->
-    <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModal" aria-hidden="true">
+    <!-- Add Product Modal -->
+    <div class="modal fade" id="addProductModal" tabindex="-1" aria-labelledby="addProductModal" aria-hidden="true">
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="addCategoryModal">Tambah Data Produk</h5>
+            <h5 class="modal-title" id="addProductModal">Tambah Data Produk</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body">
-            <form action="{{ route('products.insert') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('products.insert') }}" method="POST">
               @csrf
-
+              
               <div class="form-group">
-                <label for="category_id">Nama Kategori</label>
-                <select class="form-control" name="category_id" id="category_id" required>
-                  @foreach ($categories as $category)
-                  <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
-                  @endforeach
+                <label for="category_name">Nama Kategori</label>
+                <select class="form-control" name="category_id" id="category_id" required="required">
+                    @foreach ($categories as $category)
+                        <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
+                    @endforeach
                 </select>
               </div>
 
@@ -182,7 +173,7 @@
                 <label for="nama_produk">Nama Produk</label>
                 <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk">
               </div>
-              <div class="">
+              <div class="form-group">
                 <label for="gambar">Gambar</label>
                 <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Masukkan Gambar">
               </div>

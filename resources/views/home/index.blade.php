@@ -151,7 +151,7 @@
               <div class="modal-dialog modal-dialog-scrollable modal-lg modal-fullscreen-lg-down modal-fullscreen-md-down modal-fullscreen-sm-down">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <img src="assets/img/products/resep/rrawon.jpg" class="img-fluid rounded">
+                    <img src="{{asset('img/products/resep/rrawon.jpg')}}" class="img-fluid rounded">
                     <br>
                     <p class="product-detail text-start">
                       <strong>Bumbu Masak Umik varian Rawon</strong> yang khusus dibuat untuk memasak Rawon.
@@ -194,7 +194,7 @@
           <!-- Product : Sambal Goreng -->
           <div class="col">
             <div class="card" data-aos="fade-up">
-              <img src="{{ asset('img/products/sambalgoreng.jpg') }}" class="card-img-top img-fluid" alt="varian-sambalgoreng">
+              <img src="{{ asset('img/products/sambalgoreng.jpeg') }}" class="card-img-top img-fluid" alt="varian-sambalgoreng">
 
               <div class="card-body text-start">
                 <h5>Sambal Goreng</h5>
@@ -212,7 +212,7 @@
               <div class="modal-dialog modal-dialog-scrollable modal-lg modal-fullscreen-lg-down modal-fullscreen-md-down modal-fullscreen-sm-down">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <img src="assets/img/products/resep/rsblgoreng.jpg" class="img-fluid rounded">
+                    <img src="{{asset('img/products/resep/rsblgoreng.jpg')}}" class="img-fluid rounded">
                     <br>
                     <p class="product-detail text-start">
                       <strong>Bumbu Masak Umik varian Sambal Goreng</strong> yang khusus dibuat untuk memasak sambal
@@ -274,7 +274,7 @@
               <div class="modal-dialog modal-dialog-scrollable modal-lg modal-fullscreen-lg-down modal-fullscreen-md-down modal-fullscreen-sm-down">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <img src="assets/img/products/resep/rnasgor.jpg" class="img-fluid rounded">
+                    <img src="{{asset('img/products/resep/rnasgor.jpg')}}" class="img-fluid rounded">
                     <br>
                     <p class="product-detail text-start">
                       <strong>Bumbu Masak Umik varian Nasi goreng</strong> yang khusus dibuat untuk memasak nasi goreng.
@@ -317,7 +317,7 @@
           <!-- Product : Sayur Sop -->
           <div class="col">
             <div class="card" data-aos="fade-up">
-              <img src="{{ asset('img/products/sop.jpg') }}" class="card-img-top img-fluid" alt="varian-sop">
+              <img src="{{ asset('img/products/sop.jpeg') }}" class="card-img-top img-fluid" alt="varian-sop">
 
               <div class="card-body text-start">
                 <h5>Sayur Sop</h5>
@@ -335,7 +335,7 @@
               <div class="modal-dialog modal-dialog-scrollable modal-lg modal-fullscreen-lg-down modal-fullscreen-md-down modal-fullscreen-sm-down">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <img src="assets/img/products/resep/rsop.jpg" class="img-fluid rounded">
+                    <img src="{{asset('img/products/resep/rsop.jpg')}}" class="img-fluid rounded">
                     <br>
                     <p class="product-detail text-start">
                       <strong>Bumbu Masak Umik varian Sayur Sop</strong> yang khusus dibuat untuk memasak sayur sop.
@@ -400,7 +400,7 @@
               <div class="modal-dialog modal-dialog-scrollable modal-lg modal-fullscreen-lg-down modal-fullscreen-md-down modal-fullscreen-sm-down">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <img src="assets/img/products/resep/ropor.jpg" class="img-fluid rounded">
+                    <img src="{{asset('img/products/resep/ropor.jpg')}}" class="img-fluid rounded">
                     <br>
                     <p class="product-detail text-start">
                       <strong>Bumbu Masak Umik varian Opor</strong> yang khusus dibuat untuk memasak opor.
@@ -465,7 +465,7 @@
               <div class="modal-dialog modal-dialog-scrollable modal-lg modal-fullscreen-lg-down modal-fullscreen-md-down modal-fullscreen-sm-down">
                 <div class="modal-content">
                   <div class="modal-body">
-                    <img src="assets/img/products/resep/rsemur.jpg" class="img-fluid rounded">
+                    <img src="{{asset('img/products/resep/rsemur.jpg')}}" class="img-fluid rounded">
                     <br>
                     <p class="product-detail text-start">
                       <strong>Bumbu Masak Umik varian Gulai</strong> yang khusus dibuat untuk memasak gulai atau semur.
@@ -530,7 +530,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card shadow border-0">
                 <div class="card-header border-0">
-                  <img src="assets/img/products/inspirasi/rawon.jpeg" class="card-img-top img-fluid" alt="rawon">
+                  <img src="{{asset('img/products/inspirasi/rawon.jpeg')}}" class="card-img-top img-fluid" alt="rawon">
                 </div>
                 <div class="card-body inspirasi-detail">
                   <p class="publish-date" id="current-date">Senin, 10 Oktober 2022</p>
@@ -545,7 +545,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card inspirasi-card shadow border-0">
                 <div class="card-header">
-                  <img src="assets/img/products/inspirasi/ayam.jpg" class="card-img-top img-fluid" alt="ayam">
+                  <img src="{{asset('img/products/inspirasi/ayam.jpg')}}" class="card-img-top img-fluid" alt="ayam">
                 </div>
                 <div class="card-body inspirasi-artikel">
                   <p class="publish-date" id="current-date">
@@ -564,7 +564,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card inspirasi-card shadow border-0">
                 <div class="card-header">
-                  <img src="assets/img/products/inspirasi/nasgorr.png" class="card-img-top img-fluid" alt="nasgor">
+                  <img src="{{asset('img/products/inspirasi/nasgorr.png')}}" class="card-img-top img-fluid" alt="nasgor">
                 </div>
                 <div class="card-body inspirasi-artikel">
                   <p class="publish-date" id="current-date">
@@ -583,7 +583,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card inspirasi-card shadow border-0">
                 <div class="card-header">
-                  <img src="assets/img/products/inspirasi/telur.jpg" class="card-img-top img-fluid" alt="telur">
+                  <img src="{{asset('img/products/inspirasi/telur.jpg')}}" class="card-img-top img-fluid" alt="telur">
                 </div>
                 <div class="card-body inspirasi-artikel">
                   <p class="publish-date" id="current-date">
@@ -602,7 +602,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card inspirasi-card shadow border-0">
                 <div class="card-header">
-                  <img src="assets/img/products/inspirasi/mie.jpg" class="card-img-top img-fluid" alt="mie">
+                  <img src="{{asset('img/products/inspirasi/mie.jpg')}}" class="card-img-top img-fluid" alt="mie">
                 </div>
                 <div class="card-body inspirasi-artikel">
                   <p class="publish-date" id="current-date">
@@ -621,7 +621,7 @@
             <div class="col-md-6 col-lg-4">
               <div class="card inspirasi-card shadow border-0">
                 <div class="card-header">
-                  <img src="assets/img/products/inspirasi/hariraya.jpeg" class="card-img-top img-fluid" alt="mie">
+                  <img src="{{asset('img/products/inspirasi/hariraya.jpeg')}}" class="card-img-top img-fluid" alt="mie">
                 </div>
                 <div class="card-body inspirasi-artikel">
                   <p class="publish-date" id="current-date">
@@ -918,7 +918,7 @@
     <div class="container">
       <div class="row footer-top">
         <div class="col-md-3 col-12">
-          <img src="assets/img/others/logo.jpg" alt="Logo" class="d-inline-block mb-3 align-text-top logo-brand">
+          <img src="{{asset('img/others/logo.jpg')}}" alt="Logo" class="d-inline-block mb-3 align-text-top logo-brand">
           <p>
             Produk Kuliner Indonesia
           </p>

@@ -16,14 +16,14 @@ class AdminController extends Controller
         $countCategories    = CategoriesController::countCategoriesData();
         $countSalesData     = UsersController::countSalesData();
         $countCustomersData = UsersController::countCustomersData();
-        $getLatestProducts  = ProdukController::getLatestProducts();
+        //$getLatestProducts  = ProdukController::getLatestProducts();
 
         $data = [
             'countProducts'      => $countProducts,
             'countCategories'    => $countCategories,
             'countSalesData'     => $countSalesData,
             'countCustomersData' => $countCustomersData,
-            'getLatestProducts'  => $getLatestProducts,
+            //'getLatestProducts'  => $getLatestProducts,
         ];
 
         return view('admin.index', $data);

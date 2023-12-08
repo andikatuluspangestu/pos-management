@@ -1,8 +1,9 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
-class ProdukSeeder extends Seeder
+class ProductSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -20,13 +21,14 @@ class ProdukSeeder extends Seeder
             'Gule',
         ];
 
+        $kodeproduk = 1111;
         foreach ($produks as $produk) {
-            DB::table('tbl_produk')->insert([
+            DB::table('tbl_products')->insert([
                 'category_id' => 1,
                 'category_name' => 'Gorengan',
-                'kode_produk' => 'P001',
+                'kode_produk' => $kodeproduk,
                 'nama_produk' => $produk,
-                'gambar' => 'rawon.jpg',
+                'gambar' => 'rawon.jpeg',
                 'produk_description' => 'Bumbu Masak Umik varian yang khusus dibuat untuk memasak beragam masakan',
                 'diskon' => 0.05,
                 'harga_jual' => 8000,
@@ -34,6 +36,7 @@ class ProdukSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
+            $kodeproduk += 1;
         }
     }
 }

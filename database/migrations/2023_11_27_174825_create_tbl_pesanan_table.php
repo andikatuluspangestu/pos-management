@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTblPesanansTable extends Migration
+class CreateTblPesananTable extends Migration
 {
     /**
      * Run the migrations.
@@ -35,6 +35,6 @@ class CreateTblPesanansTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tbl__pesanan');
+        Schema::dropIfExists('tbl_pesanan');
     }
 }
