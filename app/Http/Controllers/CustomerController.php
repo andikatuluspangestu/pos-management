@@ -50,17 +50,15 @@ class CustomerController extends Controller
 
     public function products(Request $request)
     {
-        $data = Produk::getAll();
+        $products = Produk::getAll();
         $categories = Categories::getall();
+        $data = [
+            'products' => $products,
+            'categories' => $categories
+        ];
 
-        $role = $request->user()->role;
 
-        $view = 'customer.products';
-        if ($role === 'sales') {
-            $view = 'sales.products.list';
-        }
-
-        return view($view, compact('data', 'categories'));
+        return view('customer.products', $data);
     }
 
     /**
@@ -68,10 +66,6 @@ class CustomerController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function keranjang()
-    {
-        return view('customer.keranjang');
-    }
 
     public function transaksi()
     {
