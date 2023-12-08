@@ -20,8 +20,14 @@ class ProdukController extends Controller
     public function insert(Request $request)
     {
         $data = [
-            'nama_produk' => $request->nama_produk,
-            'produk_description' => $request->produk_description,
+            'category_id'           => $request->category_id,
+            'kode_produk'           => $request->kode_produk,
+            'nama_produk'           => $request->nama_produk,
+            'gambar'                => $request->gambar,
+            'produk_description'    => $request->produk_description,
+            'diskon'                => $request->diskon,
+            'harga_jual'            => $request->harga_jual,
+            'stok'                  => $request->stok,
         ];
 
         Produk::insert($data);
@@ -51,5 +57,11 @@ class ProdukController extends Controller
     public static function countProductsData()
     {
         return Produk::countProductsData();
+    }
+
+    // Ambil Produk berdasarkan Waktu Input Terbaru
+    public static function getLatestProducts()
+    {
+        return Produk::getLatestProducts();
     }
 }

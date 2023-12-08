@@ -114,11 +114,11 @@
               <div class="form-group">
                 <label for="nama_produk">Nama Produk</label>
                 <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $product->nama_produk }}">
-              </div> 
+              </div>
               <div class="form-group">
                 <label for="nama_produk">Gambar</label>
                 <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Masukkan Gambar" value="{{ $product->gambar }}">
-              </div>             
+              </div>
               <div class="form-group">
                 <label for="produk_description">Deskripsi Produk</label>
                 <textarea class="form-control" id="produk_description" name="produk_description" rows="3">{{ $product->produk_description }}</textarea>
@@ -126,15 +126,15 @@
               <div class="form-group">
                 <label for="diskon">Diskon</label>
                 <input type="text" class="form-control" id="diskon" name="diskon" placeholder="Masukkan diskon" value="{{ $product->diskon }}">
-              </div> 
+              </div>
               <div class="form-group">
                 <label for="harga_jual">Harga Jual</label>
                 <input type="text" class="form-control" id="harga_jual" name="harga_jual" placeholder="Masukkan Harga Jual" value="{{ $product->harga_jual }}">
-              </div> 
+              </div>
               <div class="form-group">
                 <label for="stok">Stok</label>
                 <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $product->stok }}">
-              </div> 
+              </div>
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -158,15 +158,15 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="{{ route('products.insert') }}" method="POST">
+            <form action="{{ route('products.insert') }}" method="POST" enctype="multipart/form-data">
               @csrf
-              
+
               <div class="form-group">
-                <label for="category_name">Nama Kategori</label>
-                <select class="form-control" name="category_id" id="category_id" required="required">
-                    @foreach ($categories as $category)
-                        <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
-                    @endforeach
+                <label for="category_id">Nama Kategori</label>
+                <select class="form-control" name="category_id" id="category_id" required>
+                  @foreach ($categories as $category)
+                  <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
+                  @endforeach
                 </select>
               </div>
 
@@ -178,7 +178,7 @@
                 <label for="nama_produk">Nama Produk</label>
                 <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk">
               </div>
-              <div class="form-group">
+              <div class="">
                 <label for="gambar">Gambar</label>
                 <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Masukkan Gambar">
               </div>

@@ -15,7 +15,10 @@ class Produk extends Model
     // Inisialisasi nama field yang akan diisi
     protected $fillable = [
         'category_id',
+        'kode_produk',
+        'produk_description',
         'nama_produk',
+        'gambar',
         'diskon',
         'harga_jual',
         'stok',        
@@ -64,5 +67,20 @@ class Produk extends Model
     public static function countProductsData()
     {
         return self::count();
+    }
+
+    // Hitung Data Produk per-bulan
+    public static function countProductsDataPerMonth()
+    {
+        return self::selectRaw('MONTH(created_at) as month, YEAR(created_at) as year, COUNT(*) as count')
+        ->groupByRaw('YEAR(created_at), MONTH(created_at)')
+        ->orderByRaw('YEAR(created_at) DESC, MONTH(created_at) DESC')
+        ->get();
+    }
+
+    // Get Latest Data Produk
+    public static function getLatestProducts()
+    {
+        return self::orderBy('created_at', 'desc')->take(5)->get();
     }
 }
