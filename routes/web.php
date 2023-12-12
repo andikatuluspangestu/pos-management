@@ -80,5 +80,5 @@ Route::group(['middleware' => 'checkRole:customer'], function () {
 
     // riwayat
     Route::get('/customer/keranjang', 'customer\KeranjangController@index')->name('keranjang');
-    Route::get('/customer/transaksi', 'CustomerController@transaksi')->name('transaksi');
+    Route::get('/customer/transaksi', 'TransaksiController@index')->name('transaksi');
 });
