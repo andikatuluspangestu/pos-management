@@ -46,6 +46,7 @@
           @elseif (Auth::user()->role == 'sales')
           <a class="nav-link" href="{{ route('sales') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
+            <span>Dashboard</span></a>
             @elseif (Auth::user()->role == 'customer')
             <a class="nav-link" href="{{ route('customer') }}">
               <i class="fas fa-fw fa-tachometer-alt"></i>
