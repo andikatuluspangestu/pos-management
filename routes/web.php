@@ -45,16 +45,16 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
     Route::get('/sales', 'SalesController@index');
 
     // Sales Dashboard
-    Route::get('/sales', 'SalesController@index');
+    Route::get('/sales', 'SalesController@index')->name('salesdashboard');;
 
     // Kategori
     Route::get('/sales/categories', 'CategoriesController@index')->name('salescategories');
 
     // Manage Sales Users
-    Route::get('/sales/users/sales', 'UsersController@getSales')->name('sales');
+    Route::get('/sales/users/sales', 'UsersController@getSales')->name('salessales');
 
     // Manage Customer Users
-    Route::get('/sales/users/customers', 'UsersController@getCustomers')->name('customers');
+    Route::get('/sales/users/customers', 'UsersController@getCustomers')->name('salescustomers');
 
     // Produk
     Route::get('/sales/products', 'ProdukController@index')->name('salesproducts');

@@ -44,7 +44,7 @@
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
           @elseif (Auth::user()->role == 'sales')
-          <a class="nav-link" href="{{ route('sales') }}">
+          <a class="nav-link" href="{{ route('salesdashboard') }}">
             <i class="fas fa-fw fa-tachometer-alt"></i>
             <span>Dashboard</span></a>
             @elseif (Auth::user()->role == 'customer')
@@ -128,8 +128,8 @@
           <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
             <div class="bg-white py-2 collapse-inner rounded">
               <!-- <a class="collapse-item" href="utilities-color.html">Administrator</a> -->
-              <a class="collapse-item" href="{{ route('sales') }}">Sales</a>
-              <a class="collapse-item" href="{{ route('customers') }}">Customers</a>
+              <a class="collapse-item" href="{{ route('salessales') }}">Sales</a>
+              <a class="collapse-item" href="{{ route('salescustomers') }}">Customers</a>
             </div>
           </div>
           @elseif (Auth::user()->role == 'customer')
