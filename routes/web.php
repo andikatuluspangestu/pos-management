@@ -48,7 +48,7 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
     Route::get('/sales', 'SalesController@index');
 
     // Kategori
-    Route::get('/sales/categories', 'CategoriesController@index')->name('categories');
+    Route::get('/sales/categories', 'CategoriesController@index')->name('salescategories');
 
     // Manage Sales Users
     Route::get('/sales/users/sales', 'UsersController@getSales')->name('sales');
@@ -57,7 +57,7 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
     Route::get('/sales/users/customers', 'UsersController@getCustomers')->name('customers');
 
     // Produk
-    Route::get('/sales/products', 'ProdukController@index')->name('products');
+    Route::get('/sales/products', 'ProdukController@index')->name('salesproducts');
     Route::put('/sales/products/update/{id}', 'ProdukController@update')->name('products.update');
 
     //Penjualan
