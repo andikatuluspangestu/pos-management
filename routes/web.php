@@ -45,28 +45,29 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
     Route::get('/sales', 'SalesController@index');
 
     // Sales Dashboard
-    Route::get('/sales', 'SalesController@index');
+    Route::get('/sales', 'SalesController@index')->name('salesdashboard');;
 
     // Kategori
-    Route::get('/sales/categories', 'CategoriesController@index')->name('categories');
+    Route::get('/sales/categories', 'CategoriesController@index')->name('salescategories');
 
     // Manage Sales Users
-    Route::get('/sales/users/sales', 'UsersController@getSales')->name('sales');
+    Route::get('/sales/users/sales', 'UsersController@getSales')->name('salessales');
 
     // Manage Customer Users
-    Route::get('/sales/users/customers', 'UsersController@getCustomers')->name('customers');
+    Route::get('/sales/users/customers', 'UsersController@getCustomers')->name('salescustomers');
 
     // Produk
-    Route::get('/sales/products', 'ProdukController@index')->name('products');
-    Route::put('/sales/products/update/{id}', 'ProdukController@update')->name('products.update');
+    Route::get('/sales/products', 'ProdukController@index')->name('salesproducts');
+    Route::put('/sales/products/update/{id}', 'ProdukController@update')->name('salesproducts.update');
 
     //Penjualan
-    Route::get('/sales/penjualans', 'PenjualanController@index')->name('penjualans');
-    Route::put('/sales/penjualans/update/{id}', 'PenjualanController@update')->name('penjualans.update');
+    Route::get('/sales/penjualans', 'PenjualanController@index')->name('salespenjualans');
+    Route::put('/sales/penjualans/update/{id}', 'PenjualanController@update')->name('salespenjualans.update');
 
     //Laporan
-    Route::get('/sales/laporans', 'LaporanController@index')->name('laporans');
-    Route::put('/sales/laporans/update/{id}', 'LaporanController@update')->name('laporans.update');
+    Route::get('/sales/laporans', 'LaporanController@index')->name('saleslaporans');
+    Route::post('/sales/laporans/insert', 'LaporanController@insert')->name('saleslaporans.insert');
+    Route::put('/sales/laporans/update/{id}', 'LaporanController@update')->name('saleslaporans.update');
     
 });
 
@@ -80,5 +81,5 @@ Route::group(['middleware' => 'checkRole:customer'], function () {
 
     // riwayat
     Route::get('/customer/keranjang', 'customer\KeranjangController@index')->name('keranjang');
-    Route::get('/customer/transaksi', 'CustomerController@transaksi')->name('transaksi');
+    Route::get('/customer/transaksi', 'TransaksiController@index')->name('transaksi');
 });
