@@ -17,7 +17,7 @@
 
         <thead>
           <tr>
-            <th scope="col">ID</th>
+            <th scope="col">ID.</th>
             <th scope="col">Nama Kategori</th>
             <th scope="col">Kode Produk</th>
             <th scope="col">Nama Produk</th>
