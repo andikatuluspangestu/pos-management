@@ -7,21 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 class Laporan extends Model
 {
     // Inisialisasi Tabel
-    protected $table = 'tbl_products';
+    protected $table = 'tbl_laporan';
 
     // Inisialisasi Primary Key
-    protected $primaryKey = 'id_produk';
+    protected $primaryKey = 'id_laporan';
 
     // Inisialisasi nama field yang akan diisi
     protected $fillable = [
-        'category_id',
-        'kode_produk',
-        'produk_description',
+        'id_user',
+        'id_produk',
+        'name',
         'nama_produk',
-        'gambar',
-        'diskon',
-        'harga_jual',
-        'stok',        
+        'stok',   
     ];
 
     // Inisialisasi field created_at dan updated_at secara otomatis
@@ -36,7 +33,7 @@ class Laporan extends Model
     // Get Data By ID
     public static function getById($id)
     {
-        return self::where('id_produk', $id)->first();
+        return self::where('id_laporan', $id)->first();
     }
 
     // Insert Data
@@ -48,35 +45,34 @@ class Laporan extends Model
     // Update Data
     public static function updateData($id, $data)
     {
-        return self::where('id_produk', $id)->update($data);
+        return self::where('id_laporan', $id)->update($data);
     }
 
     // Delete Data
     public static function deleteData($id)
     {
-        return self::where('id_produk', $id)->delete();
+        return self::where('id_laporan', $id)->delete();
     }
 
     // Relasi One to Many
-    public function tbl_categories()
+    public function tbl_products()
     {
-        return $this->belongsTo('App\Categories', 'category_id');
+        return $this->belongsTo('App\Produk', 'id_produk');
     }
 
-    // Relasi One to Many
-    public function pesanandetails()
+    public function users()
     {
-        return $this->hasMany('App\PesananDetails', 'id_pesanan_detail');
+        return $this->belongsTo('App\Users', 'id');
     }
 
-    // Count Data Produk
-    public static function countProductsData()
+    // Count Data Laporan
+    public static function countLaporansData()
     {
         return self::count();
     }
 
-    // Hitung Data Produk per-bulan
-    public static function countProductsDataPerMonth()
+    // Hitung Data Laporan per-bulan
+    public static function countLaporansDataPerMonth()
     {
         return self::selectRaw('MONTH(created_at) as month, YEAR(created_at) as year, COUNT(*) as count')
         ->groupByRaw('YEAR(created_at), MONTH(created_at)')
@@ -84,8 +80,8 @@ class Laporan extends Model
         ->get();
     }
 
-    // Get Latest Data Produk
-    public static function getLatestProducts()
+    // Get Latest Data Laporan
+    public static function getLatestLaporans()
     {
         return self::orderBy('created_at', 'desc')->take(5)->get();
     }
