@@ -37,43 +37,40 @@ class LaporanController extends Controller
         ];
 
         Produk::insert($data);
-        return redirect()->route('products')->with('success', 'Data berhasil ditambahkan');
+        return redirect()->route('laporans')->with('success', 'Data berhasil ditambahkan');
     }
 
     // Delete Data
     public function delete($id)
     {
         Produk::deleteData($id);
-        return redirect()->route('products')->with('success', 'Data berhasil dihapus');
+        return redirect()->route('laporans')->with('success', 'Data berhasil dihapus');
     }
 
     // Update Data
     public function update(Request $request, $id)
     {
         $data = [
-            'category_name' => $request->category_name,
-            'kode_produk' => $request->kode_produk,
+            'id_user' => $request->id_user,
+            'id_produk' => $request->id_produk,
+            'name' => $request->name,
             'nama_produk' => $request->nama_produk,
-            //'gambar' => $request->gambar,
-            'produk_description' => $request->produk_description,
-            'diskon' => $request->diskon,
-            'harga_jual' => $request->harga_jual,
             'stok' => $request->stok,
         ];
 
         Produk::updateData($id, $data);
-        return redirect()->route('products')->with('success', 'Data berhasil diupdate');
+        return redirect()->route('laporans')->with('success', 'Data berhasil diupdate');
     }
 
     // Count Data Produk
-    public static function countProductsData()
+    public static function countLaporansData()
     {
-        return Produk::countProductsData();
+        return Laporan::countLaporansData();
     }
 
     // Ambil Produk berdasarkan Waktu Input Terbaru
-    public static function getLatestProducts()
+    public static function getLatestLaporans()
     {
-        return Produk::getLatestProducts();
+        return Laporan::getLatestLaporans();
     }
 }
