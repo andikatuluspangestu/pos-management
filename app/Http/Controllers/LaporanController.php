@@ -17,25 +17,22 @@ class LaporanController extends Controller
 
         $role = $request->user()->role;
 
-        $view = 'admin.products.list';
+        $view = 'admin.laporans.list';
         if ($role === 'sales') {
-            $view = 'sales.products.list';
+            $view = 'sales.laporans.list';
         }
 
-        return view($view, compact('data', 'categories'));
+        return view($view, compact('data', 'products', 'users'));
     }
 
     // Insert Data
     public function insert(Request $request)
     {
         $data = [
-            'category_id'           => $request->category_id,
-            'kode_produk'           => $request->kode_produk,
-            'nama_produk'           => $request->nama_produk,
-            'gambar'                => $request->gambar,
-            'produk_description'    => $request->produk_description,
-            'diskon'                => $request->diskon,
-            'harga_jual'            => $request->harga_jual,
+            'id_user'               => $request->id_user,
+            'id_produk'             => $request->id_produk,
+            'name'                  => $request->name,
+            'nama_produk'           => $request->nama_produk,            
             'stok'                  => $request->stok,
         ];
 
