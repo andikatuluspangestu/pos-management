@@ -25,7 +25,6 @@ class ProductSeeder extends Seeder
         foreach ($produks as $produk) {
             DB::table('tbl_products')->insert([
                 'category_id' => 1,
-                'category_name' => 'Gorengan',
                 'kode_produk' => $kodeproduk,
                 'nama_produk' => $produk,
                 'gambar' => 'rawon.jpeg',
