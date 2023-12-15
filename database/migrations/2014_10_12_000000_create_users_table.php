@@ -22,6 +22,13 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->string('role')->default('admin');
             $table->timestamps();
+
+            // Personal Data
+            $table->string('phone')->nullable();
+            $table->string('address')->nullable();
+            $table->string('city')->nullable();
+            $table->integer('postal_code')->nullable();
+            // $table->string('avatar')->nullable();
         });
     }
 
