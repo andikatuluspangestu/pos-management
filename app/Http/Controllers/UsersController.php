@@ -13,6 +13,7 @@ class UsersController extends Controller
     $sales = User::getAllSales();
     return view('admin.users.sales.list', compact('sales'));
   }*/
+  
   public function getSales(Request $request)
   {
     $sales = User::getAllSales();
