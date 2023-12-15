@@ -19,8 +19,8 @@
 ---
 
 -   [x] Manajemen Kategori Produk
--   [ ] Manajemen Produk
--   [ ] Manajemen Users
+-   [x] Manajemen Produk
+-   [x] Manajemen Users
 -   [ ] Transaksi
 -   [ ] Laporan Pendapatan
 -   [ ] Grafik ChartJS pada Dashboard
