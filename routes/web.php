@@ -39,8 +39,16 @@ Route::group(['middleware' => 'checkRole:admin'], function () {
     Route::get('/admin/users/sales/delete/{id}', 'UsersController@deleteSales')->name('sales.delete');
     Route::put('/admin/users/sales/update/{id}', 'UsersController@updateSales')->name('sales.update');
 
+    // Manage Customer Users
+    Route::get('/admin/users/customers', 'UsersController@getCustomers')->name('customers');
+    Route::get('/admin/users/customers/add', 'UsersController@insertCustomersForm')->name('customers.insert.add');
+    Route::post('/admin/users/customers/insert', 'UsersController@insertCustomers')->name('customers.insert');
+    Route::get('/admin/users/customers/delete/{id}', 'UsersController@deleteCustomers')->name('customers.delete');
+    Route::put('/admin/users/customers/update/{id}', 'UsersController@updateCustomers')->name('customers.update');
+
 });
 
+// Sales
 Route::group(['middleware' => 'checkRole:sales'], function () {
     Route::get('/sales', 'SalesController@index');
 
@@ -71,6 +79,7 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
     
 });
 
+// Customer
 Route::group(['middleware' => 'checkRole:customer'], function () {
     // customer Dashboard
     Route::get('/customer', 'CustomerController@index')->name('customer');
