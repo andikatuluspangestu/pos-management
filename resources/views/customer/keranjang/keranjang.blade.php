@@ -67,7 +67,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                    <a href="{{ route('products.delete', $pesanan_detail->id_pesanan_detail) }}" class="btn btn-danger">Hapus</a>
+                    <a href="{{ route('keranjang.delete', $pesanan_detail->id_pesanan_detail) }}" class="btn btn-danger">Hapus</a>
                 </div>
             </div>
         </div>
