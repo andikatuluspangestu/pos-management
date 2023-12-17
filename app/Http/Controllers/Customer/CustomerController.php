@@ -1,10 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Customer;
 
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 use App\Produk;
 use App\Categories;
-use Illuminate\Http\Request;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\CategoriesController;
@@ -58,7 +59,7 @@ class CustomerController extends Controller
         ];
 
 
-        return view('customer.products', $data);
+        return view('customer.product.products', $data);
     }
 
     /**

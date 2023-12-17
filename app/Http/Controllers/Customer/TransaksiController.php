@@ -1,9 +1,11 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\customer;
 
 use App\PesaananDetails;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
 
 class TransaksiController extends Controller
 {

@@ -5,8 +5,6 @@ namespace App\Http\Controllers\customer;
 use App\Produk;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\ProdukController;
-use App\Categories;
 use App\PesaananDetails;
 
 class KeranjangController extends Controller
@@ -29,7 +27,7 @@ class KeranjangController extends Controller
         ];
 
 
-        return view('customer.keranjang', $data);
+        return view('customer.keranjang.keranjang', $data);
     }
 
     /**
