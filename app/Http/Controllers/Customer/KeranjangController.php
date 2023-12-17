@@ -19,14 +19,20 @@ class KeranjangController extends Controller
     {
         $products = Produk::getAll();
         $pesanan_details = PesaananDetails::getAll();
+        $isEmpty = $pesanan_details->isEmpty();
 
 
-        $data = [
-            'pesanan_details' => $pesanan_details,
-            'products' => $products,
-        ];
+        if ($pesanan_details->isEmpty()) {
+            return view('customer.keranjang.keranjang', compact('pesanan_details', 'isEmpty'));
+        } else {
 
-        return view('customer.keranjang.keranjang', $data);
+            $data = [
+                'pesanan_details' => $pesanan_details,
+                'products' => $products,
+            ];
+
+            return view('customer.keranjang.keranjang', $data);
+        }
     }
 
     public function create(Request $request, $id)
@@ -51,10 +57,19 @@ class KeranjangController extends Controller
         return redirect('/customer/keranjang');
     }
 
-    public function delete(Request $request, $id)
+    public function delete($id)
     {
+        $produk = Produk::find($id);
         $keranjang = PesaananDetails::find($id);
+        $jumlah = $keranjang->jumlah;
 
+        $produk->update([
+            'stok' => $produk->stok += $jumlah
+        ]);
+
+        $keranjang->delete($id);
+
+        return redirect('/customer/keranjang');
     }
 
     public function show($id)
