@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\Customer;
+namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+
 use App\Produk;
 use App\Categories;
+use Illuminate\Http\Request;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\ProdukController;
 use App\Http\Controllers\CategoriesController;
@@ -39,8 +39,14 @@ class CustomerController extends Controller
     public function categories(Request $request)
     {
         $data = Categories::getAll();
+        $role = $request->user()->role;
 
-        return view('customer.customer.categories', compact('data'));
+        $view = 'customer.categories';
+        if ($role === 'sales') {
+            $view = 'sales.categories.list';
+        }
+
+        return view($view, compact('data'));
     }
 
     public function products()
