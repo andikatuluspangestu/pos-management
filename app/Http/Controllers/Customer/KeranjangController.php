@@ -51,9 +51,10 @@ class KeranjangController extends Controller
         return redirect('/customer/keranjang');
     }
 
-    public function store(Request $request)
+    public function delete(Request $request, $id)
     {
-        //
+        $keranjang = PesaananDetails::find($id);
+
     }
 
     public function show($id)

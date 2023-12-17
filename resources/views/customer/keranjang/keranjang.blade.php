@@ -40,7 +40,7 @@
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#buyProductsModal{{ $pesanan_detail->id_pesanan_detail }}">
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteKeranjang{{ $pesanan_detail->id_pesanan_detail }}">
                                 <i class="fas fa-shopping-cart"></i>
                                 ___
                             </button>
@@ -50,7 +50,27 @@
                 </tbody>
             </table>
         </div>
+    </div>
 
+    <!-- Delete Category Modal -->
+        <div class="modal fade" id="deleteKeranjang{{ $pesanan_detail->id_pesanan_detail }}" tabindex="-1" aria-labelledby="deleteKeranjang{{ $pesanan_detail->id_pesanan_detail }}" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="deleteKeranjang{{ $pesanan_detail->id_pesanan_detail }}">Hapus Data Keranjang</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    Apakah Anda yakin ingin menghapus pesanan {{ $pesanan_detail->produk->nama_produk }}?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                    <a href="{{ route('products.delete', $pesanan_detail->id_pesanan_detail) }}" class="btn btn-danger">Hapus</a>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
