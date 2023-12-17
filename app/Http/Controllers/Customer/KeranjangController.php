@@ -29,34 +29,26 @@ class KeranjangController extends Controller
         return view('customer.keranjang.keranjang', $data);
     }
 
-
     public function create(Request $request, $id)
     {
-        try {
-            $produk = Produk::find($id);
-            $harga_jual = $produk->harga_jual;
-            $diskon = $produk->diskon;
-            $stok = $produk->stok;
-    
-            PesaananDetails::create([
-                'id_produk' => $id,
-                'jumlah' => $request->stock,
-                'harga_jual' => $harga_jual,
-                'diskon' => $diskon,
-                'subtotal' => $harga_jual * $request->stock
-            ]);
-            
-            $produk->update([
-                'stok' => $stok -= $request->stock
-            ]);
-            
-    
-            return redirect('/customer/keranjang');
+        $produk = Produk::find($id);
+        $harga_jual = $produk->harga_jual;
+        $diskon = $produk->diskon;
+        $stok = $produk->stok;
 
-        } catch (\Throwable $th) {
-            throw $th;
-        }
+        PesaananDetails::create([
+            'id_produk' => $id,
+            'jumlah' => $request->stock,
+            'harga_jual' => $harga_jual,
+            'diskon' => $diskon,
+            'subtotal' => $harga_jual * $request->stock
+        ]);
 
+        $produk->update([
+            'stok' => $stok -= $request->stock
+        ]);
+
+        return redirect('/customer/keranjang');
     }
 
     public function store(Request $request)
