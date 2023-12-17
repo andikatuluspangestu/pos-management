@@ -59,9 +59,9 @@
                         </button>
                     </div>
                     <div class="modal-body">
-                        <form action="{{ route('products.update', ['id' => $product->id_produk]) }}" method="post">
+                        <form action="{{route('keranjang', $product->id_produk)}}" method="post">
                             @csrf
-                            @method('PUT')
+                            @method('post')
                             <div class="form-group">
                                 <label for="category_name">Nama Kategori</label>
                                 <input type="text" class="form-control" id="category_name" name="category_name"  value="{{ $product->category_name }}" readonly>
@@ -76,7 +76,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="diskon">Diskon</label>
-                                <input type="text" class="form-control" id="diskon" name="diskon" placeholder="Masukkan diskon" value="{{ $product->diskon }}">
+                                <input type="text" class="form-control" id="diskon" name="diskon" placeholder="Masukkan diskon" value="{{ $product->diskon }}" readonly>
                             </div>
                             <!-- <div class="form-group">
                                 <label for="total">Total Harga</label>
@@ -84,7 +84,7 @@
                             </div> -->
                             <div class="form-group">
                                 <label for="stok">Jumlah Pembelian</label>
-                                <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Jumlah" value="0">
+                                <input type="text" class="form-control" id="stok" name="stock" placeholder="Masukkan Jumlah" value="0">
                             </div>
                     </div>
                     <div class="modal-footer">
