@@ -89,8 +89,9 @@ Route::group(['middleware' => 'checkRole:customer'], function () {
     // customer purchase
     Route::get('/customer/categories', [CustomerController::class, 'categories'])->name('categories');
     Route::get('/customer/products', [CustomerController::class, 'products'])->name('products');
-
+    Route::post('/customer/products/{id}', [KeranjangController::class, 'create'])->name('keranjang');
+    
     // riwayat
-    Route::get('/customer/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
+    Route::get('/customer/keranjang', [KeranjangController::class, 'index'])->name('keranjang2');
     Route::get('/customer/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
 });
