@@ -59,8 +59,8 @@ class KeranjangController extends Controller
 
     public function delete($id)
     {
-        $produk = Produk::find($id);
         $keranjang = PesaananDetails::find($id);
+        $produk = Produk::find($keranjang->id_produk);
         $jumlah = $keranjang->jumlah;
 
         $produk->update([
@@ -68,6 +68,29 @@ class KeranjangController extends Controller
         ]);
 
         $keranjang->delete($id);
+
+        return redirect('/customer/keranjang');
+    }
+
+    public function update(Request $request, $id)
+    {
+        $keranjang = PesaananDetails::find($id);
+        $produk = Produk::find($keranjang->id_produk);
+        $jumlah = $keranjang->jumlah;
+        $jumlahNew = $request->stok;
+
+
+        $produkstok = $jumlah + $produk->stok - $jumlahNew;
+        if ($produkstok < 0) {
+            return redirect('/customer/keranjang');
+        }
+
+        $produk->update([
+            'stok' => $produkstok
+        ]);
+        $keranjang->update([
+            'jumlah' => $jumlahNew
+        ]);
 
         return redirect('/customer/keranjang');
     }
@@ -83,11 +106,6 @@ class KeranjangController extends Controller
         //
     }
 
-
-    public function update(Request $request, $id)
-    {
-        //
-    }
 
     public function destroy($id)
     {
