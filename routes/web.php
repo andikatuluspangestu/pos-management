@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\Customer\CustomerController;
 use App\Http\Controllers\customer\KeranjangController;
+use App\Http\Controllers\customer\TransaksiController;
 
 // Rute untuk halaman utama
 Route::view('/', 'home.index');
@@ -82,13 +84,14 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
 // Customer
 Route::group(['middleware' => 'checkRole:customer'], function () {
     // customer Dashboard
-    Route::get('/customer', 'CustomerController@index')->name('customer');
+    Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
 
     // customer purchase
-    Route::get('/customer/categories', 'CustomerController@categories')->name('categories');
-    Route::get('/customer/products', 'CustomerController@products')->name('products');
-
+    Route::get('/customer/categories', [CustomerController::class, 'categories'])->name('categories');
+    Route::get('/customer/products', [CustomerController::class, 'products'])->name('products');
+    Route::post('/customer/products/{id}', [KeranjangController::class, 'create'])->name('keranjang');
+    
     // riwayat
-    Route::get('/customer/keranjang', 'customer\KeranjangController@index')->name('keranjang');
-    Route::get('/customer/transaksi', 'TransaksiController@index')->name('transaksi');
+    Route::get('/customer/keranjang', [KeranjangController::class, 'index'])->name('keranjang2');
+    Route::get('/customer/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
 });

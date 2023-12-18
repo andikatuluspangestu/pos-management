@@ -3,11 +3,10 @@
 namespace App\Http\Controllers\customer;
 
 use App\Produk;
+use App\Pesanan;
+use App\PesaananDetails;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Http\Controllers\ProdukController;
-use App\Categories;
-use App\PesaananDetails;
 
 class KeranjangController extends Controller
 {
@@ -21,79 +20,67 @@ class KeranjangController extends Controller
         $products = Produk::getAll();
         $pesanan_details = PesaananDetails::getAll();
 
-        // $categories = Categories::getall();
 
         $data = [
             'pesanan_details' => $pesanan_details,
             'products' => $products,
         ];
 
-
-        return view('customer.keranjang', $data);
+        return view('customer.keranjang.keranjang', $data);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function create(Request $request, $id)
     {
-        $pesanan_details = PesaananDetails::getAll();
-        
+        try {
+            $produk = Produk::find($id);
+            $harga_jual = $produk->harga_jual;
+            $diskon = $produk->diskon;
+            $stok = $produk->stok;
+    
+            PesaananDetails::create([
+                'id_produk' => $id,
+                'jumlah' => $request->stock,
+                'harga_jual' => $harga_jual,
+                'diskon' => $diskon,
+                'subtotal' => $harga_jual * $request->stock
+            ]);
+            
+            $produk->update([
+                'stok' => $stok -= $request->stock
+            ]);
+            
+    
+            return redirect('/customer/keranjang');
+
+        } catch (\Throwable $th) {
+            throw $th;
+        }
+
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
