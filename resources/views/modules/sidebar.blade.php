@@ -146,7 +146,7 @@
                       <span>Penjualan</span>
                     </a>
                 @elseif (Auth::user()->role == 'sales')
-                    <a class="nav-link" href="charts.html">
+                    <a class="nav-link" href="{{ route('saleslaporans') }}">
                       <i class="fas fa-fw fa-table"></i>
                       <span>Penjualan</span>
                     </a>
