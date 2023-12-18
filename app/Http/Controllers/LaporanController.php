@@ -52,11 +52,11 @@ class LaporanController extends Controller
     public function update(Request $request, $id)
     {
         $data = [
-            'id_user' => $request->id_user,
-            'id_produk' => $request->id_produk,
-            'name' => $request->name,
-            'nama_produk' => $request->nama_produk,
-            'stok' => $request->stok,
+            'id_user'       => $request->id_user,
+            'id_produk'     => $request->id_produk,
+            'name'          => $request->name,
+            'nama_produk'   => $request->nama_produk,
+            'stok'          => $request->stok,
         ];
 
         Produk::updateData($id, $data);
