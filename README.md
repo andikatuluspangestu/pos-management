@@ -104,22 +104,13 @@
 14. Push ke repository
     
     ```bash
-    git push origin development
-    ```
-
-15. Merge ke repository utama (HANYA ADMIN)
-    
-    ```bash
-    git checkout main
-    git pull origin main
-    git merge development
     git push origin main
     ```
 
-16. Kembali ke branch development
+15. Lakukan Sync dengan Repository Utama
     
     ```bash
-    git checkout development
+    git pull
     ```
 
 ### **🗒 Catatan :**
