@@ -135,8 +135,8 @@
                       data-parent="#accordionSidebar">
                       <div class="bg-white py-2 collapse-inner rounded">
                           <!-- <a class="collapse-item" href="utilities-color.html">Administrator</a> -->
-                          <a class="collapse-item" href="{{ route('salessales') }}">Sales</a>
-                          <a class="collapse-item" href="{{ route('customer') }}">Customers</a>
+                          <a class="collapse-item" href="{{ route('sales') }}">Sales</a>
+                          <a class="collapse-item" href="{{ route('customers') }}">Customers</a>
                       </div>
                   </div>
               @elseif (Auth::user()->role == 'customer')

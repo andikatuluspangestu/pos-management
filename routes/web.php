@@ -59,10 +59,10 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
     Route::get('/sales/categories', 'CategoriesController@index')->name('salescategories');
 
     // Manage Sales Users
-    Route::get('/sales/users/sales', 'UsersController@getSales')->name('salessales');
+    Route::get('/sales/users/sales', 'UsersController@getSales')->name('sales');
 
     // Manage Customer Users
-    Route::get('/sales/users/customers', 'UsersController@getCustomers')->name('salescustomers');
+    Route::get('/sales/users/customers', 'UsersController@getCustomers')->name('customers');
 
     // Produk
     Route::get('/sales/products', 'ProdukController@index')->name('salesproducts');
