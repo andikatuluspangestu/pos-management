@@ -42,6 +42,10 @@ class KeranjangController extends Controller
         $diskon = $produk->diskon;
         $stok = $produk->stok;
 
+        if ($stok - $request->stock < 0) {
+            return redirect('/customer/products');
+        }
+
         PesaananDetails::create([
             'id_produk' => $id,
             'jumlah' => $request->stock,
