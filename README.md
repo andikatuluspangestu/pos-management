@@ -2,6 +2,8 @@
 
 ---
 
+![Preview Image](https://github.com/andikatuluspangestu/pos-management/blob/5ef41dd04e25c583df462a38b44c2798e57afa67/public/img/preview.png?raw=true)
+
 > Aplikasi POS atau point of sales adalah aplikasi yang digunakan untuk mengelola transaksi pada sebuah toko atau oleh kasir. Aplikasi ini dibuat menggunakan Laravel v5.8 dan minimal PHP v7.1 jadi apabila pada saat proses instalasi atau penggunaan terdapat error atau bug kemungkinan karena versi dari PHP yang tidak support.
 
 ### **🙇 Anggota Kelompok:**
