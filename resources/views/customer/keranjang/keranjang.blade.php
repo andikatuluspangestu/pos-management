@@ -117,7 +117,7 @@
                         </div>
                     </div>
 
-                    <!-- Delete Category Modal -->
+                    <!-- CHeckout Category Modal -->
                     <div class="modal fade" id="checkoutKeranjang{{ $pesanan->id_pesanan }}" tabindex="-1" aria-labelledby="checkoutKeranjang{{ $pesanan->id_pesanan }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">

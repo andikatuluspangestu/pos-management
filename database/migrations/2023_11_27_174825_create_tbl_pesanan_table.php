@@ -15,7 +15,7 @@ class CreateTblPesananTable extends Migration
     {
         Schema::create('tbl_pesanan', function (Blueprint $table) {
             $table->bigIncrements('id_pesanan');
-            $table->integer('id_user')->nullable();
+            $table->integer('id_user');
             $table->integer('id_produk');
             $table->integer('harga_jual');
             $table->integer('jumlah');

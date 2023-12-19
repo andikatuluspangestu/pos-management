@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\customer;
 
+use App\User;
 use App\Produk;
 use App\Pesanan;
 use App\PesaananDetails;
@@ -37,12 +38,16 @@ class KeranjangController extends Controller
         $diskon = $produk->diskon;
         $stok = $produk->stok;
 
+        $users      = User::getAllCustomers();
+        $id_user       = $request->user()->id;
+
         if ($stok - $request->stock < 0) {
             return redirect('/customer/products');
         }
 
         Pesanan::create([
             'id_produk' => $id,
+            'id_user' => $id_user,
             'jumlah' => $request->stock,
             'harga_jual' => $harga_jual,
             'diskon' => $diskon,

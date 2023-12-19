@@ -19,26 +19,24 @@
                 </thead>
                 <tbody>
                     <?php $id = 1; ?>
-                    @foreach($pesanan as $pesanan)
+                    @foreach($pesanan_detail as $pesanan_detail)
                     <tr>
                         <td>{{ $id++ }}</td>
-                        <td>{{ $pesanan->produk->nama_produk }}</td>
+                        <td>{{ $pesanan_detail->produk->nama_produk }}</td>
                         <td>
                             <picture>
-                                <img src="{{ asset('img/products/' . $pesanan->produk->gambar) }}" class="img-fluid img-thumbnail" alt="...">
+                                <img src="{{ asset('img/products/' . $pesanan_detail->produk->gambar) }}" class="img-fluid img-thumbnail" alt="...">
                             </picture>
                         </td>
-                        <td>{{ $pesanan->produk->harga_jual }}</td>
-                        <td>{{ $pesanan->produk->diskon }}</td>
-                        <td>{{ $pesanan->jumlah }}</td>
-                        <td>{{ $pesanan->subtotal }}</td>
+                        <td>{{ $pesanan_detail->harga_jual }}</td>
+                        <td>{{ $pesanan_detail->diskon }}</td>
+                        <td>{{ $pesanan_detail->jumlah }}</td>
+                        <td>{{ $pesanan_detail->subtotal }}</td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
-
-
 </div>
 @endsection
