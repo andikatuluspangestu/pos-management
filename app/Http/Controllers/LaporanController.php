@@ -13,8 +13,8 @@ class LaporanController extends Controller
     public function index(Request $request)
     {
         $data = Laporan::getAll();
-        $products = Produk::getall();
-        $users = User::getall();
+        $products = Produk::getAll();
+        $users = User::getAllSales();
 
         $role = $request->user()->role;
 

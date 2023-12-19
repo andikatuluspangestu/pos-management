@@ -59,7 +59,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title{{ $laporan->id_produk }}" id="editLaporanModal{{ $laporan->id_produk }}">Edit Data Produk</h5>
+            <h5 class="modal-title{{ $laporan->id_produk }}" id="editLaporanModal{{ $laporan->id_produk }}">Edit Data Laporan</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -111,7 +111,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="{{ route('laporans.insert') }}" method="POST">
+            <form action="{{ route('saleslaporans.insert') }}" method="POST">
               @csrf
               
               <div class="form-group">
