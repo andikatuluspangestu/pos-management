@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\customer;
 
+use App\Produk;
+use App\Pesanan;
 use App\PesaananDetails;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -9,35 +11,26 @@ use App\Http\Controllers\Controller;
 
 class TransaksiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
-        $data = PesaananDetails::getAll();
-        // $categories = Categories::getall();
+        $products = Produk::getAll();
+        $pesanan = Pesanan::getAll();
+        $isEmpty = $pesanan->isEmpty();
 
-        $role = $request->user()->role;
 
-        $view = 'customer.transaksi.index';
-        if ($role === 'customer') {
-            $view = 'customer.transaksi.index';
+        if ($pesanan->isEmpty()) {
+            return view('customer.keranjang.keranjang', compact('pesanan', 'isEmpty'));
+        } else {
+
+            $data = [
+                'pesanan' => $pesanan,
+                'products' => $products,
+            ];
+
+            return view('customer.transaksi.transaksi', $data);
         }
-
-        return view($view, compact('data'));
-        // return view($view, compact('data', 'categories'));
     }
-    // {
-    //     return view('customer.transaksi.index');
-    // }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         //

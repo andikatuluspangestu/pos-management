@@ -93,6 +93,6 @@ Route::group(['middleware' => 'checkRole:customer'], function () {
     Route::post('/customer/keranjang/checkout/{id}', [KeranjangController::class, 'checkout'])->name('keranjang.checkout');
     
     // riwayat
-    Route::get('/customer/keranjang', [KeranjangController::class, 'index'])->name('keranjang2');
+    Route::get('/customer/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
     Route::get('/customer/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
 });
