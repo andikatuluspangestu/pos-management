@@ -22,33 +22,33 @@
                 </thead>
                 <tbody>
                     <?php $id = 1; ?>
-                    @foreach($pesanan as $pesanan)
+                    @foreach($pesanan_details as $pesanan_detail)
                     <tr>
                         <td>{{ $id++ }}</td>
-                        <td>{{ $pesanan->produk->nama_produk }}</td>
+                        <td>{{ $pesanan_detail->produk->nama_produk }}</td>
                         <td>
                             <picture>
-                                <img src="{{ asset('img/products/' . $pesanan->produk->gambar) }}" class="img-fluid img-thumbnail" alt="...">
+                                <img src="{{ asset('img/products/' . $pesanan_detail->produk->gambar) }}" class="img-fluid img-thumbnail" alt="...">
                             </picture>
                         </td>
-                        <td>{{ $pesanan->produk->harga_jual }}</td>
-                        <td>{{ $pesanan->produk->diskon }}</td>
-                        <td>{{ $pesanan->jumlah }}</td>
-                        <td>{{ $pesanan->subtotal }}</td>
+                        <td>{{ $pesanan_detail->produk->harga_jual }}</td>
+                        <td>{{ $pesanan_detail->produk->diskon }}</td>
+                        <td>{{ $pesanan_detail->jumlah }}</td>
+                        <td>{{ $pesanan_detail->subtotal }}</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}">
+                            <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan_detail->id_pesanan_detail }}">
                                 <i class="fas fa-shopping-cart"></i>
                                 __u
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteKeranjang{{ $pesanan->id_pesanan }}">
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteKeranjang{{ $pesanan_detail->id_pesanan_detail }}">
                                 <i class="fas fa-shopping-cart"></i>
                                 __d
                             </button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="checkoutKeranjang{{ $pesanan->id_pesanan }}">
+                            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="checkoutKeranjang{{ $pesanan_detail->id_pesanan_detail }}">
                                 <i class="fas fa-shopping-cart"></i>
                                 __c
                             </button>
@@ -57,21 +57,21 @@
 
 
                     <!-- Delete Category Modal -->
-                    <div class="modal fade" id="deleteKeranjang{{ $pesanan->id_pesanan }}" tabindex="-1" aria-labelledby="deleteKeranjang{{ $pesanan->id_pesanan }}" aria-hidden="true">
+                    <div class="modal fade" id="deleteKeranjang{{ $pesanan_detail->id_pesanan_detail }}" tabindex="-1" aria-labelledby="deleteKeranjang{{ $pesanan_detail->id_pesanan_detail }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="deleteKeranjang{{ $pesanan->id_pesanan }}">Hapus Data Keranjang</h5>
+                                    <h5 class="modal-title" id="deleteKeranjang{{ $pesanan_detail->id_pesanan_detail }}">Hapus Data Keranjang</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    Apakah Anda yakin ingin menghapus pesanan {{ $pesanan->produk->nama_produk }}?
+                                    Apakah Anda yakin ingin menghapus pesanan {{ $pesanan_detail->produk->nama_produk }}?
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                    <a href="{{ route('keranjang.delete', $pesanan->id_pesanan) }}" class="btn btn-danger">Hapus</a>
+                                    <a href="{{ route('keranjang.delete', $pesanan_detail->id_pesanan_detail) }}" class="btn btn-danger">Hapus</a>
                                 </div>
                             </div>
                         </div>
@@ -79,33 +79,33 @@
 
 
                     <!-- Edit Keranjang Modal -->
-                    <div class="modal fade" id="updateKeranjang{{ $pesanan->id_pesanan }}" tabindex="-1" aria-labelledby="updateKeranjang{{ $pesanan->id_pesanan }}" aria-hidden="true">
+                    <div class="modal fade" id="updateKeranjang{{ $pesanan_detail->id_pesanan_detail }}" tabindex="-1" aria-labelledby="updateKeranjang{{ $pesanan_detail->id_pesanan_detail }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title{{ $pesanan->id_pesanan }}" id="updateKeranjang{{ $pesanan->id_pesanan }}">Edit Data Produk</h5>
+                                    <h5 class="modal-title{{ $pesanan_detail->id_pesanan_detail }}" id="updateKeranjang{{ $pesanan_detail->id_pesanan_detail }}">Edit Data Produk</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{ route('keranjang.update', ['id' => $pesanan->id_pesanan]) }}" method="post">
+                                    <form action="{{ route('keranjang.update', ['id' => $pesanan_detail->id_pesanan_detail]) }}" method="post">
                                         @csrf
                                         <div class="form-group">
                                             <label for="kode_produk">Kategori</label>
                                         </div>
                                         <div class="form-group">
                                             <label for="kode_produk">Nama Produk</label>
-                                            <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk" value="{{ $pesanan->produk->nama_produk }}" readonly>
+                                            <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk" value="{{ $pesanan_detail->produk->nama_produk }}" readonly>
                                         </div>
                                         <div class="form-group">
                                             <label for="nama_produk">Nama Produk</label>
-                                            <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $pesanan->produk->harga_jual }}" readonly>
+                                            <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $pesanan_detail->produk->harga_jual }}" readonly>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="stok">Stok</label>
-                                            <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $pesanan->jumlah }}">
+                                            <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $pesanan_detail->jumlah }}">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
@@ -118,33 +118,33 @@
                     </div>
 
                     <!-- Checkout Keranjang Modal -->
-                    <div class="modal fade" id="checkoutKeranjang{{ $pesanan->id_pesanan }}" tabindex="-1" aria-labelledby="checkoutKeranjang{{ $pesanan->id_pesanan }}" aria-hidden="true">
+                    <div class="modal fade" id="checkoutKeranjang{{ $pesanan_detail->id_pesanan_detail }}" tabindex="-1" aria-labelledby="checkoutKeranjang{{ $pesanan_detail->id_pesanan_detail }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title{{ $pesanan->id_pesanan }}" id="checkoutKeranjang{{ $pesanan->id_pesanan }}">Edit Data Produk</h5>
+                                    <h5 class="modal-title{{ $pesanan_detail->id_pesanan_detail }}" id="checkoutKeranjang{{ $pesanan_detail->id_pesanan_detail }}">Edit Data Produk</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    <form action="{{ route('keranjang.checkout', ['id' => $pesanan->id_pesanan]) }}" method="post">
+                                    <form action="{{ route('keranjang.checkout', ['id' => $pesanan_detail->id_pesanan_detail]) }}" method="post">
                                         @csrf
                                         <div class="form-group">
                                             <label for="kode_produk">Kategori</label>
                                         </div>
                                         <div class="form-group">
                                             <label for="kode_produk">Nama Produk</label>
-                                            <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk" value="{{ $pesanan->produk->nama_produk }}" readonly>
+                                            <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk" value="{{ $pesanan_detail->produk->nama_produk }}" readonly>
                                         </div>
                                         <div class="form-group">
                                             <label for="nama_produk">Nama Produk</label>
-                                            <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $pesanan->produk->harga_jual }}" readonly>
-                                        </div>
+                                            <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $pesanan_detail->produk->harga_jual }}" readonly>
+                                        </div>  
 
                                         <div class="form-group">
                                             <label for="stok">Stok</label>
-                                            <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $pesanan->jumlah }}">
+                                            <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $pesanan_detail->jumlah }}">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

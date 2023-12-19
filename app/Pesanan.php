@@ -4,24 +4,22 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class tbl_Pesanan extends Model
+class Pesanan extends Model
 {
     // Inisialisasi Tabel
     protected $table = 'tbl_pesanan';
 
     // Inisialisasi Primary Key
-    protected $primaryKey = 'id';
+    protected $primaryKey = 'id_pesanan';
 
     // Inisialisasi nama field yang akan diisi
     protected $fillable = [
         'id_user',
-        'total_item',
-        'total_harga',
+        'id_produk',
+        'harga_jual',
+        'jumlah',
         'diskon',
-        'bayar',
-        'diterima',
-        'kembali',
-        'status',
+        'subtotal',
     ];
 
     // Inisialisasi field created_at dan updated_at secara otomatis
