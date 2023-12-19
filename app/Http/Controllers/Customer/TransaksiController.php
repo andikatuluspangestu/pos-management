@@ -4,9 +4,9 @@ namespace App\Http\Controllers\customer;
 
 use App\Produk;
 use App\PesaananDetails;
+use App\Pesanan;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
 
 class TransaksiController extends Controller
 {
@@ -32,7 +32,21 @@ class TransaksiController extends Controller
 
     public function create(Request $request, $id)
     {
-        
+        $pesanan = Pesanan::find($id);
+        // $pesanan_detail = PesaananDetails::getAll();
+
+        PesaananDetails::create([
+            'id_user' => $pesanan->id_user,
+            'id_produk' => $pesanan->id_produk,
+            'jumlah' => $pesanan->jumlah,
+            'bayar' => $request->bayar,
+            'kembali' => 0,
+        ]);
+
+        $pesanan->delete($id);
+
+        return redirect('/customer/transaksi');
+
     }
     public function delete($id)
     {

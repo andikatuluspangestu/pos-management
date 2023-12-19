@@ -15,6 +15,8 @@
                         <th scope="col">Diskon</th>
                         <th scope="col">Jumlah</th>
                         <th scope="col">Subtotal</th>
+                        <th scope="col">Dibayar</th>
+                        <th scope="col">Kembalian</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -28,15 +30,19 @@
                                 <img src="{{ asset('img/products/' . $pesanan_detail->produk->gambar) }}" class="img-fluid img-thumbnail" alt="...">
                             </picture>
                         </td>
-                        <td>{{ $pesanan_detail->harga_jual }}</td>
-                        <td>{{ $pesanan_detail->diskon }}</td>
+                        <td>{{ $pesanan_detail->produk->harga_jual }}</td>
+                        <td>{{ $pesanan_detail->produk->diskon }}</td>
                         <td>{{ $pesanan_detail->jumlah }}</td>
-                        <td>{{ $pesanan_detail->subtotal }}</td>
+                        <td>{{ $pesanan_detail->produk->harga_jual * $pesanan_detail->jumlah }}</td>
+                        <td>{{ $pesanan_detail->bayar }}</td>
+                        <td>{{ $pesanan_detail->kembali }}</td>
                     </tr>
                     @endforeach
                 </tbody>
             </table>
         </div>
     </div>
+
+
 </div>
 @endsection

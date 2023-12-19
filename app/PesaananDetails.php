@@ -14,12 +14,11 @@ class PesaananDetails extends Model
 
     // Inisialisasi nama field yang akan diisi
     protected $fillable = [
-        'id_pesanan',
+        'id_user',
         'id_produk',
-        'harga_jual',
         'jumlah',
-        'diskon',
-        'subtotal',
+        'bayar',
+        'kembali',
     ];
 
     // Inisialisasi field created_at dan updated_at secara otomatis

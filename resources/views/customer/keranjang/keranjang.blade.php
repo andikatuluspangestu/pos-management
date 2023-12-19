@@ -117,26 +117,52 @@
                         </div>
                     </div>
 
-                    <!-- CHeckout Category Modal -->
+                    <!-- Checkout Keranjang Modal -->
                     <div class="modal fade" id="checkoutKeranjang{{ $pesanan->id_pesanan }}" tabindex="-1" aria-labelledby="checkoutKeranjang{{ $pesanan->id_pesanan }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="checkoutKeranjang{{ $pesanan->id_pesanan }}">Checkout Produk</h5>
+                                    <h5 class="modal-title{{ $pesanan->id_pesanan }}" id="checkoutKeranjang{{ $pesanan->id_pesanan }}">Edit Data Produk</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    Apakah Anda yakin ingin checkout pesanan {{ $pesanan->produk->nama_produk }}?
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                    <a href="{{ route('keranjang.checkout', $pesanan->id_pesanan) }}" class="btn btn-success">OK</a>
+                                    <form action="{{ route('keranjang.checkout', ['id' => $pesanan->id_pesanan]) }}" method="post">
+                                        @csrf
+                                        <div class="form-group">
+                                            <label for="kode_produk">Nama Produk</label>
+                                            <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk" value="{{ $pesanan->produk->nama_produk }}" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nama_produk">Nama Produk</label>
+                                            <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $pesanan->produk->harga_jual }}" readonly>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="stok">Stok</label>
+                                            <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $pesanan->jumlah }}" readonly>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="stok">Stok</label>
+                                            <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $pesanan->subtotal }}" readonly>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label for="bayar">Bayar</label>
+                                            <input type="text" class="form-control" id="bayar" name="bayar" placeholder="Masukkan TTunai" value=0>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                            <button class="btn btn-primary" type="submit">Submit</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+                    
 
 
                     @endforeach
