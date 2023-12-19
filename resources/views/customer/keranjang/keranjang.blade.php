@@ -5,19 +5,18 @@
     <div class="row">
         <div class="table-responsive shadow-sm p-3">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
                 <thead>
                     <tr>
                         <th scope="col">No</th>
                         <th scope="col">Nama Produk</th>
-                        <th scope="col">Gambar</th>
+                        <th scope="col" style="max-width: 250px;">Gambar</th>
                         <th scope="col">Harga</th>
                         <th scope="col">Diskon</th>
                         <th scope="col">Jumlah</th>
                         <th scope="col">Subtotal</th>
-                        <th scope="col">Edit</th>
-                        <th scope="col">Hapus</th>
-                        <th scope="col">Checkout</th>
+                        <th scope="col" style="max-width: 120px;">Option</th>
+                        <!-- <th scope="col">Hapus</th>
+                        <th scope="col">Checkout</th> -->
                     </tr>
 
                 </thead>
@@ -27,33 +26,24 @@
                     <tr>
                         <td>{{ $id++ }}</td>
                         <td>{{ $pesanan->produk->nama_produk }}</td>
-                        <td>
-                            <picture>
-                                <img src="{{ asset('img/products/' . $pesanan->produk->gambar) }}" class="img-fluid img-thumbnail" alt="...">
-                            </picture>
+                        <td style="max-width: 250px;">
+                            <img src="{{ asset('img/products/' . $pesanan->produk->gambar) }}" class="img-fluid img-thumbnail" style="max-width: 100%" alt="...">
                         </td>
                         <td>{{ $pesanan->produk->harga_jual }}</td>
                         <td>{{ $pesanan->produk->diskon }}</td>
                         <td>{{ $pesanan->jumlah }}</td>
                         <td>@currency($pesanan->subtotal)</td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}">
-                                <i class="fas fa-shopping-cart"></i>
-                                __u
-                            </button>
+                            <button class="button-30" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-pen"></i> Edit</button>
+                            <button class="button-30" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-trash"></i> Hapus</button>
+                            <button class="button-30" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-shopping-cart"></i> Checkout</button>
+                        </td>
+                        <!-- <td>
+                            <button class="button-30" type="button" data-toggle="modal" data-target="#deleteKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-trash"></i> Edit</button>
                         </td>
                         <td>
-                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteKeranjang{{ $pesanan->id_pesanan }}">
-                                <i class="fas fa-shopping-cart"></i>
-                                __d
-                            </button>
-                        </td>
-                        <td>
-                            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#checkoutKeranjang{{ $pesanan->id_pesanan }}">
-                                <i class="fas fa-shopping-cart"></i>
-                                __c
-                            </button>
-                        </td>
+                            <button class="button-30" type="button" data-toggle="modal" data-target="#checkoutKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-shopping-cart"></i>Checkout</button>
+                        </td> -->
                     </tr>
 
 

@@ -10,7 +10,7 @@
                     <tr>
                         <th scope="col">No</th>
                         <th scope="col">Nama Produk</th>
-                        <th scope="col">Gambar</th>
+                        <th scope="col" style="max-width: 250px;">Gambar</th>
                         <th scope="col">Harga</th>
                         <th scope="col">Diskon</th>
                         <th scope="col">Jumlah</th>
@@ -25,10 +25,8 @@
                     <tr>
                         <td>{{ $id++ }}</td>
                         <td>{{ $pesanan_detail->produk->nama_produk }}</td>
-                        <td>
-                            <picture>
-                                <img src="{{ asset('img/products/' . $pesanan_detail->produk->gambar) }}" class="img-fluid img-thumbnail" alt="...">
-                            </picture>
+                        <td style="max-width: 250   px;">
+                            <img src="{{ asset('img/products/' . $pesanan_detail->produk->gambar) }}" class="img-fluid img-thumbnail" style="max-width: 100%;" alt="...">
                         </td>
                         <td>{{ $pesanan_detail->produk->harga_jual }}</td>
                         <td>{{ $pesanan_detail->produk->diskon }}</td>
