@@ -33,9 +33,9 @@
                         <td>{{ $pesanan_detail->produk->harga_jual }}</td>
                         <td>{{ $pesanan_detail->produk->diskon }}</td>
                         <td>{{ $pesanan_detail->jumlah }}</td>
-                        <td>{{ $pesanan_detail->produk->harga_jual * $pesanan_detail->jumlah }}</td>
-                        <td>{{ $pesanan_detail->bayar }}</td>
-                        <td>{{ $pesanan_detail->kembali }}</td>
+                        <td>@currency($pesanan_detail->produk->harga_jual * $pesanan_detail->jumlah)</td>
+                        <td>@currency($pesanan_detail->bayar)</td>
+                        <td>@currency($pesanan_detail->kembali)</td>
                     </tr>
                     @endforeach
                 </tbody>

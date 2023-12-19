@@ -35,7 +35,7 @@
                         <td>{{ $pesanan->produk->harga_jual }}</td>
                         <td>{{ $pesanan->produk->diskon }}</td>
                         <td>{{ $pesanan->jumlah }}</td>
-                        <td>{{ $pesanan->subtotal }}</td>
+                        <td>@currency($pesanan->subtotal)</td>
                         <td>
                             <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}">
                                 <i class="fas fa-shopping-cart"></i>
