@@ -22,7 +22,7 @@
 
         <thead>
           <tr>
-            <th scope="col">ID</th>
+            <th scope="col">ID Laporan</th>
             <th scope="col">ID User</th>
             <th scope="col">ID Produk</th>
             <th scope="col">Nama User</th>
@@ -79,7 +79,7 @@
               <div class="form-group">
                 <label for="nama_produk">Nama Produk</label>
                 <select class="form-control" name="id_produk" id="id_produk" required="required">
-                    @foreach ($produks as $produk)
+                    @foreach ($products as $produk)
                         <option value="{{ $produk->id_produk }}">{{ $produk->nama_produk }}</option>
                     @endforeach
                 </select>
@@ -126,7 +126,7 @@
               <div class="form-group">
                 <label for="nama_produk">Nama Produk</label>
                 <select class="form-control" name="id_produk" id="id_produk" required="required">
-                    @foreach ($produks as $produk)
+                    @foreach ($products as $produk)
                         <option value="{{ $produk->id_produk }}">{{ $produk->nama_produk }}</option>
                     @endforeach
                 </select>
