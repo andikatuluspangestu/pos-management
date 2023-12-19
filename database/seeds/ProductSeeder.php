@@ -20,14 +20,22 @@ class ProductSeeder extends Seeder
             'Opor',
             'Gule',
         ];
+        $image = [
+            'rawon.jpeg',
+            'sambalgoreng.jpeg',
+            'nasgor.jpeg',
+            'sop.jpeg',
+            'opor.jpeg',
+            'gulai.jpeg',
+        ];
 
-        $kodeproduk = 1111;
+        $kodeproduk = 0;
         foreach ($produks as $produk) {
             DB::table('tbl_products')->insert([
                 'category_id' => 1,
                 'kode_produk' => $kodeproduk,
                 'nama_produk' => $produk,
-                'gambar' => 'rawon.jpeg',
+                'gambar' => $image[$kodeproduk],
                 'produk_description' => 'Bumbu Masak Umik varian yang khusus dibuat untuk memasak beragam masakan',
                 'diskon' => 0.05,
                 'harga_jual' => 8000,

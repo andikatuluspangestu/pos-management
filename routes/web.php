@@ -85,7 +85,11 @@ Route::group(['middleware' => 'checkRole:customer'], function () {
     // customer purchase
     Route::get('/customer/categories', [CustomerController::class, 'categories'])->name('categories');
     Route::get('/customer/products', [CustomerController::class, 'products'])->name('products');
-    Route::post('/customer/products/{id}', [KeranjangController::class, 'create'])->name('keranjang');
+    Route::post('/customer/products/{id}', [KeranjangController::class, 'create'])->name('addkeranjang');
+
+    // keranjang
+    Route::get('/customer/keranjang/{id}', [KeranjangController::class, 'delete'])->name('keranjang.delete');
+    Route::post('/customer/keranjang/{id}', [KeranjangController::class, 'update'])->name('keranjang.update');
     
     // riwayat
     Route::get('/customer/keranjang', [KeranjangController::class, 'index'])->name('keranjang2');

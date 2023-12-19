@@ -10,7 +10,7 @@ class PesaananDetails extends Model
     protected $table = 'tbl_pesanan_detail';
 
     // Inisialisasi Primary Key
-    protected $primaryKey = 'id_pesan_detail';
+    protected $primaryKey = 'id_pesanan_detail';
 
     // Inisialisasi nama field yang akan diisi
     protected $fillable = [
