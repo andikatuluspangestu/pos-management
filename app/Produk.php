@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Produk extends Model
 {
     // Inisialisasi Tabel
-    protected $table = 'tbl_products';
+    protected $table        = 'tbl_products';
 
     // Inisialisasi Primary Key
-    protected $primaryKey = 'id_produk';
+    protected $primaryKey   = 'id_produk';
 
     // Inisialisasi nama field yang akan diisi
-    protected $fillable = [
+    protected $fillable     = [
         'category_id',
         'kode_produk',
         'nama_produk',

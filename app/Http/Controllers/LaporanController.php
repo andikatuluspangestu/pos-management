@@ -12,13 +12,13 @@ class LaporanController extends Controller
     // Index Page
     public function index(Request $request)
     {
-        $data = Laporan::getAll();
-        $products = Produk::getall();
-        $users = User::getall();
+        $data       = Laporan::getAll();
+        $products   = Produk::getAll();
+        $users      = User::getAllSales();
 
-        $role = $request->user()->role;
+        $role       = $request->user()->role;
 
-        $view = 'admin.laporans.list';
+        $view       = 'admin.laporans.list';
         if ($role === 'sales') {
             $view = 'sales.laporans.list';
         }
@@ -52,11 +52,11 @@ class LaporanController extends Controller
     public function update(Request $request, $id)
     {
         $data = [
-            'id_user' => $request->id_user,
-            'id_produk' => $request->id_produk,
-            'name' => $request->name,
-            'nama_produk' => $request->nama_produk,
-            'stok' => $request->stok,
+            'id_user'       => $request->id_user,
+            'id_produk'     => $request->id_produk,
+            'name'          => $request->name,
+            'nama_produk'   => $request->nama_produk,
+            'stok'          => $request->stok,
         ];
 
         Produk::updateData($id, $data);

@@ -16,8 +16,8 @@ class UsersController extends Controller
   
   public function getSales(Request $request)
   {
-    $sales = User::getAllSales();
-    $role = $request->user()->role;
+    $sales  = User::getAllSales();
+    $role   = $request->user()->role;
 
     switch ($role) {
       case 'admin':
@@ -41,16 +41,16 @@ class UsersController extends Controller
   public function insertSales(Request $request)
   {
     $this->validate($request, [
-      'name' => 'required|min:3',
-      'email' => 'required|email|unique:users',
-      'password' => 'required|min:6',
+      'name'      => 'required|min:3',
+      'email'     => 'required|email|unique:users',
+      'password'  => 'required|min:6',
     ]);
 
-    $sales = new User;
-    $sales->name = $request->name;
-    $sales->email = $request->email;
-    $sales->password = bcrypt($request->password);
-    $sales->role = 'sales';
+    $sales            = new User;
+    $sales->name      = $request->name;
+    $sales->email     = $request->email;
+    $sales->password  = bcrypt($request->password);
+    $sales->role      = 'sales';
     $sales->save();
 
     // Message
@@ -83,14 +83,14 @@ class UsersController extends Controller
   public function updateSales(Request $request, $id)
   {
     $this->validate($request, [
-      'name' => 'required|min:3',
-      'email' => 'required|email|unique:users,email,' . $id,
-      'password' => 'nullable|min:6',
+      'name'      => 'required|min:3',
+      'email'     => 'required|email|unique:users,email,' . $id,
+      'password'  => 'nullable|min:6',
     ]);
 
-    $sales = User::find($id);
-    $sales->name = $request->name;
-    $sales->email = $request->email;
+    $sales          = User::find($id);
+    $sales->name    = $request->name;
+    $sales->email   = $request->email;
     if (!empty($request->password)) {
       $sales->password = bcrypt($request->password);
     }
@@ -121,8 +121,8 @@ class UsersController extends Controller
 
   public function getCustomers(Request $request)
   {
-    $customers = User::getAllCustomers();
-    $role = $request->user()->role;
+    $customers  = User::getAllCustomers();
+    $role       = $request->user()->role;
 
     switch ($role) {
       case 'admin':

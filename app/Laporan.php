@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Laporan extends Model
 {
     // Inisialisasi Tabel
-    protected $table = 'tbl_laporan';
+    protected $table        = 'tbl_laporan';
 
     // Inisialisasi Primary Key
-    protected $primaryKey = 'id_laporan';
+    protected $primaryKey   = 'id_laporan';
 
     // Inisialisasi nama field yang akan diisi
-    protected $fillable = [
+    protected $fillable     = [
         'id_user',
         'id_produk',
         'name',

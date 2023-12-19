@@ -70,10 +70,6 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
     Route::get('/sales/products', 'ProdukController@index')->name('salesproducts');
     Route::put('/sales/products/update/{id}', 'ProdukController@update')->name('salesproducts.update');
 
-    //Penjualan
-    Route::get('/sales/penjualans', 'PenjualanController@index')->name('salespenjualans');
-    Route::put('/sales/penjualans/update/{id}', 'PenjualanController@update')->name('salespenjualans.update');
-
     //Laporan
     Route::get('/sales/laporans', 'LaporanController@index')->name('saleslaporans');
     Route::post('/sales/laporans/insert', 'LaporanController@insert')->name('saleslaporans.insert');
