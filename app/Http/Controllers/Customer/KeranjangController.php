@@ -8,27 +8,22 @@ use App\Pesanan;
 use App\PesaananDetails;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class KeranjangController extends Controller
 {
     public function index()
     {
         $products = Produk::getAll();
-        $pesanan = Pesanan::getAll();
-        $isEmpty = $pesanan->isEmpty();
+        $pesanan = Pesanan::where('id_user', '=', Auth::user()->id)->get();
+        // $isEmpty = $pesanan->isEmpty();
 
+        $data = [
+            'pesanan' => $pesanan,
+            'products' => $products,
+        ];
 
-        if ($pesanan->isEmpty()) {
-            return view('customer.keranjang.keranjang', compact('pesanan', 'isEmpty'));
-        } else {
-
-            $data = [
-                'pesanan' => $pesanan,
-                'products' => $products,
-            ];
-
-            return view('customer.keranjang.keranjang', $data);
-        }
+        return view('customer.keranjang.keranjang', $data);
     }
 
     public function create(Request $request, $id)
@@ -38,8 +33,8 @@ class KeranjangController extends Controller
         $diskon = $produk->diskon;
         $stok = $produk->stok;
 
-        $users      = User::getAllCustomers();
-        $id_user       = $request->user()->id;
+        $users = User::getAllCustomers();
+        $id_user = $request->user()->id;
 
         if ($stok - $request->stock < 0) {
             return redirect('/customer/products');

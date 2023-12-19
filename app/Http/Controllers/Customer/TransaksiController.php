@@ -3,23 +3,18 @@
 namespace App\Http\Controllers\customer;
 
 use App\Produk;
-use App\PesaananDetails;
 use App\Pesanan;
+use App\PesaananDetails;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
     public function index(Request $request)
     {
         $products = Produk::getAll();
-        $pesanan_detail = PesaananDetails::getAll();
-        $isEmpty = $pesanan_detail->isEmpty();
-
-
-        if ($pesanan_detail->isEmpty()) {
-            return view('customer.transaksi.transaksi', compact('pesanan_detail', 'isEmpty'));
-        } else {
+        $pesanan_detail = PesaananDetails::where('id_user', '=', Auth::user()->id)->get();
 
             $data = [
                 'pesanan_detail' => $pesanan_detail,
@@ -27,20 +22,19 @@ class TransaksiController extends Controller
             ];
 
             return view('customer.transaksi.transaksi', $data);
-        }
+
     }
 
     public function create(Request $request, $id)
     {
         $pesanan = Pesanan::find($id);
-        // $pesanan_detail = PesaananDetails::getAll();
 
         PesaananDetails::create([
             'id_user' => $pesanan->id_user,
             'id_produk' => $pesanan->id_produk,
             'jumlah' => $pesanan->jumlah,
             'bayar' => $request->bayar,
-            'kembali' => 0,
+            'kembali' => $request->bayar - $pesanan->subtotal,
         ]);
 
         $pesanan->delete($id);

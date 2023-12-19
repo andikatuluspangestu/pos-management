@@ -19,6 +19,7 @@
                         <th scope="col">Hapus</th>
                         <th scope="col">Checkout</th>
                     </tr>
+
                 </thead>
                 <tbody>
                     <?php $id = 1; ?>
@@ -162,7 +163,7 @@
                         </div>
                     </div>
 
-                    
+
 
 
                     @endforeach
