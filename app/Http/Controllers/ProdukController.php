@@ -11,12 +11,12 @@ class ProdukController extends Controller
     // Index Page
     public function index(Request $request)
     {
-        $data = Produk::getAll();
+        $data       = Produk::getAll();
         $categories = Categories::getall();
 
-        $role = $request->user()->role;
+        $role       = $request->user()->role;
 
-        $view = 'admin.products.list';
+        $view       = 'admin.products.list';
         if ($role === 'sales') {
             $view = 'sales.products.list';
         }
@@ -53,14 +53,14 @@ class ProdukController extends Controller
     public function update(Request $request, $id)
     {
         $data = [
-            'category_name' => $request->category_name,
-            'kode_produk' => $request->kode_produk,
-            'nama_produk' => $request->nama_produk,
-            //'gambar' => $request->gambar,
-            'produk_description' => $request->produk_description,
-            'diskon' => $request->diskon,
-            'harga_jual' => $request->harga_jual,
-            'stok' => $request->stok,
+            'category_name'         => $request->category_name,
+            'kode_produk'           => $request->kode_produk,
+            'nama_produk'           => $request->nama_produk,
+            //'gambar'              => $request->gambar,
+            'produk_description'    => $request->produk_description,
+            'diskon'                => $request->diskon,
+            'harga_jual'            => $request->harga_jual,
+            'stok'                  => $request->stok,
         ];
 
         Produk::updateData($id, $data);

@@ -12,11 +12,11 @@ class SalesController extends Controller
 	// Display Sales Dashboard
     public function index()
     {
-        $countProducts      = ProdukController::countProductsData();
-        $countCategories    = CategoriesController::countCategoriesData();
-        $countSalesData     = UsersController::countSalesData();
-        $countCustomersData = UsersController::countCustomersData();
-        //$getLatestProducts  = ProdukController::getLatestProducts();
+        $countProducts          = ProdukController::countProductsData();
+        $countCategories        = CategoriesController::countCategoriesData();
+        $countSalesData         = UsersController::countSalesData();
+        $countCustomersData     = UsersController::countCustomersData();
+        //$getLatestProducts    = ProdukController::getLatestProducts();
 
         $data = [
             'countProducts'      => $countProducts,
