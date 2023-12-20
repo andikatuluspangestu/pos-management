@@ -23,16 +23,16 @@ Route::group(['middleware' => 'checkRole:admin'], function () {
     Route::get('/admin', 'AdminController@index')->name('admin');
 
     // Kategori
-    Route::get('/admin/categories', 'CategoriesController@index')->name('categories');
-    Route::post('/admin/categories/insert', 'CategoriesController@insert')->name('categories.insert');
-    Route::get('/admin/categories/delete/{id}', 'CategoriesController@delete')->name('categories.delete');
-    Route::put('/admin/categories/update/{id}', 'CategoriesController@update')->name('categories.update');
+    Route::get('/admin/categories', 'CategoriesController@index')->name('admin.categories');
+    Route::post('/admin/categories/insert', 'CategoriesController@insert')->name('admin.categories.insert');
+    Route::get('/admin/categories/delete/{id}', 'CategoriesController@delete')->name('admin.categories.delete');
+    Route::put('/admin/categories/update/{id}', 'CategoriesController@update')->name('admin.categories.update');
 
     // Produk
-    Route::get('/admin/products', 'ProdukController@index')->name('products');
-    Route::post('/admin/products/insert', 'ProdukController@insert')->name('products.insert');
-    Route::get('/admin/products/delete/{id}', 'ProdukController@delete')->name('products.delete');
-    Route::put('/admin/products/update/{id}', 'ProdukController@update')->name('products.update');
+    Route::get('/admin/products', 'ProdukController@index')->name('admin.products');
+    Route::post('/admin/products/insert', 'ProdukController@insert')->name('admin.products.insert');
+    Route::get('/admin/products/delete/{id}', 'ProdukController@delete')->name('admin.products.delete');
+    Route::put('/admin/products/update/{id}', 'ProdukController@update')->name('admin.products.update');
 
     // Manage Sales Users
     Route::get('/admin/users/sales', 'UsersController@getSales')->name('sales');
@@ -45,7 +45,7 @@ Route::group(['middleware' => 'checkRole:admin'], function () {
     Route::get('/admin/users/customers', 'UsersController@getCustomers')->name('customers');
     Route::get('/admin/users/customers/add', 'UsersController@insertCustomersForm')->name('customers.insert.add');
     Route::post('/admin/users/customers/insert', 'UsersController@insertCustomers')->name('customers.insert');
-    Route::get('/admin/users/customers/delete/{id}', 'UsersController@deleteCustomers')->name('customers.delete');
+    Route::delete('/admin/users/customers/delete/{id}', 'UsersController@deleteCustomers')->name('customers.delete');
     Route::put('/admin/users/customers/update/{id}', 'UsersController@updateCustomers')->name('customers.update');
 
     // Manage Sellings atau Penjualan

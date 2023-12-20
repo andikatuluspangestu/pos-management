@@ -64,7 +64,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            <a href="{{ route('categories.delete', $category->category_id) }}" class="btn btn-danger">Hapus</a>
+            <a href="{{ route('admin.categories.delete', $category->category_id) }}" class="btn btn-danger">Hapus</a>
           </div>
         </div>
       </div>
@@ -81,7 +81,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="{{ route('categories.update', ['id' => $category->category_id]) }}" method="post">
+            <form action="{{ route('admin.categories.update', ['id' => $category->category_id]) }}" method="post">
               @csrf
               @method('PUT')
               <div class="form-group">
@@ -115,7 +115,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="{{ route('categories.insert') }}" method="POST">
+            <form action="{{ route('admin.categories.insert') }}" method="POST">
               @csrf
               <div class="form-group">
                 <label for="category_name">Nama Kategori</label>

@@ -70,8 +70,8 @@
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item" href="{{ route('products') }}">Produk</a>
-                        <a class="collapse-item" href="{{ route('categories') }}">Kategori</a>
+                        <a class="collapse-item" href="{{ route('admin.products') }}">Produk</a>
+                        <a class="collapse-item" href="{{ route('admin.categories') }}">Kategori</a>
                     </div>
                 </div>
                 @elseif (Auth::user()->role == 'sales')
