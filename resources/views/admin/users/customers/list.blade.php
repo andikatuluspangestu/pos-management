@@ -190,6 +190,22 @@
                                                 {{ $data->created_at->format('D, d-m-Y H:i:s') }}
                                             </td>
                                         </tr>
+                                        <tr>
+                                            <th>Nomor Telepon</th>
+                                            <td>{{ $data->phone }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Alamat</th>
+                                            <td>{{ $data->address }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Kota/Kabupaten</th>
+                                            <td>{{ $data->city }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>Kode Pos</th>
+                                            <td>{{ $data->postal_code }}</td>
+                                        </tr>
                                     </table>
                                 </div>
                                 <div class="modal-footer">
