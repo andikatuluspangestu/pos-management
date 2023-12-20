@@ -15,12 +15,11 @@ class CreateTblPesananDetailTable extends Migration
     {
         Schema::create('tbl_pesanan_detail', function (Blueprint $table) {
             $table->bigIncrements('id_pesanan_detail');
-            $table->integer('id_pesanan');
+            $table->integer('id_user');
             $table->integer('id_produk');
-            $table->integer('harga_jual');
             $table->integer('jumlah');
-            $table->tinyInteger('diskon')->default(0);
-            $table->integer('subtotal');
+            $table->integer('bayar');
+            $table->integer('kembali');
             $table->timestamps();
         });
     }

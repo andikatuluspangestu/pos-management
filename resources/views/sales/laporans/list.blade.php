@@ -22,7 +22,7 @@
 
         <thead>
           <tr>
-            <th scope="col">ID</th>
+            <th scope="col">ID Laporan</th>
             <th scope="col">ID User</th>
             <th scope="col">ID Produk</th>
             <th scope="col">Nama User</th>
@@ -59,7 +59,7 @@
       <div class="modal-dialog">
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title{{ $laporan->id_produk }}" id="editLaporanModal{{ $laporan->id_produk }}">Edit Data Produk</h5>
+            <h5 class="modal-title{{ $laporan->id_produk }}" id="editLaporanModal{{ $laporan->id_produk }}">Edit Data Laporan</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
@@ -79,7 +79,7 @@
               <div class="form-group">
                 <label for="nama_produk">Nama Produk</label>
                 <select class="form-control" name="id_produk" id="id_produk" required="required">
-                    @foreach ($produks as $produk)
+                    @foreach ($products as $produk)
                         <option value="{{ $produk->id_produk }}">{{ $produk->nama_produk }}</option>
                     @endforeach
                 </select>
@@ -111,7 +111,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="{{ route('laporans.insert') }}" method="POST">
+            <form action="{{ route('saleslaporans.insert') }}" method="POST">
               @csrf
               
               <div class="form-group">
@@ -126,7 +126,7 @@
               <div class="form-group">
                 <label for="nama_produk">Nama Produk</label>
                 <select class="form-control" name="id_produk" id="id_produk" required="required">
-                    @foreach ($produks as $produk)
+                    @foreach ($products as $produk)
                         <option value="{{ $produk->id_produk }}">{{ $produk->nama_produk }}</option>
                     @endforeach
                 </select>

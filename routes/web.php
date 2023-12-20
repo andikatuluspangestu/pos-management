@@ -73,10 +73,6 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
     Route::get('/sales/products', 'ProdukController@index')->name('salesproducts');
     Route::put('/sales/products/update/{id}', 'ProdukController@update')->name('salesproducts.update');
 
-    //Penjualan
-    Route::get('/sales/penjualans', 'PenjualanController@index')->name('salespenjualans');
-    Route::put('/sales/penjualans/update/{id}', 'PenjualanController@update')->name('salespenjualans.update');
-
     //Laporan
     Route::get('/sales/laporans', 'LaporanController@index')->name('saleslaporans');
     Route::post('/sales/laporans/insert', 'LaporanController@insert')->name('saleslaporans.insert');
@@ -92,10 +88,16 @@ Route::group(['middleware' => 'checkRole:customer'], function () {
     // customer purchase
     Route::get('/customer/categories', [CustomerController::class, 'categories'])->name('categories');
     Route::get('/customer/products', [CustomerController::class, 'products'])->name('products');
-    Route::post('/customer/products/{id}', [KeranjangController::class, 'create'])->name('keranjang');
+    Route::post('/customer/products/{id}', [KeranjangController::class, 'create'])->name('addkeranjang');
+
+    // keranjang
+    Route::get('/customer/keranjang/{id}', [KeranjangController::class, 'delete'])->name('keranjang.delete');
+    Route::post('/customer/keranjang/{id}', [KeranjangController::class, 'update'])->name('keranjang.update');
     
+    Route::post('/customer/keranjang/checkout/{id}', [TransaksiController::class, 'create'])->name('keranjang.checkout');
+
     // riwayat
-    Route::get('/customer/keranjang', [KeranjangController::class, 'index'])->name('keranjang2');
+    Route::get('/customer/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
     Route::get('/customer/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
 });
 
