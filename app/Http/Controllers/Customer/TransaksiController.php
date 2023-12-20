@@ -18,6 +18,7 @@ class TransaksiController extends Controller
 
             $data = [
                 'pesanan_detail' => $pesanan_detail,
+                
                 'products' => $products,
             ];
 
