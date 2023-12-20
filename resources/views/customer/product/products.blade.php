@@ -5,7 +5,6 @@
     <div class="row">
         <div class="table-responsive shadow-sm p-3">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
                 <thead>
                     <tr>
                         <th scope="col">ID</th>
@@ -91,69 +90,7 @@
                 </div>
             </div>
         </div>
-
         @endforeach
-
-        <!-- Add Category Modal -->
-        <div class="modal fade" id="addCategoryModal" tabindex="-1" aria-labelledby="addCategoryModal" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="addCategoryModal">Tambah Data Produk</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form action="{{ route('products.insert') }}" method="POST">
-                            @csrf
-
-                            <div class="form-group">
-                                <label for="category_name">Nama Kategori</label>
-                                <select class="form-control" name="category_id" id="category_id" required="required">
-                                    @foreach ($categories as $category)
-                                    <option value="{{ $category->category_id }}">{{ $category->category_name }}</option>
-                                    @endforeach
-                                </select>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="kode_produk">Kode Produk</label>
-                                <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk">
-                            </div>
-                            <div class="form-group">
-                                <label for="nama_produk">Nama Produk</label>
-                                <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk">
-                            </div>
-                            <div class="form-group">
-                                <label for="gambar">Gambar</label>
-                                <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Masukkan Gambar">
-                            </div>
-                            <div class="form-group">
-                                <label for="produk_description">Deskripsi Produk</label>
-                                <textarea class="form-control" id="produk_description" name="produk_description" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="diskon">Diskon</label>
-                                <input type="text" class="form-control" id="diskon" name="diskon" placeholder="Masukkan Diskon">
-                            </div>
-                            <div class="form-group">
-                                <label for="harga_jual">Harga Jual</label>
-                                <input type="text" class="form-control" id="harga_jual" name="harga_jual" placeholder="Masukkan Harga Jual">
-                            </div>
-                            <div class="form-group">
-                                <label for="stok">Stok</label>
-                                <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Nama Stok">
-                            </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                        <button class="btn btn-primary" type="submit">Submit</button>
-                    </div>
-                    </form>
-                </div>
-            </div>
-        </div>
     </div>
 
 </div>
