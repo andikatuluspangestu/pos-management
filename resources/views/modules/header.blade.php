@@ -68,16 +68,16 @@
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout
                   </a>
-                  @elseif (Auth::user()->role == 'customers')
+                  @elseif (Auth::user()->role == 'customer')
                   <a class="dropdown-item" href="#">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profil Saya
                   </a>
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="{{ route('keranjang') }}">
                     <i class="fas fa-shopping-cart fa-sm fa-fw mr-2 text-gray-400"></i>
                     Keranjang
                   </a>
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="{{ route('transaksi') }}">
                     <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
                     Pesanan
                   </a>
