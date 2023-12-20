@@ -48,6 +48,9 @@ Route::group(['middleware' => 'checkRole:admin'], function () {
     Route::get('/admin/users/customers/delete/{id}', 'UsersController@deleteCustomers')->name('customers.delete');
     Route::put('/admin/users/customers/update/{id}', 'UsersController@updateCustomers')->name('customers.update');
 
+    // Manage Sellings atau Penjualan
+    Route::get('/admin/sellings', 'SellingsController@getAll')->name('sellings');
+
 });
 
 // Sales
@@ -95,3 +98,4 @@ Route::group(['middleware' => 'checkRole:customer'], function () {
     Route::get('/customer/keranjang', [KeranjangController::class, 'index'])->name('keranjang2');
     Route::get('/customer/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
 });
+
