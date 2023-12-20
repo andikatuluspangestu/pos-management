@@ -135,7 +135,7 @@
             <!-- Nav Item - Report -->
             <li class="nav-item">
                 @if (Auth::user()->role == 'admin')
-                <a class="nav-link" href="charts.html">
+                <a class="nav-link" href="{{ route('adminlaporans') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Penjualan</span>
                 </a>

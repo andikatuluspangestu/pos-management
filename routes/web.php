@@ -51,6 +51,8 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
     // Manage Sellings atau Penjualan
     Route::get('/admin/sellings', 'SellingsController@getAll')->name('sellings');
 
+    Route::get('/admin/laporans', 'LaporanController@index')->name('adminlaporans');
+
 });
 
 // Sales
