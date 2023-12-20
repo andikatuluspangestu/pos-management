@@ -56,10 +56,10 @@ class UsersController extends Controller
     // Message
     if ($sales) {
       // Redirect dengan pesan sukses
-      return redirect()->route('sales')->with(['success' => 'Data Berhasil Disimpan!']);
+      return redirect()->route('sales')->with(['message' => 'Data Berhasil Disimpan!']);
     } else {
       // Redirect dengan pesan error
-      return redirect()->route('sales')->with(['error' => 'Data Gagal Disimpan!']);
+      return redirect()->route('sales')->with(['message' => 'Data Gagal Disimpan!']);
     }
   }
 
