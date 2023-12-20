@@ -64,9 +64,13 @@ class Produk extends Model
     }
 
     // Relasi One to Many
-    public function pesanandetails()
+    public function pesanan()
     {
-        return $this->hasMany('App\PesananDetails', 'id_pesanan_detail');
+        return $this->hasMany(Pesanan::class, 'id_pesanan');
+    }
+    public function pesanan_detail()
+    {
+        return $this->hasMany(PesaananDetails::class, 'id_pesanan_detail');
     }
 
     // Count Data Produk

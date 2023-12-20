@@ -10,16 +10,15 @@ class PesaananDetails extends Model
     protected $table = 'tbl_pesanan_detail';
 
     // Inisialisasi Primary Key
-    protected $primaryKey = 'id_pesan_detail';
+    protected $primaryKey = 'id_pesanan_detail';
 
     // Inisialisasi nama field yang akan diisi
     protected $fillable = [
-        'id_pesanan',
+        'id_user',
         'id_produk',
-        'harga_jual',
         'jumlah',
-        'diskon',
-        'subtotal',
+        'bayar',
+        'kembali',
     ];
 
     // Inisialisasi field created_at dan updated_at secara otomatis
@@ -60,4 +59,9 @@ class PesaananDetails extends Model
     {
         return $this->belongsTo(Produk::class, 'id_produk');
     }
+    public function pesanan()
+    {
+        return $this->belongsTo(Pesanan::class, 'id_pesanan');
+    }
+    
 }

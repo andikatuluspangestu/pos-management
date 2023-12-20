@@ -2,103 +2,72 @@
 
 namespace App\Http\Controllers\customer;
 
+use App\Produk;
+use App\Pesanan;
 use App\PesaananDetails;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use Illuminate\Support\Facades\Auth;
 
 class TransaksiController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index(Request $request)
     {
-        $data = PesaananDetails::getAll();
-        // $categories = Categories::getall();
+        $products = Produk::getAll();
+        $pesanan_detail = PesaananDetails::where('id_user', '=', Auth::user()->id)->get();
 
-        $role = $request->user()->role;
+            $data = [
+                'pesanan_detail' => $pesanan_detail,
+                'products' => $products,
+            ];
 
-        $view = 'customer.transaksi.index';
-        if ($role === 'customer') {
-            $view = 'customer.transaksi.index';
-        }
+            return view('customer.transaksi.transaksi', $data);
 
-        return view($view, compact('data'));
-        // return view($view, compact('data', 'categories'));
     }
-    // {
-    //     return view('customer.transaksi.index');
-    // }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function create(Request $request, $id)
     {
-        //
+        $pesanan = Pesanan::find($id);
+
+        PesaananDetails::create([
+            'id_user' => $pesanan->id_user,
+            'id_produk' => $pesanan->id_produk,
+            'jumlah' => $pesanan->jumlah,
+            'bayar' => $request->bayar,
+            'kembali' => $request->bayar - $pesanan->subtotal,
+        ]);
+
+        $pesanan->delete($id);
+
+        return redirect('/customer/transaksi');
+
     }
     public function delete($id)
     {
-        PesaananDetails::deleteData($id);
-        return redirect()->route('pesananDetail')->with('success', 'Data berhasil dihapus');
+        //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
     public function destroy($id)
     {
         //
