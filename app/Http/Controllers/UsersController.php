@@ -128,6 +128,47 @@ class UsersController extends Controller
     }
   }
 
+  // Insert Data Sales
+  public function insertCustomers(Request $request)
+  {
+    $this->validate($request, [
+      'name'      => 'required|min:3',
+      'email'     => 'required|email|unique:users',
+      'password'  => 'required|min:6',
+    ]);
+
+    $customers              = new User;
+    $customers->name        = $request->name;
+    $customers->email       = $request->email;
+    $customers->password    = bcrypt($request->password);
+    $customers->role        = 'customer';
+    $customers->phone       = $request->phone;
+    $customers->address     = $request->address;
+    $customers->city        = $request->city;
+    $customers->postal_code = $request->postal_code;
+    $customers->save();
+
+    // Message
+    if ($customers) {
+      return redirect()->route('customers')->with(['message' => 'Data Berhasil Disimpan!']);
+    } else {
+      return redirect()->route('customers')->with(['message' => 'Data Gagal Disimpan!']);
+    }
+  }
+
+  // Delete Data Customers
+  public function deleteCustomers($id)
+  {
+    $customers = User::find($id);
+    $customers->delete();
+
+    if ($customers) {
+      return redirect()->route('customers')->with(['message' => 'Data Berhasil Dihapus!']);
+    } else {
+      return redirect()->route('customers')->with(['message' => 'Data Gagal Dihapus!']);
+    }
+  }
+
   // Menghitung Jumlah Data Customers
   public static function countCustomersData()
   {
