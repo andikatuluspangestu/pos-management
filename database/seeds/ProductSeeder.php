@@ -77,16 +77,16 @@ class ProductSeeder extends Seeder
           $stokproduk                   = $stok[$index];
 
           DB::table('tbl_products')->insert([
-             'category_id'              => 1,
-                'kode_produk'           => $kodeproduk,
-                'nama_produk'           => $produk,
-                'gambar'                => $gambarproduk,
-                'produk_description'    => $produk_descriptionproduk,
-                'diskon'                => $diskonproduk,
-                'harga_jual'            => $harga_jualproduk,
-                'stok'                  => $stokproduk,
-                'created_at'            => now(),
-                'updated_at'            => now(),
+            'category_id'           => 1,
+            'kode_produk'           => $kodeproduk,
+            'nama_produk'           => $produk,
+            'gambar'                => $gambarproduk,
+            'produk_description'    => $produk_descriptionproduk,
+            'diskon'                => $diskonproduk,
+            'harga_jual'            => $harga_jualproduk,
+            'stok'                  => $stokproduk,
+            'created_at'            => now(),
+            'updated_at'            => now(),
           ]);
           $kodeproduk += 1;
         }
