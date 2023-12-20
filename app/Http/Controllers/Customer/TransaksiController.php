@@ -14,7 +14,7 @@ class TransaksiController extends Controller
     public function index(Request $request)
     {
         $products = Produk::getAll();
-        $pesanan_detail = PesaananDetails::where('id_user', '=', Auth::user()->id)->get();
+        $pesanan_detail = PesaananDetails::where('id_pesanan', '=', Auth::user()->id)->get();
 
             $data = [
                 'pesanan_detail' => $pesanan_detail,
@@ -30,7 +30,7 @@ class TransaksiController extends Controller
         $pesanan = Pesanan::find($id);
 
         PesaananDetails::create([
-            'id_user' => $pesanan->id_user,
+            'id_pesanan' => $pesanan->id_pesanan,
             'id_produk' => $pesanan->id_produk,
             'jumlah' => $pesanan->jumlah,
             'bayar' => $request->bayar,

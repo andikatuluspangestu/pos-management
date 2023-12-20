@@ -23,7 +23,7 @@
                     <?php $id = 1; ?>
                     @foreach($pesanan_detail as $pesanan_detail)
                     <tr>
-                        <td>{{ $id++ }}</td>
+                        <td>{{ $pesanan_detail->id_pesanan_detail }}</td>
                         <td>{{ $pesanan_detail->produk->nama_produk }}</td>
                         <td style="max-width: 250   px;">
                             <img src="{{ asset('img/products/' . $pesanan_detail->produk->gambar) }}" class="img-fluid img-thumbnail" style="max-width: 100%;" alt="...">
