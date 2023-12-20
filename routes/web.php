@@ -3,8 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Customer\CustomerController;
-use App\Http\Controllers\customer\KeranjangController;
-use App\Http\Controllers\customer\TransaksiController;
+use App\Http\Controllers\Customer\KeranjangController;
+use App\Http\Controllers\Customer\TransaksiController;
 
 // Rute untuk halaman utama
 Route::view('/', 'home.index');
@@ -73,7 +73,7 @@ Route::group(['middleware' => ['auth', 'checkRole:sales']], function () {
     Route::get('/sales/products', 'ProdukController@index')->name('salesproducts');
     Route::put('/sales/products/update/{id}', 'ProdukController@update')->name('salesproducts.update');
 
-    //Laporan
+    // Laporan
     Route::get('/sales/laporans', 'LaporanController@index')->name('saleslaporans');
     Route::post('/sales/laporans/insert', 'LaporanController@insert')->name('saleslaporans.insert');
     Route::put('/sales/laporans/update/{id}', 'LaporanController@update')->name('saleslaporans.update');
@@ -82,6 +82,7 @@ Route::group(['middleware' => ['auth', 'checkRole:sales']], function () {
 
 // Customer
 Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
+    
     // customer Dashboard
     Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
 
