@@ -17,7 +17,7 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
 // Middleware Group
-Route::group(['middleware' => 'checkRole:admin'], function () {
+Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
     // Admin Dashboard
     Route::get('/admin', 'AdminController@index')->name('admin');
@@ -54,7 +54,7 @@ Route::group(['middleware' => 'checkRole:admin'], function () {
 });
 
 // Sales
-Route::group(['middleware' => 'checkRole:sales'], function () {
+Route::group(['middleware' => ['auth', 'checkRole:sales']], function () {
     Route::get('/sales', 'SalesController@index');
 
     // Sales Dashboard
@@ -81,7 +81,7 @@ Route::group(['middleware' => 'checkRole:sales'], function () {
 });
 
 // Customer
-Route::group(['middleware' => 'checkRole:customer'], function () {
+Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
     // customer Dashboard
     Route::get('/customer', [CustomerController::class, 'index'])->name('customer');
 
@@ -93,11 +93,12 @@ Route::group(['middleware' => 'checkRole:customer'], function () {
     // keranjang
     Route::get('/customer/keranjang/{id}', [KeranjangController::class, 'delete'])->name('keranjang.delete');
     Route::post('/customer/keranjang/{id}', [KeranjangController::class, 'update'])->name('keranjang.update');
-    
     Route::post('/customer/keranjang/checkout/{id}', [TransaksiController::class, 'create'])->name('keranjang.checkout');
 
     // riwayat
     Route::get('/customer/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
     Route::get('/customer/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
 });
+
+
 
