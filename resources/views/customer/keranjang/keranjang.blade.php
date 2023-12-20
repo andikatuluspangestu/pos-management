@@ -14,7 +14,7 @@
                         <th scope="col">Diskon</th>
                         <th scope="col">Jumlah</th>
                         <th scope="col">Subtotal</th>
-                        <th scope="col" style="max-width: 120px;">Option</th>
+                        <th scope="col" style="max-width: 250px;">Option</th>
                         <!-- <th scope="col">Hapus</th>
                         <th scope="col">Checkout</th> -->
                     </tr>
@@ -33,16 +33,30 @@
                         <td>{{ $pesanan->produk->diskon }}</td>
                         <td>{{ $pesanan->jumlah }}</td>
                         <td>@currency($pesanan->subtotal)</td>
-                        <td>
-<<<<<<< HEAD
-                            <button class="button-30" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-pen"></i> Edit</button>
-                            <button class="button-30" type="button" data-toggle="modal" data-target="#deleteKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-trash"></i> Hapus</button>
-                            <button class="button-30" type="button" data-toggle="modal" data-target="#checkoutKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-shopping-cart"></i> Checkout</button>
-=======
+                        <!-- <td>
                             <button class="btn btn-secondary m-1" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-pen"></i> Edit</button>
                             <button class="btn btn-danger m-1" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-trash"></i> Hapus</button>
                             <button class="btn btn-primary m-1" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-shopping-cart"></i> Checkout</button>
->>>>>>> 8d7b99b93695d3cbb7e32e2c7b2e035b9685db3d
+                        </td> -->
+
+                        <td>
+                            <!-- Edit Modal Button -->
+                            <button type="button" class="btn btn-sm btn-warning" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}" style="margin-bottom: 10px;">
+                                <i class="fas fa-edit"></i>
+                                Edit
+                            </button>
+
+                            <!-- Detail Modal Button -->
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteKeranjang{{ $pesanan->id_pesanan }}" style="margin-bottom: 10px;">
+                                <i class="fas fa-trash"></i>
+                                Delete
+                            </button>
+
+                            <!-- Delete -->
+                            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#chekcoutKeranjang{{ $pesanan->id_pesanan }}" style="margin-bottom: 10px;">
+                                <i class="fas fa-shopping-cart"></i>
+                                Check Out
+                            </button>
                         </td>
                     </tr>
 
