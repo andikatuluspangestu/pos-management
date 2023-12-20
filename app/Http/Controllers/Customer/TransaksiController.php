@@ -28,13 +28,19 @@ class TransaksiController extends Controller
     public function create(Request $request, $id)
     {
         $pesanan = Pesanan::find($id);
+        
+        $kembali = $request->bayar - $pesanan->subtotal;
+        if ($kembali < 0)
+        {
+            return redirect('/customer/keranjang');
+        }
 
         PesaananDetails::create([
             'id_user' => $pesanan->id_user,
             'id_produk' => $pesanan->id_produk,
             'jumlah' => $pesanan->jumlah,
             'bayar' => $request->bayar,
-            'kembali' => $request->bayar - $pesanan->subtotal,
+            'kembali' => $kembali,
         ]);
 
         $pesanan->delete($id);

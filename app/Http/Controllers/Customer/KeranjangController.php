@@ -33,7 +33,6 @@ class KeranjangController extends Controller
         $diskon = $produk->diskon;
         $stok = $produk->stok;
 
-        $users = User::getAllCustomers();
         $id_user = $request->user()->id;
 
         if ($stok - $request->stock < 0) {

@@ -104,6 +104,12 @@
                                             </label>
                                             <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $pesanan->produk->harga_jual }}" readonly>
                                         </div>
+                                        <div class="form-group">
+                                            <label for="diskon">
+                                                Diskon
+                                            </label>
+                                            <input type="text" class="form-control" id="diskon" name="diskon" placeholder="Masukkan Nama Produk" value="{{ $pesanan->produk->diskon }}" readonly>
+                                        </div>
 
                                         <div class="form-group">
                                             <label for="stok">
@@ -139,16 +145,16 @@
                                             <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk" value="{{ $pesanan->produk->nama_produk }}" readonly>
                                         </div>
                                         <div class="form-group">
-                                            <label for="nama_produk">Nama Produk</label>
+                                            <label for="nama_produk">Harga Satuan</label>
                                             <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $pesanan->produk->harga_jual }}" readonly>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="stok">Stok</label>
+                                            <label for="stok">Jumlah Pembelian</label>
                                             <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $pesanan->jumlah }}" readonly>
                                         </div>
                                         <div class="form-group">
-                                            <label for="stok">Stok</label>
+                                            <label for="stok">Total Harga</label>
                                             <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $pesanan->subtotal }}" readonly>
                                         </div>
 
