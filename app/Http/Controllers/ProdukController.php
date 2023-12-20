@@ -46,7 +46,12 @@ class ProdukController extends Controller
     public function delete($id)
     {
         Produk::deleteData($id);
-        return redirect()->route('products')->with('success', 'Data berhasil dihapus');
+        // Jika yang menghapus adalah admin
+        if (auth()->user()->role === 'admin') {
+            return redirect()->route('admin.products')->with('success', 'Data berhasil dihapus');
+        } else {
+            return redirect()->route('sales.products')->with('success', 'Data berhasil dihapus');
+        }
     }
 
     // Update Data
