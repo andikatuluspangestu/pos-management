@@ -35,8 +35,8 @@
                         <td>@currency($pesanan->subtotal)</td>
                         <td>
                             <button class="button-30" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-pen"></i> Edit</button>
-                            <button class="button-30" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-trash"></i> Hapus</button>
-                            <button class="button-30" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-shopping-cart"></i> Checkout</button>
+                            <button class="button-30" type="button" data-toggle="modal" data-target="#deleteKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-trash"></i> Hapus</button>
+                            <button class="button-30" type="button" data-toggle="modal" data-target="#checkoutKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-shopping-cart"></i> Checkout</button>
                         </td>
                         <!-- <td>
                             <button class="button-30" type="button" data-toggle="modal" data-target="#deleteKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-trash"></i> Edit</button>

@@ -94,7 +94,7 @@ body {
   display: inline-flex;
   font-family: "JetBrains Mono",monospace;
   height: 48px;
-  justify-content: center;
+  justify-content: start;
   line-height: 1;
   list-style: none;
   overflow: hidden;
