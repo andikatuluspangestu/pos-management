@@ -68,7 +68,7 @@ class KeranjangController extends Controller
 
         $keranjang->delete($id);
 
-        return redirect('/customer/keranjang');
+        return redirect('/customer/transaksi');
     }
 
     public function update(Request $request, $id)

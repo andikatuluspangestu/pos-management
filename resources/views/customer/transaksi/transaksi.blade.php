@@ -17,6 +17,7 @@
                         <th scope="col">Subtotal</th>
                         <th scope="col">Dibayar</th>
                         <th scope="col">Kembalian</th>
+                        <th scope="col">Delete History</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,7 +35,35 @@
                         <td>@currency($pesanan_detail->produk->harga_jual * $pesanan_detail->jumlah)</td>
                         <td>@currency($pesanan_detail->bayar)</td>
                         <td>@currency($pesanan_detail->kembali)</td>
+                        <td>
+                            <!-- Delete -->
+                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteTransaksi{{ $pesanan_detail->id_pesanan_detail }}">
+                                <i class="fas fa-trash"></i>
+                                Delete
+                            </button>
+                        </td>
                     </tr>
+
+                    <!-- Delete Order Modal -->
+                    <div class="modal fade" id="deleteTransaksi{{ $pesanan_detail->id_pesanan_detail }}" tabindex="-1" aria-labelledby="deleteTransaksi{{ $pesanan_detail->id_pesanan_detail }}" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="deleteTransaksi{{ $pesanan_detail->id_pesanan_detail }}">Hapus Data Keranjang</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Apakah Anda yakin ingin menghapus riwayat pembelian {{ $pesanan_detail->produk->nama_produk }}?
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
+                                    <a href="{{ route('transaksi.delete', $pesanan_detail->id_pesanan_detail) }}" class="btn btn-danger">Hapus</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     @endforeach
                 </tbody>
             </table>

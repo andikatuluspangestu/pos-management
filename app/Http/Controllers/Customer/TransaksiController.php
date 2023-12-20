@@ -44,7 +44,10 @@ class TransaksiController extends Controller
     }
     public function delete($id)
     {
-        //
+        $transaksi = PesaananDetails::find($id);
+        $transaksi->delete($id);
+
+        return redirect('/customer/transaksi');
     }
 
 

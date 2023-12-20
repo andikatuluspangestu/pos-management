@@ -46,14 +46,14 @@
                                 Edit
                             </button>
 
-                            <!-- Detail Modal Button -->
+                            <!-- Delete Modal Button -->
                             <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteKeranjang{{ $pesanan->id_pesanan }}" style="margin-bottom: 10px;">
                                 <i class="fas fa-trash"></i>
                                 Delete
                             </button>
 
-                            <!-- Delete -->
-                            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#chekcoutKeranjang{{ $pesanan->id_pesanan }}" style="margin-bottom: 10px;">
+                            <!-- Checkout Modal Button -->
+                            <button type="button" class="btn btn-sm btn-success" data-toggle="modal" data-target="#checkoutKeranjang{{ $pesanan->id_pesanan }}" style="margin-bottom: 10px;">
                                 <i class="fas fa-shopping-cart"></i>
                                 Check Out
                             </button>

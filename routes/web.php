@@ -94,13 +94,14 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
     Route::post('/customer/products/{id}', [KeranjangController::class, 'create'])->name('addkeranjang');
 
     // keranjang
+    Route::get('/customer/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
     Route::get('/customer/keranjang/{id}', [KeranjangController::class, 'delete'])->name('keranjang.delete');
     Route::post('/customer/keranjang/{id}', [KeranjangController::class, 'update'])->name('keranjang.update');
     Route::post('/customer/keranjang/checkout/{id}', [TransaksiController::class, 'create'])->name('keranjang.checkout');
 
     // riwayat
-    Route::get('/customer/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
     Route::get('/customer/transaksi', [TransaksiController::class, 'index'])->name('transaksi');
+    Route::get('/customer/transaksi/{id}', [TransaksiController::class, 'delete'])->name('transaksi.delete');
 });
 
 
