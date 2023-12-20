@@ -13,12 +13,16 @@ class Laporan extends Model
     protected $primaryKey   = 'id_laporan';
 
     // Inisialisasi nama field yang akan diisi
-    protected $fillable     = [
+    protected $fillable = [
         'id_user',
         'id_produk',
-        'name',
-        'nama_produk',
-        'stok',   
+        'jumlah',
+        'bayar',
+        'kembali',
+        'nama',
+        'alamat',
+        'telepon',
+        'kode_pembelian'
     ];
 
     // Inisialisasi field created_at dan updated_at secara otomatis
@@ -55,14 +59,14 @@ class Laporan extends Model
     }
 
     // Relasi One to Many
-    public function tbl_products()
+    public function produk()
     {
-        return $this->belongsTo('App\Produk', 'id_produk');
+        return $this->belongsTo(Produk::class, 'id_produk');
     }
 
     public function users()
     {
-        return $this->belongsTo('App\Users', 'id');
+        return $this->belongsTo(User::class, 'id_user');
     }
 
     // Count Data Laporan
@@ -75,9 +79,9 @@ class Laporan extends Model
     public static function countLaporansDataPerMonth()
     {
         return self::selectRaw('MONTH(created_at) as month, YEAR(created_at) as year, COUNT(*) as count')
-        ->groupByRaw('YEAR(created_at), MONTH(created_at)')
-        ->orderByRaw('YEAR(created_at) DESC, MONTH(created_at) DESC')
-        ->get();
+            ->groupByRaw('YEAR(created_at), MONTH(created_at)')
+            ->orderByRaw('YEAR(created_at) DESC, MONTH(created_at) DESC')
+            ->get();
     }
 
     // Get Latest Data Laporan

@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\customer;
 
 use App\Produk;
+use App\Laporan;
 use App\Pesanan;
 use App\PesaananDetails;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -41,6 +43,23 @@ class TransaksiController extends Controller
             'jumlah' => $pesanan->jumlah,
             'bayar' => $request->bayar,
             'kembali' => $kembali,
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+        ]);
+        
+        // create db for laporan
+        $randomString = Str::random(10);
+        Laporan::create([
+            'id_user' => $pesanan->id_user,
+            'id_produk' => $pesanan->id_produk,
+            'jumlah' => $pesanan->jumlah,
+            'bayar' => $request->bayar,
+            'kembali' => $kembali,
+            'nama' => $request->nama,
+            'alamat' => $request->alamat,
+            'telepon' => $request->telepon,
+            'kode_pembelian' => $randomString
         ]);
 
         $pesanan->delete($id);

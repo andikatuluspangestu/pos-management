@@ -6,11 +6,6 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateTblPesananDetailTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
         Schema::create('tbl_pesanan_detail', function (Blueprint $table) {
@@ -20,15 +15,13 @@ class CreateTblPesananDetailTable extends Migration
             $table->integer('jumlah');
             $table->integer('bayar');
             $table->integer('kembali');
+            $table->string('nama');
+            $table->text('alamat');
+            $table->string('telepon');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
     public function down()
     {
         Schema::dropIfExists('tbl_pesanan_detail');

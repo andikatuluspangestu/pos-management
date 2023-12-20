@@ -18,12 +18,12 @@ class LaporanController extends Controller
 
         $role       = $request->user()->role;
 
-        $view       = 'admin.laporans.list';
-        if ($role === 'sales') {
+        if ($role == 'sales') {
             $view = 'sales.laporans.list';
         }
+        $view = 'admin.laporans.list';
 
-        return view($view, compact('data', 'products', 'users'));
+        return view($view, compact('data'));
     }
 
     // Insert Data

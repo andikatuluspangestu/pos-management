@@ -15,8 +15,6 @@
                         <th scope="col">Jumlah</th>
                         <th scope="col">Subtotal</th>
                         <th scope="col" style="max-width: 250px;">Option</th>
-                        <!-- <th scope="col">Hapus</th>
-                        <th scope="col">Checkout</th> -->
                     </tr>
 
                 </thead>
@@ -33,11 +31,6 @@
                         <td>{{ $pesanan->produk->diskon }}</td>
                         <td>{{ $pesanan->jumlah }}</td>
                         <td>@currency($pesanan->subtotal)</td>
-                        <!-- <td>
-                            <button class="btn btn-secondary m-1" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-pen"></i> Edit</button>
-                            <button class="btn btn-danger m-1" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-trash"></i> Hapus</button>
-                            <button class="btn btn-primary m-1" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-shopping-cart"></i> Checkout</button>
-                        </td> -->
 
                         <td>
                             <!-- Edit Modal Button -->
@@ -145,22 +138,25 @@
                                             <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk" value="{{ $pesanan->produk->nama_produk }}" readonly>
                                         </div>
                                         <div class="form-group">
-                                            <label for="nama_produk">Harga Satuan</label>
-                                            <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $pesanan->produk->harga_jual }}" readonly>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label for="stok">Jumlah Pembelian</label>
-                                            <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $pesanan->jumlah }}" readonly>
-                                        </div>
-                                        <div class="form-group">
                                             <label for="stok">Total Harga</label>
                                             <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $pesanan->subtotal }}" readonly>
                                         </div>
 
                                         <div class="form-group">
                                             <label for="bayar">Bayar</label>
-                                            <input type="text" class="form-control" id="bayar" name="bayar" placeholder="Masukkan TTunai" value=0>
+                                            <input type="text" class="form-control" id="bayar" name="bayar" placeholder="Rp. ">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="nama">Nama</label>
+                                            <input type="text" class="form-control" id="nama" name="nama" placeholder="Masukkan Nama">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="alamat">Alamat</label>
+                                            <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Masukkan Alamat">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="telepon">Telepon</label>
+                                            <input type="text" class="form-control" id="telepon" name="telepon" placeholder="No. Telepon">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>

@@ -19,6 +19,9 @@ class PesaananDetails extends Model
         'jumlah',
         'bayar',
         'kembali',
+        'nama',
+        'alamat',
+        'telepon'
     ];
 
     // Inisialisasi field created_at dan updated_at secara otomatis
