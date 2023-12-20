@@ -34,20 +34,19 @@
                         <td>{{ $pesanan->jumlah }}</td>
                         <td>@currency($pesanan->subtotal)</td>
                         <td>
+<<<<<<< HEAD
                             <button class="button-30" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-pen"></i> Edit</button>
                             <button class="button-30" type="button" data-toggle="modal" data-target="#deleteKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-trash"></i> Hapus</button>
                             <button class="button-30" type="button" data-toggle="modal" data-target="#checkoutKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-shopping-cart"></i> Checkout</button>
+=======
+                            <button class="btn btn-secondary m-1" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-pen"></i> Edit</button>
+                            <button class="btn btn-danger m-1" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-trash"></i> Hapus</button>
+                            <button class="btn btn-primary m-1" type="button" data-toggle="modal" data-target="#updateKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-shopping-cart"></i> Checkout</button>
+>>>>>>> 8d7b99b93695d3cbb7e32e2c7b2e035b9685db3d
                         </td>
-                        <!-- <td>
-                            <button class="button-30" type="button" data-toggle="modal" data-target="#deleteKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-trash"></i> Edit</button>
-                        </td>
-                        <td>
-                            <button class="button-30" type="button" data-toggle="modal" data-target="#checkoutKeranjang{{ $pesanan->id_pesanan }}"><i class="fas fa-shopping-cart"></i>Checkout</button>
-                        </td> -->
                     </tr>
 
-
-                    <!-- Delete Category Modal -->
+                    <!-- Delete Order Modal -->
                     <div class="modal fade" id="deleteKeranjang{{ $pesanan->id_pesanan }}" tabindex="-1" aria-labelledby="deleteKeranjang{{ $pesanan->id_pesanan }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
@@ -68,13 +67,12 @@
                         </div>
                     </div>
 
-
                     <!-- Edit Keranjang Modal -->
                     <div class="modal fade" id="updateKeranjang{{ $pesanan->id_pesanan }}" tabindex="-1" aria-labelledby="updateKeranjang{{ $pesanan->id_pesanan }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title{{ $pesanan->id_pesanan }}" id="updateKeranjang{{ $pesanan->id_pesanan }}">Edit Data Produk</h5>
+                                    <h5 class="modal-title{{ $pesanan->id_pesanan }}" id="updateKeranjang{{ $pesanan->id_pesanan }}">Edit Data Pesanan</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -83,19 +81,20 @@
                                     <form action="{{ route('keranjang.update', ['id' => $pesanan->id_pesanan]) }}" method="post">
                                         @csrf
                                         <div class="form-group">
-                                            <label for="kode_produk">Kategori</label>
-                                        </div>
-                                        <div class="form-group">
                                             <label for="kode_produk">Nama Produk</label>
                                             <input type="text" class="form-control" id="kode_produk" name="kode_produk" placeholder="Masukkan Kode Produk" value="{{ $pesanan->produk->nama_produk }}" readonly>
                                         </div>
                                         <div class="form-group">
-                                            <label for="nama_produk">Nama Produk</label>
+                                            <label for="nama_produk">
+                                                Harga Produk
+                                            </label>
                                             <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $pesanan->produk->harga_jual }}" readonly>
                                         </div>
 
                                         <div class="form-group">
-                                            <label for="stok">Stok</label>
+                                            <label for="stok">
+                                                Jumlah Pembelian
+                                            </label>
                                             <input type="text" class="form-control" id="stok" name="stok" placeholder="Masukkan Stok" value="{{ $pesanan->jumlah }}">
                                         </div>
                                         <div class="modal-footer">
@@ -152,10 +151,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
                     @endforeach
                 </tbody>
             </table>

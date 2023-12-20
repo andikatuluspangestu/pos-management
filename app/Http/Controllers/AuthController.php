@@ -38,7 +38,7 @@ class AuthController extends Controller
             }
         }
 
-        return redirect('/login')->with('error', 'Invalid credentials');
+        return redirect('/login')->with('error', 'Email atau password yang anda masukan salah!');
     }
 
     /**

@@ -4,7 +4,7 @@
 <div class="container-fluid px-5">
   <div class="row">
     <div class="table-responsive shadow-sm p-3">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <table class="table table-bordered responsive" id="dataTable" width="100%" cellspacing="0">
 
         <button type="button" class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#addCategoryModal">
           <i class="fas fa-plus"></i>
@@ -22,7 +22,7 @@
 
         <thead>
           <tr>
-            <th scope="col">ID</th>
+            <th scope="col">No</th>
             <th scope="col">Nama Kategori</th>
             <th scope="col">Kode Produk</th>
             <th scope="col">Nama Produk</th>
@@ -37,7 +37,9 @@
         <tbody>
           @foreach($data as $product)
           <tr>
-            <td>{{ $product->id_produk }}</td>
+            <td>
+              {{ $loop->iteration }}
+            </td>
             <td>{{ $product->tbl_categories->category_name }}</td>
             <td>{{ $product->kode_produk }}</td>
             <td>{{ $product->nama_produk }}</td>
@@ -83,7 +85,7 @@
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-            <a href="{{ route('products.delete', $product->id_produk) }}" class="btn btn-danger">Hapus</a>
+            <a href="{{ route('admin.products.delete', $product->id_produk) }}" class="btn btn-danger">Hapus</a>
           </div>
         </div>
       </div>
@@ -100,7 +102,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="{{ route('products.update', ['id' => $product->id_produk]) }}" method="post">
+            <form action="{{ route('admin.products.update', ['id' => $product->id_produk]) }}" method="post">
               @csrf
               @method('PUT')
               <div class="form-group">
@@ -162,7 +164,7 @@
             </button>
           </div>
           <div class="modal-body">
-            <form action="{{ route('products.insert') }}" method="POST" enctype="multipart/form-data">
+            <form action="{{ route('admin.products.insert') }}" method="POST" enctype="multipart/form-data">
               @csrf
 
               <div class="form-group">

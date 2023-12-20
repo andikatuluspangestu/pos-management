@@ -1,4 +1,6 @@
-// Call the dataTables jQuery plugin
+// Call the dataTables jQuery plugin with responsive extension
 $(document).ready(function() {
-  $('#dataTable').DataTable();
+  $('#dataTable').DataTable({
+    responsive: true
+  });
 });

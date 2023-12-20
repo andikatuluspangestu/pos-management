@@ -7,12 +7,6 @@ use App\Categories;
 
 class CategoriesController extends Controller
 {
-    // Index Page
-    /*public function index()
-    {
-        $data = Categories::getAll();
-        return view('admin.categories.list', compact('data'));
-    }*/
 
     public function index(Request $request)
     {
@@ -20,6 +14,7 @@ class CategoriesController extends Controller
         $role = $request->user()->role;
 
         $view = 'admin.categories.list';
+
         if ($role === 'sales') {
             $view = 'sales.categories.list';
         }
@@ -36,14 +31,22 @@ class CategoriesController extends Controller
         ];
 
         Categories::insert($data);
-        return redirect()->route('categories')->with('success', 'Data berhasil ditambahkan');
+        if (auth()->user()->role === 'admin') {
+            return redirect()->route('admin.categories')->with('success', 'Data berhasil ditambahkan');
+        } else {
+            return redirect()->route('sales.categories')->with('success', 'Data berhasil ditambahkan');
+        }
     }
 
     // Delete Data
     public function delete($id)
     {
         Categories::deleteData($id);
-        return redirect()->route('categories')->with('success', 'Data berhasil dihapus');
+        if (auth()->user()->role === 'admin') {
+            return redirect()->route('admin.categories')->with('success', 'Data berhasil dihapus');
+        } else {
+            return redirect()->route('sales.categories')->with('success', 'Data berhasil dihapus');
+        }
     }
 
     // Update Data
@@ -55,7 +58,11 @@ class CategoriesController extends Controller
         ];
 
         Categories::updateData($id, $data);
-        return redirect()->route('categories')->with('success', 'Data berhasil diupdate');
+        if (auth()->user()->role === 'admin') {
+            return redirect()->route('admin.categories')->with('success', 'Data berhasil diubah');
+        } else {
+            return redirect()->route('sales.categories')->with('success', 'Data berhasil diubah');
+        }
     }
 
     // Count Data Kategori

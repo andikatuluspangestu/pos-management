@@ -13,20 +13,30 @@ class CategoriesSeeder extends Seeder
     public function run()
     {
         $categories = [
-            'Gorengan',
-            'Makanan Berat',
-            'Sayur',
-            'Sambal',
-            'Snack',
+            'Bumbu Umik',
+            'Penyedap Rasa',
+            'Saus',
+            'Lain-Lain',
         ];
 
-        foreach ($categories as $category) {
-            DB::table('tbl_categories')->insert([
-                'category_name' => $category,
-                'category_description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam euismod, nisl eget aliquam ultricies',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ]);
+        $category_description = [
+            'Prdouk dengan kategori Bumbu Umik',
+            'Prdouk dengan kategori Penyedap Rasa',
+            'Prdouk dengan kategori Saus',
+            'Prdouk dengan kategori Lain-Lain',
+        ];
+
+        foreach ($categories as $index => $category) {
+
+          // mengambil nama file gambar berdasarkan index yang sama
+          $category_descriptioncategory = $category_description[$index];
+
+          DB::table('tbl_categories')->insert([
+            'category_name'         => $category,
+            'category_description'  => $category_descriptioncategory,
+            'created_at'            => now(),
+            'updated_at'            => now(),
+          ]);
         }
     }
 }

@@ -28,7 +28,6 @@ class ProductSeeder extends Seeder
             'opor.jpeg',
             'gulai.jpeg',
         ];
-
         $kodeproduk = 0;
         foreach ($produks as $produk) {
             DB::table('tbl_products')->insert([
@@ -45,5 +44,6 @@ class ProductSeeder extends Seeder
             ]);
             $kodeproduk += 1;
         }
+
     }
 }

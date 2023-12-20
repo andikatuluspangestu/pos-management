@@ -7,13 +7,8 @@ use App\User;
 
 class UsersController extends Controller
 {
+
   // Menampilkan Data Sales
-  /*public function getSales()
-  {
-    $sales = User::getAllSales();
-    return view('admin.users.sales.list', compact('sales'));
-  }*/
-  
   public function getSales(Request $request)
   {
     $sales  = User::getAllSales();
@@ -46,20 +41,22 @@ class UsersController extends Controller
       'password'  => 'required|min:6',
     ]);
 
-    $sales            = new User;
-    $sales->name      = $request->name;
-    $sales->email     = $request->email;
-    $sales->password  = bcrypt($request->password);
-    $sales->role      = 'sales';
+    $sales              = new User;
+    $sales->name        = $request->name;
+    $sales->email       = $request->email;
+    $sales->password    = bcrypt($request->password);
+    $sales->role        = 'sales';
+    $sales->phone       = $request->phone;
+    $sales->address     = $request->address;
+    $sales->city        = $request->city;
+    $sales->postal_code = $request->postal_code;
     $sales->save();
 
     // Message
     if ($sales) {
-      // Redirect dengan pesan sukses
-      return redirect()->route('sales')->with(['success' => 'Data Berhasil Disimpan!']);
+      return redirect()->route('sales')->with(['message' => 'Data Berhasil Disimpan!']);
     } else {
-      // Redirect dengan pesan error
-      return redirect()->route('sales')->with(['error' => 'Data Gagal Disimpan!']);
+      return redirect()->route('sales')->with(['message' => 'Data Gagal Disimpan!']);
     }
   }
 
@@ -69,12 +66,9 @@ class UsersController extends Controller
     $sales = User::find($id);
     $sales->delete();
 
-    // Message
     if ($sales) {
-      // Redirect dengan pesan sukses
       return redirect()->route('sales')->with(['message' => 'Data Berhasil Dihapus!']);
     } else {
-      // Redirect dengan pesan error
       return redirect()->route('sales')->with(['message' => 'Data Gagal Dihapus!']);
     }
   }
@@ -88,20 +82,24 @@ class UsersController extends Controller
       'password'  => 'nullable|min:6',
     ]);
 
-    $sales          = User::find($id);
-    $sales->name    = $request->name;
-    $sales->email   = $request->email;
+    $sales              = User::find($id);
+    $sales->name        = $request->name;
+    $sales->email       = $request->email;
+    $sales->role        = 'sales';
+    $sales->phone       = $request->phone;
+    $sales->address     = $request->address;
+    $sales->city        = $request->city;
+    $sales->postal_code = $request->postal_code;
+
     if (!empty($request->password)) {
       $sales->password = bcrypt($request->password);
     }
+
     $sales->update();
 
-    // Message
     if ($sales) {
-      // Redirect dengan pesan sukses
       return redirect()->route('sales')->with(['message' => 'Data Berhasil Diupdate!']);
     } else {
-      // Redirect dengan pesan error
       return redirect()->route('sales')->with(['message' => 'Data Gagal Diupdate!']);
     }
   }
@@ -113,12 +111,6 @@ class UsersController extends Controller
   }
 
   // Menampilkan Data Customers
-  /*public function getCustomers()
-  {
-    $customers = User::getAllCustomers();
-    return view('admin.users.customers.list', compact('customers'));
-  }*/
-
   public function getCustomers(Request $request)
   {
     $customers  = User::getAllCustomers();
@@ -133,6 +125,47 @@ class UsersController extends Controller
         return view('customers.users.customers.list', compact('customers'));
       default:
         return abort(403, 'You are not authorized to view this page.');
+    }
+  }
+
+  // Insert Data Sales
+  public function insertCustomers(Request $request)
+  {
+    $this->validate($request, [
+      'name'      => 'required|min:3',
+      'email'     => 'required|email|unique:users',
+      'password'  => 'required|min:6',
+    ]);
+
+    $customers              = new User;
+    $customers->name        = $request->name;
+    $customers->email       = $request->email;
+    $customers->password    = bcrypt($request->password);
+    $customers->role        = 'customer';
+    $customers->phone       = $request->phone;
+    $customers->address     = $request->address;
+    $customers->city        = $request->city;
+    $customers->postal_code = $request->postal_code;
+    $customers->save();
+
+    // Message
+    if ($customers) {
+      return redirect()->route('customers')->with(['message' => 'Data Berhasil Disimpan!']);
+    } else {
+      return redirect()->route('customers')->with(['message' => 'Data Gagal Disimpan!']);
+    }
+  }
+
+  // Delete Data Customers
+  public function deleteCustomers($id)
+  {
+    $customers = User::find($id);
+    $customers->delete();
+
+    if ($customers) {
+      return redirect()->route('customers')->with(['message' => 'Data Berhasil Dihapus!']);
+    } else {
+      return redirect()->route('customers')->with(['message' => 'Data Gagal Dihapus!']);
     }
   }
 

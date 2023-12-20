@@ -130,6 +130,16 @@
                         <h1>
                             Masuk ke Akun Anda
                         </h1>
+
+                        @if(session('error'))
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+          {{ session('error') }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        @endif
+
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group">
@@ -178,12 +188,14 @@
                                 </div>
                             </div>
 
-                            <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block" value="Log in" />
+                            <input type="submit" id="btn-login" class="btn btn-custom btn-lg btn-block"
+                                value="Log in" />
                         </form>
                         <small class="text-center">
-                          Belum punya akun? <a href="#" data-toggle="modal" data-target="#exampleModal">Register</a>
+                            Belum punya akun? <a href="#" data-toggle="modal"
+                                data-target="#exampleModal">Register</a>
                         </small>
-                        <hr/>
+                        <hr />
                     </div>
                 </div>
             </div>
@@ -196,14 +208,15 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLabel">
-                      Pemberitahuan!
+                        Pemberitahuan!
                     </h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    Jika ingin melakukan registrasi Akun Sales atau Customer silahkan menghubungi admin di Nomor WhatsApp berikut ini.
+                    Jika ingin melakukan registrasi Akun Sales atau Customer silahkan menghubungi admin di Nomor
+                    WhatsApp berikut ini.
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Mengerti</button>
@@ -211,7 +224,6 @@
             </div>
         </div>
     </div>
-
 
     <footer id="footer">
         <div class="container">
@@ -224,7 +236,7 @@
     </footer>
 
     {{-- CDN Javascrip Bootstrap 4 & Jquery --}}
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
 
     <script>
@@ -243,9 +255,6 @@
             }
         }
     </script>
-
-    <script></script>
-
 </body>
 
 </html>
