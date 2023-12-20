@@ -5,6 +5,10 @@
   <div class="row">
     <div class="table-responsive shadow-sm p-3">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+      <button type="button" class="btn btn-sm btn-success mb-3" onclick="printLaporan()">
+          <i class="fas fa-print"></i>
+            Cetak Laporan
+            </button>
 
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
