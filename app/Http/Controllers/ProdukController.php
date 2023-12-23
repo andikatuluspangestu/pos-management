@@ -58,10 +58,10 @@ class ProdukController extends Controller
     public function update(Request $request, $id)
     {
         $data = [
-            'category_name'         => $request->category_name,
+            'category_id'         => $request->category_id,
             'kode_produk'           => $request->kode_produk,
             'nama_produk'           => $request->nama_produk,
-            //'gambar'              => $request->gambar,
+            'gambar'              => Produk::find($id)->gambar,
             'produk_description'    => $request->produk_description,
             'diskon'                => $request->diskon,
             'harga_jual'            => $request->harga_jual,
@@ -69,7 +69,7 @@ class ProdukController extends Controller
         ];
 
         Produk::updateData($id, $data);
-        return redirect()->route('products')->with('success', 'Data berhasil diupdate');
+        return redirect()->route('admin.products')->with('success', 'Data berhasil diupdate');
     }
 
     // Count Data Produk
