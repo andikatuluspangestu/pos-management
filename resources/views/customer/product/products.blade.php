@@ -19,9 +19,10 @@
                     </tr>
                 </thead>
                 <tbody>
+                    <?php $id = 1; ?>
                     @foreach($products as $product)
                     <tr>
-                        <td>{{ $product->id_produk }}</td>
+                        <td>{{ $id++ }}</td>
                         <td>{{ $product->tbl_categories->category_name }}</td>
                         <td>{{ $product->nama_produk }}</td>
                         <td>
@@ -46,7 +47,7 @@
         </div>
 
         @foreach($products as $product)
-    
+
         <!-- Buy Category Modal -->
         <div class="modal fade" id="buyProductsModal{{ $product->id_produk }}" tabindex="-1" aria-labelledby="editCategoryModal{{ $product->id_produk }}" aria-hidden="true">
             <div class="modal-dialog">
@@ -63,11 +64,11 @@
                             @method('post')
                             <div class="form-group">
                                 <label for="category_name">Nama Kategori</label>
-                                <input type="text" class="form-control" id="category_name" name="category_name"  value="{{ $product->tbl_categories->category_name }}" readonly>
+                                <input type="text" class="form-control" id="category_name" name="category_name" value="{{ $product->tbl_categories->category_name }}" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="nama_produk">Nama Produk</label>
-                                <input type="text" class="form-control" id="nama_produk" name="nama_produk"  value="{{ $product->nama_produk }}" readonly>
+                                <input type="text" class="form-control" id="nama_produk" name="nama_produk" value="{{ $product->nama_produk }}" readonly>
                             </div>
                             <div class="form-group">
                                 <label for="harga_jual">Harga Jual</label>

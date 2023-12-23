@@ -60,7 +60,7 @@ class Produk extends Model
     // Relasi One to Many
     public function tbl_categories()
     {
-        return $this->belongsTo('App\Categories', 'category_id');
+        return $this->belongsTo(categories::class, 'category_id');
     }
 
     // Relasi One to Many

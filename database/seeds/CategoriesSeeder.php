@@ -16,14 +16,18 @@ class CategoriesSeeder extends Seeder
             'Bumbu Umik',
             'Penyedap Rasa',
             'Saus',
-            'Lain-Lain',
+            'Sambal',
+            'Kecap',
+            'Lemak',
         ];
 
         $category_description = [
             'Prdouk dengan kategori Bumbu Umik',
             'Prdouk dengan kategori Penyedap Rasa',
             'Prdouk dengan kategori Saus',
-            'Prdouk dengan kategori Lain-Lain',
+            'Prdouk dengan kategori Sambal',
+            'Prdouk dengan kategori Kecap',
+            'Prdouk dengan kategori Lemak',
         ];
 
         foreach ($categories as $index => $category) {

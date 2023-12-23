@@ -29,12 +29,13 @@ class ProductSeeder extends Seeder
             'gulai.jpeg',
         ];
         $kodeproduk = 0;
+        $categories = 1;
         foreach ($produks as $produk) {
             DB::table('tbl_products')->insert([
-                'category_id' => 1,
+                'category_id' => $categories++,
                 'kode_produk' => $kodeproduk,
                 'nama_produk' => $produk,
-                'gambar' => $image[$kodeproduk],
+                'gambar' => $image[$kodeproduk++],
                 'produk_description' => 'Bumbu Masak Umik varian yang khusus dibuat untuk memasak beragam masakan',
                 'diskon' => 0.05,
                 'harga_jual' => 8000,
@@ -42,8 +43,6 @@ class ProductSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ]);
-            $kodeproduk += 1;
         }
-
     }
 }

@@ -49,7 +49,7 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="deleteTransaksi{{ $pesanan_detail->id_pesanan_detail }}">Hapus Data Keranjang</h5>
+                                    <h5 class="modal-title" id="deleteTransaksi{{ $pesanan_detail->id_pesanan_detail }}">Hapus Data Transaksi</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
