@@ -31,7 +31,7 @@ class ProdukController extends Controller
             'category_id'           => $request->category_id,
             'kode_produk'           => $request->kode_produk,
             'nama_produk'           => $request->nama_produk,
-            'gambar'                => $request->gambar,
+            'gambar'                => $request->file('gambar')->storeAs('', basename($request->file('gambar')->getClientOriginalName())),
             'produk_description'    => $request->produk_description,
             'diskon'                => $request->diskon,
             'harga_jual'            => $request->harga_jual,
