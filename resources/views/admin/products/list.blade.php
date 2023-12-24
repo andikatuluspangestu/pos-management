@@ -121,10 +121,10 @@
                 <label for="nama_produk">Nama Produk</label>
                 <input type="text" class="form-control" id="nama_produk" name="nama_produk" placeholder="Masukkan Nama Produk" value="{{ $product->nama_produk }}">
               </div>
-              <!-- <div class="form-group">
+              <div class="form-group">
                 <label for="gambar">Gambar</label>
                 <input type="file" class="form-control" id="gambar" name="gambar" placeholder="Masukkan Gambar" value="{{ $product->gambar }}">
-              </div> -->
+              </div>
               <div class="form-group">
                 <label for="produk_description">Deskripsi Produk</label>
                 <textarea class="form-control" id="produk_description" name="produk_description" rows="3">{{ $product->produk_description }}</textarea>
