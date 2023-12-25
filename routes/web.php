@@ -16,6 +16,10 @@ Route::get('/register', [AuthController::class, 'showRegistrationForm'])->name('
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
+// Profile
+Route::get('/profile', 'AuthController@profile')->name('profile');
+Route::post('/profile/update', 'AuthController@profileUpdate')->name('profile.update');
+
 // Middleware Group
 Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
@@ -50,7 +54,6 @@ Route::group(['middleware' => ['auth', 'checkRole:admin']], function () {
 
     // Manage Sellings atau Penjualan
     Route::get('/admin/sellings', 'SellingsController@getAll')->name('sellings');
-
     Route::get('/admin/laporans', 'LaporanController@index')->name('adminlaporans');
 
 });

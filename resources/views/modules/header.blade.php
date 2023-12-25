@@ -54,7 +54,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                   @if (Auth::user()->role == 'sales')
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="{{ route('profile') }}">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profil Saya
                   </a>
@@ -64,12 +64,16 @@
                     Logout
                   </a>
                   @elseif (Auth::user()->role == 'admin')
+                  <a class="dropdown-item" href="{{ route('profile') }}">
+                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                    Profil Saya
+                  </a>
                   <a class="dropdown-item" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
                     Logout
                   </a>
                   @elseif (Auth::user()->role == 'customer')
-                  <a class="dropdown-item" href="#">
+                  <a class="dropdown-item" href="{{ route('profile') }}">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                     Profil Saya
                   </a>
