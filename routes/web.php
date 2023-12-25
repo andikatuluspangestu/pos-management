@@ -5,6 +5,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\Customer\CustomerController;
 use App\Http\Controllers\Customer\KeranjangController;
 use App\Http\Controllers\Customer\TransaksiController;
+use App\Http\Controllers\Customer\CheckoutController;
 
 // Rute untuk halaman utama
 Route::view('/', 'home.index');
@@ -101,6 +102,10 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
     Route::get('/customer/keranjang/{id}', [KeranjangController::class, 'delete'])->name('keranjang.delete');
     Route::post('/customer/keranjang/{id}', [KeranjangController::class, 'update'])->name('keranjang.update');
     Route::post('/customer/keranjang/checkout/{id}', [TransaksiController::class, 'create'])->name('keranjang.checkout');
+
+    // Checkout
+    Route::post('/customer/checkout', [CheckoutController::class, 'index'])->name('customers.checkout');
+    Route::post('/customer/checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');
 
     // riwayat
     Route::get('/customer/transaksi', [TransaksiController::class, 'index'])->name('transaksi');

@@ -99,4 +99,9 @@ class Produk extends Model
         // Cocokan kode_produk dengan kode_produk yang ada di database pada id_produk tertentu
         $checkKodeProduk = self::where('kode_produk', $kode_produk)->where('id_produk', '!=', $id)->first();
     }
+
+    public function getAllWithStock()
+    {
+        return self::where('stok', '>', 0)->get();
+    }
 }

@@ -13,12 +13,14 @@ class ProdukController extends Controller
     {
         $data       = Produk::getAll();
         $categories = Categories::getall();
-
         $role       = $request->user()->role;
 
         $view       = 'admin.products.list';
         if ($role === 'sales') {
             $view = 'sales.products.list';
+        } else if ($role === 'customer') {
+            $data = Produk::where('stok', '>', 0)->get();
+            $view = 'customer.product.list';
         }
 
         return view($view, compact('data', 'categories'));
