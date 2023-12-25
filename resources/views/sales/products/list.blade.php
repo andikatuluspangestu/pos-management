@@ -6,9 +6,9 @@
     <div class="table-responsive shadow-sm p-3">
       <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 
-        @if(session('success'))
+        @if(session('message'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
-          {{ session('success') }}
+          {{ session('message') }}
           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>

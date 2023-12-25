@@ -93,4 +93,10 @@ class Produk extends Model
     {
         return self::orderBy('created_at', 'desc')->take(5)->get();
     }
+
+    public function checkKodeProduk($kode_produk, $id)
+    {
+        // Cocokan kode_produk dengan kode_produk yang ada di database pada id_produk tertentu
+        $checkKodeProduk = self::where('kode_produk', $kode_produk)->where('id_produk', '!=', $id)->first();
+    }
 }
