@@ -47,22 +47,9 @@ class TransaksiController extends Controller
             'nama' => $request->nama,
             'alamat' => $request->alamat,
             'telepon' => $request->telepon,
-            'kode_pembelian' => $randomString
+            'kodepembelian' => $randomString
         ]);
         
-        // $randomString = Str::random(10);
-        // Laporan::create([
-        //     'id_user' => $pesanan->id_user,
-        //     'id_produk' => $pesanan->id_produk,
-        //     'jumlah' => $pesanan->jumlah,
-        //     'bayar' => $request->bayar,
-        //     'kembali' => $kembali,
-        //     'nama' => $request->nama,
-        //     'alamat' => $request->alamat,
-        //     'telepon' => $request->telepon,
-        //     'kode_pembelian' => $randomString
-        // ]);
-
         $pesanan->delete($id);
 
         return redirect('/customer/transaksi');

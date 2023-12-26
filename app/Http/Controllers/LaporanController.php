@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use App\Produk;
 use App\Laporan;
+use App\PesaananDetails;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -12,10 +13,7 @@ class LaporanController extends Controller
     // Index Page
     public function index(Request $request)
     {
-        $data       = Laporan::getAll();
-        $products   = Produk::getAll();
-        $users      = User::getAllSales();
-
+        $data       = PesaananDetails::getAll();
         $role       = $request->user()->role;
 
         if ($role == 'sales') {

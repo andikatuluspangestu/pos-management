@@ -46,7 +46,7 @@
             <td>@currency($laporan->produk->harga_jual * $laporan->jumlah)</td>
             <td>@currency($laporan->bayar)</td>
             <td>@currency($laporan->kembali)</td>
-            <td>{{ $laporan->kode_pembelian }}</td>
+            <td>{{ $laporan->kodepembelian }}</td>
           </tr>
           @endforeach
         </tbody>

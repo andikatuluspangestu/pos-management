@@ -22,7 +22,8 @@ class PesaananDetails extends Model
         'nama',
         'alamat',
         'telepon',
-        'kodepembelian'
+        'kodepembelian',
+        'status'
     ];
 
     // Inisialisasi field created_at dan updated_at secara otomatis
@@ -66,6 +67,10 @@ class PesaananDetails extends Model
     public function pesanan()
     {
         return $this->belongsTo(Pesanan::class, 'id_pesanan');
+    }
+    public function users()
+    {
+        return $this->belongsTo(User::class, 'id_user');
     }
     
 }
