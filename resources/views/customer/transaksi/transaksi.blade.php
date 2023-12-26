@@ -18,7 +18,7 @@
                         <th scope="col">Dibayar</th>
                         <th scope="col">Kembalian</th>
                         <th scope="col">Status Pembelian</th>
-                        <th scope="col">Lihat Struk</th>
+                        <!-- <th scope="col">Action</th> -->
                     </tr>
                 </thead>
                 <tbody>
@@ -37,6 +37,12 @@
                         <td>@currency($pesanan_detail->bayar)</td>
                         <td>@currency($pesanan_detail->kembali)</td>
                         <td>{{ $pesanan_detail->status }}</td>
+                        <!-- <td>
+                            <button type="button" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#checkoutKeranjang{{ $pesanan_detail->id_pesanan_detail }}" style="margin-bottom: 10px;">
+                                <i class="fas fa-info"></i>
+                                Lihat Struk
+                            </button>
+                        </td> -->
                     </tr>
                     @endforeach
                 </tbody>
