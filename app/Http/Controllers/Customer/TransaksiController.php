@@ -37,20 +37,8 @@ class TransaksiController extends Controller
             return redirect('/customer/keranjang');
         }
 
-        PesaananDetails::create([
-            'id_user' => $pesanan->id_user,
-            'id_produk' => $pesanan->id_produk,
-            'jumlah' => $pesanan->jumlah,
-            'bayar' => $request->bayar,
-            'kembali' => $kembali,
-            'nama' => $request->nama,
-            'alamat' => $request->alamat,
-            'telepon' => $request->telepon,
-        ]);
-        
-        // create db for laporan
         $randomString = Str::random(10);
-        Laporan::create([
+        PesaananDetails::create([
             'id_user' => $pesanan->id_user,
             'id_produk' => $pesanan->id_produk,
             'jumlah' => $pesanan->jumlah,
@@ -61,6 +49,19 @@ class TransaksiController extends Controller
             'telepon' => $request->telepon,
             'kode_pembelian' => $randomString
         ]);
+        
+        // $randomString = Str::random(10);
+        // Laporan::create([
+        //     'id_user' => $pesanan->id_user,
+        //     'id_produk' => $pesanan->id_produk,
+        //     'jumlah' => $pesanan->jumlah,
+        //     'bayar' => $request->bayar,
+        //     'kembali' => $kembali,
+        //     'nama' => $request->nama,
+        //     'alamat' => $request->alamat,
+        //     'telepon' => $request->telepon,
+        //     'kode_pembelian' => $randomString
+        // ]);
 
         $pesanan->delete($id);
 

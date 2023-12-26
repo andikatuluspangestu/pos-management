@@ -21,7 +21,8 @@ class PesaananDetails extends Model
         'kembali',
         'nama',
         'alamat',
-        'telepon'
+        'telepon',
+        'kodepembelian'
     ];
 
     // Inisialisasi field created_at dan updated_at secara otomatis

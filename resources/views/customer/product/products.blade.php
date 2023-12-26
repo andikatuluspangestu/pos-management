@@ -27,7 +27,7 @@
                         <td>{{ $product->nama_produk }}</td>
                         <td>
                             <picture>
-                                <img src="{{ asset('/' . $product->gambar) }}" class="img-fluid img-thumbnail" alt="...">
+                                <img src="{{ asset('img/products/' . $product->gambar) }}" class="img-fluid img-thumbnail" alt="...">
                             </picture>
                         </td>
                         <td>{{ $product->produk_description }}</td>

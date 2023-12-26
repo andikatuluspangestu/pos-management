@@ -18,6 +18,7 @@ class CreateTblPesananDetailTable extends Migration
             $table->string('nama');
             $table->text('alamat');
             $table->string('telepon');
+            $table->string('kodepembelian');
             $table->timestamps();
         });
     }
