@@ -17,7 +17,7 @@
                         <th scope="col">Subtotal</th>
                         <th scope="col">Dibayar</th>
                         <th scope="col">Kembalian</th>
-                        <th scope="col">Delete History</th>
+                        <th scope="col">Status Pembelian</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -35,17 +35,11 @@
                         <td>@currency($pesanan_detail->produk->harga_jual * $pesanan_detail->jumlah)</td>
                         <td>@currency($pesanan_detail->bayar)</td>
                         <td>@currency($pesanan_detail->kembali)</td>
-                        <td>
-                            <!-- Delete -->
-                            <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#deleteTransaksi{{ $pesanan_detail->id_pesanan_detail }}">
-                                <i class="fas fa-trash"></i>
-                                Delete
-                            </button>
-                        </td>
+                        <td>{{ $pesanan_detail->status }}</td>
                     </tr>
 
                     <!-- Delete Order Modal -->
-                    <div class="modal fade" id="deleteTransaksi{{ $pesanan_detail->id_pesanan_detail }}" tabindex="-1" aria-labelledby="deleteTransaksi{{ $pesanan_detail->id_pesanan_detail }}" aria-hidden="true">
+                    <!-- <div class="modal fade" id="deleteTransaksi{{ $pesanan_detail->id_pesanan_detail }}" tabindex="-1" aria-labelledby="deleteTransaksi{{ $pesanan_detail->id_pesanan_detail }}" aria-hidden="true">
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -63,7 +57,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                     @endforeach
                 </tbody>
             </table>

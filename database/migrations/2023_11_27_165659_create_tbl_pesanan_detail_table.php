@@ -19,7 +19,7 @@ class CreateTblPesananDetailTable extends Migration
             $table->text('alamat');
             $table->string('telepon');
             $table->string('kodepembelian');
-            $table->string('status')->default('proses');
+            $table->string('status')->default('Sedang di Proses');
             $table->timestamps();
         });
     }

@@ -40,7 +40,7 @@
                                 <td>{{ $product->nama_produk }}</td>
                                 <td>
                                     <picture>
-                                        <source srcset="{{ asset('/' . $product->gambar) }}" type="image/jpeg">
+                                        <source srcset="{{ asset('/img/products/' . $product->gambar) }}" type="image/jpeg">
                                         <img src="{{ asset('/' . $product->gambar) }}"
                                             class="img-fluid img-thumbnail" alt="...">
                                     </picture>
