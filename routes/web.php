@@ -81,8 +81,8 @@ Route::group(['middleware' => ['auth', 'checkRole:sales']], function () {
 
     // Laporan
     Route::get('/sales/laporans', 'LaporanController@index')->name('saleslaporans');
-    Route::post('/sales/laporans/insert', 'LaporanController@insert')->name('saleslaporans.insert');
-    Route::put('/sales/laporans/update/{id}', 'LaporanController@update')->name('saleslaporans.update');
+    // Route::post('/sales/laporans/insert', 'LaporanController@insert')->name('saleslaporans.insert');
+    Route::get('/sales/laporans/update/{id}', 'LaporanController@update')->name('saleslaporans.update');
     
 });
 
@@ -101,11 +101,9 @@ Route::group(['middleware' => ['auth', 'checkRole:customer']], function () {
     Route::get('/customer/keranjang', [KeranjangController::class, 'index'])->name('keranjang');
     Route::get('/customer/keranjang/{id}', [KeranjangController::class, 'delete'])->name('keranjang.delete');
     Route::post('/customer/keranjang/{id}', [KeranjangController::class, 'update'])->name('keranjang.update');
-    Route::post('/customer/keranjang/checkout/{id}', [TransaksiController::class, 'create'])->name('keranjang.checkout');
 
-    // Checkout
-    Route::post('/customer/checkout', [CheckoutController::class, 'index'])->name('customers.checkout');
-    Route::post('/customer/checkout/store', [CheckoutController::class, 'store'])->name('checkout.store');
+    // checkout
+    Route::post('/customer/keranjang/checkout/{id}', [TransaksiController::class, 'create'])->name('keranjang.checkout');
 
     // riwayat
     Route::get('/customer/transaksi', [TransaksiController::class, 'index'])->name('transaksi');

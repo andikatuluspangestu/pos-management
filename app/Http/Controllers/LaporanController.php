@@ -18,9 +18,9 @@ class LaporanController extends Controller
 
         if ($role == 'sales') {
             $view = 'sales.laporans.list';
+        } else {
+            $view = 'admin.laporans.list';
         }
-        $view = 'admin.laporans.list';
-
         return view($view, compact('data'));
     }
 
@@ -31,7 +31,7 @@ class LaporanController extends Controller
             'id_user'               => $request->id_user,
             'id_produk'             => $request->id_produk,
             'name'                  => $request->name,
-            'nama_produk'           => $request->nama_produk,            
+            'nama_produk'           => $request->nama_produk,
             'stok'                  => $request->stok,
         ];
 
@@ -47,18 +47,14 @@ class LaporanController extends Controller
     }
 
     // Update Data
-    public function update(Request $request, $id)
+    public function update($id)
     {
         $data = [
-            'id_user'       => $request->id_user,
-            'id_produk'     => $request->id_produk,
-            'name'          => $request->name,
-            'nama_produk'   => $request->nama_produk,
-            'stok'          => $request->stok,
+            'status'       => 'Sedang di Kirim',
         ];
 
-        Produk::updateData($id, $data);
-        return redirect()->route('laporans')->with('success', 'Data berhasil diupdate');
+        PesaananDetails::updateData($id, $data);
+        return redirect()->route('saleslaporans')->with('success', 'Data berhasil diupdate');
     }
 
     // Count Data Produk
