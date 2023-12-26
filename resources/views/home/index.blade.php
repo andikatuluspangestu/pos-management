@@ -24,6 +24,24 @@
   <!-- Custom CSS -->
   <link rel="stylesheet" href="{{ asset('css/home.css') }}">
 
+  <style>
+    .btn-login {
+      background-color: #6b7658;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px;
+      margin-right: 10px;
+      font-weight: 600;
+    }
+
+    .btn-register {
+      background-color: #6b7658;
+      color: #fff;
+      border-radius: 10px;
+      padding: 10px 20px;
+      font-weight: 600;
+    }
+  </style>
 
 </head>
 
@@ -47,9 +65,10 @@
             <li class="nav-item"><a class="nav-link" href="#testimonial">Testimonial</a></li>
             <li class="nav-item"><a class="nav-link" href="#call-to-action">Unggulan</a></li>
           </ul>
-          <form class="d-flex" role="search">
-            <input class="form-control search-input ps-4" type="search" placeholder="Cari Produk... lalu ENTER" aria-label="Search">
-          </form>
+          {{-- Login Buttons --}}
+          <div class="d-flex">
+            <a href="{{ route('login') }}" class="btn btn-login">Login</a>
+          </div>
         </div>
       </div>
     </nav>

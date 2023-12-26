@@ -131,14 +131,14 @@
                             Masuk ke Akun Anda
                         </h1>
 
-                        @if(session('error'))
-        <div class="alert alert-warning alert-dismissible fade show" role="alert">
-          {{ session('error') }}
-          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        @endif
+                        @if (session('error'))
+                            <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                                {{ session('error') }}
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                        @endif
 
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
@@ -217,6 +217,12 @@
                 <div class="modal-body">
                     Jika ingin melakukan registrasi Akun Sales atau Customer silahkan menghubungi admin di Nomor
                     WhatsApp berikut ini.
+                    <br>
+                    <br>
+                    <a href="https://wa.me/62895354977379" target="_blank" class="btn btn-sm btn-success">
+                        <i class="fa fa-whatsapp"></i>
+                        Hubungi Admin
+                    </a>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-sm btn-secondary" data-dismiss="modal">Mengerti</button>
