@@ -4,13 +4,7 @@
 <div class="container-fluid px-5">
   <div class="row">
     <div class="table-responsive shadow-sm p-3">
-      <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
-        <button type="button" class="btn btn-sm btn-primary mb-3" data-toggle="modal" data-target="#addLaporanModal">
-          <i class="fas fa-plus"></i>
-          Tambah Laporan
-        </button>
-
+      <table class="table resposnive table-bordered" id="dataTable" width="100%" cellspacing="0">
         @if(session('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
           {{ session('success') }}
@@ -22,7 +16,7 @@
         <thead>
           <tr>
             <th scope="col">No</th>
-            <th scope="col">Nama Customer</th>
+            <th scope="col">Customer</th>
             <th scope="col">Produk</th>
             <th scope="col">Alamat</th>
             <th scope="col">No. Telepon</th>
