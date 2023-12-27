@@ -54,4 +54,19 @@
     </div>
   </div>
 </div>
+
+<script>
+  function printLaporan() {
+    var table = document.getElementById('dataTable');
+    var tableWin = window.open('', '', 'width=800, height=600');
+    tableWin.document.write(table.outerHTML);
+    tableWin.document.close();
+    tableWin.focus();
+    tableWin.print();
+    tableWin.close();
+  }
+
+
+</script>
+
 @endsection
